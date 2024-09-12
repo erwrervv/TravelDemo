@@ -1,0 +1,17 @@
+.uniform-size {
+    width: 300px;
+    height: 200px;
+
+    justify-content: center;
+    align-items: center;
+  }
+
+  .swiper-slide {
+    width: 300px;
+    height: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    object-fit:inherit;
+  }
+  

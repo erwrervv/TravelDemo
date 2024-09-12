@@ -6,5 +6,11 @@ import { Component } from '@angular/core';
   styleUrls: ['./cart.component.css']
 })
 export class CartComponent {
-
+  config: any = {
+    spaceBetween: 50,
+    slidesPerView: 1,
+    loop: true,
+    pagination: { clickable: true },
+    navigation: true,
+  };
 }

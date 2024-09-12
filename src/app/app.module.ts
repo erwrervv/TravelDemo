@@ -20,6 +20,7 @@ import { TravelComponent } from './travel/travel.component';
 import { ShopComponent } from './shop/shop.component';
 import { ShoplistComponent } from './component/shoplist/shoplist.component';
 import { CartComponent } from './component/cart/cart.component';
+import { SwiperModule } from 'swiper/angular';
 
 @NgModule({
   declarations: [
@@ -49,6 +50,7 @@ import { CartComponent } from './component/cart/cart.component';
     MatMenuModule,
     MatButtonModule,
     CheckboxModule,
+    SwiperModule
   ],
   providers: [],
   bootstrap: [AppComponent]
