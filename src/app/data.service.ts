@@ -9,36 +9,38 @@ import { Comments } from 'src/app/interfaces/comments';
   providedIn: 'root'
 })
 export class DataService {
-  private Articleoverviews = 'https://localhost:7003/api/ArticleOverviews';
+  private articlesUrl = 'https://localhost:7003/api/ArticleOverviews';
   private CommentsUrl  = 'https://localhost:7003/api/Comments';
   private MemberInformationUrl = 'https://localhost:7003/api/BasicMemberInformations';
 
   MemberPicture: any;
   constructor(private http: HttpClient) { }
   getArticleById(id: number): Observable<any> {
-    return this.http.get<any>(`${this.Articleoverviews}/${id}`);
+    return this.http.get<any>(`${this.articlesUrl}/${id}`);
   }
-
   //取得文字資料Articleoverviews
   getArticleOverviews(): Observable<any[]> {
-    return this.http.get<any[]>(this.Articleoverviews);
+    return this.http.get<any[]>(this.articlesUrl);
   }
 
   //  POST、PUT、DELETE
-  postArticleOverviews(data: any): Observable<any> {
-    return this.http.post<any>(this.Articleoverviews, data);
+  postArticleOverviews(article: Articleoverviews): Observable<Articleoverviews> {
+    return this.http.post<Articleoverviews>(this.articlesUrl, article);
   }
+  // postArticleOverviews(data: any): Observable<any> {
+  //   return this.http.post<any>(this.Articleoverviews, data);
+  // }
 
   putArticleOverviews(data: any): Observable<any> {
-    return this.http.put<any>(this.Articleoverviews, data);
+    return this.http.put<any>(this.articlesUrl, data);
   }
 
   removeArticleOverviews(id: number): Observable<any> {
-    return this.http.delete<any>(`${this.Articleoverviews}/${id}`);
+    return this.http.delete<any>(`${this.articlesUrl}/${id}`);
   }
 
   getArticleOverviewsPicture(id: number): Observable<Blob> {
-    return this.http.get(`${this.Articleoverviews}/GetPicture/${id}`, { responseType: 'blob' });
+    return this.http.get(`${this.articlesUrl}/GetPicture/${id}`, { responseType: 'blob' });
   }
 
 

@@ -30,7 +30,6 @@ import { RadioButtonModule } from 'primeng/radiobutton';
 import { DataService } from './data.service';
 import { ButtonModule } from 'primeng/button';
 import { EditorModule } from 'primeng/editor';
-
 @NgModule({
   declarations: [
     AppComponent,
