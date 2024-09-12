@@ -1,1 +1,56 @@
-<p>travel works!454654546545</p>
+<h2>精選行程</h2>
+<div class="grid-container">
+  <div *ngFor="let item of travelItems" class="grid-item">
+    <a [href]="item.linkUrl" target="_blank">
+      <!-- 新窗口打开链接 -->
+      <img [src]="item.imageUrl" alt="{{ item.title }}" />
+      <div class="text-overlay">
+        <h3>{{ item.title }}</h3>
+        <p>{{ item.description }}</p>
+      </div>
+    </a>
+  </div>
+</div>
+
+<h2>精選景點</h2>
+<div class="grid-container">
+  <div *ngFor="let item of travelItems2" class="grid-item">
+    <a [href]="item.linkUrl" target="_blank">
+      <!-- 新窗口打开链接 -->
+      <img [src]="item.imageUrl" alt="{{ item.title }}" />
+      <div class="text-overlay">
+        <h3>{{ item.title }}</h3>
+        <p>{{ item.description }}</p>
+      </div>
+    </a>
+  </div>
+</div>
+
+<h2>精選住宿</h2>
+<div class="grid-container">
+  <div *ngFor="let item of travelItems3" class="grid-item">
+    <a [href]="item.linkUrl" target="_blank">
+      <!-- 新窗口打开链接 -->
+      <img [src]="item.imageUrl" alt="{{ item.title }}" />
+      <div class="text-overlay">
+        <h3>{{ item.title }}</h3>
+        <p>{{ item.description }}</p>
+      </div>
+    </a>
+  </div>
+</div>
+
+<h2>美食特搜</h2>
+<div class="grid-container">
+  <div *ngFor="let item of travelItems4" class="grid-item">
+    <a [href]="item.linkUrl" target="_blank">
+      <!-- 新窗口打开链接 -->
+      <img [src]="item.imageUrl" alt="{{ item.title }}" />
+      <div class="text-overlay">
+        <h3>{{ item.title }}</h3>
+        <p>{{ item.description }}</p>
+      </div>
+    </a>
+  </div>
+</div>
+

@@ -1,0 +1,87 @@
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 每行三列 */
+  gap: 20px; /* 容器之間的間距 */
+  padding: 20px; /* 網格容器的內邊距 */
+}
+
+.container a {
+  display: block; /* 使 <a> 標籤覆蓋整個容器 */
+  text-decoration: none; /* 去除鏈接的下劃線 */
+  color: inherit; /* 保持文字顏色 */
+  cursor: pointer; /* 鼠標懸停時顯示手指圖示 */
+  height: 100%; /* 確保 <a> 覆蓋整個容器 */
+}
+
+.image-section img {
+  width: 100%; /* 確保圖片寬度為100% */
+  height: 200px; /* 固定圖片高度 */
+  object-fit: cover; /* 保持圖片比例 */
+  cursor: pointer; /* 鼠標移到圖片上也顯示手指圖示 */
+}
+
+.container {
+  position: relative;
+  background: #fff; /* 背景顏色 */
+  border: 1px solid #ddd; /* 邊框 */
+  border-radius: 8px; /* 圓角 */
+  overflow: hidden;
+  transition: transform 0.3s, box-shadow 0.3s; /* 懸停效果 */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* 初始陰影效果 */
+}
+
+.container:hover {
+  transform: scale(1.05); /* 懸停時放大效果 */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* 懸停陰影效果 */
+}
+
+.container a {
+  display: block; /* 使 <a> 標籤覆蓋整個容器 */
+  text-decoration: none; /* 去除鏈接下劃線 */
+  color: inherit; /* 保持文字顏色 */
+  height: 100%; /* 保持 <a> 佔滿整個容器 */
+}
+
+.image-section img {
+  width: 100%; /* 圖片佔滿容器寬度 */
+  height: 200px; /* 固定圖片高度 */
+  object-fit: cover; /* 保持圖片比例 */
+}
+
+.title-section {
+  padding: 10px;
+  font-size: 1.2em;
+  font-weight: bold;
+  color: #333; /* 標題顏色 */
+}
+
+.description {
+  padding: 0 10px 10px;
+  font-size: 0.9em;
+  color: #555; /* 描述文字顏色 */
+}
+
+.tags-section {
+  padding: 0 10px;
+  margin-bottom: 10px;
+}
+
+.tags-section .tag {
+  display: inline-block;
+  background: #eee;
+  padding: 5px 10px;
+  border-radius: 12px;
+  margin-right: 5px;
+  font-size: 0.8em;
+  color: #666; /* 標籤顏色 */
+}
+
+.date-section, .price-section {
+  padding: 0 10px;
+  font-size: 0.9em;
+  color: #333; /* 日期與價格文字顏色 */
+}
+
+.price-section {
+  font-weight: bold;
+}

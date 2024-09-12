@@ -4,6 +4,8 @@ import { HomeComponent } from './home/home.component';
 import { ArticleoverviewComponent } from './articleoverview/articleoverview.component';
 import { TravelComponent } from './travel/travel.component';
 import { ShopComponent } from './shop/shop.component';
+import { Travelpage2Component } from './componet/travelpage2/travelpage2.component';
+import { Travelpage3Component } from './componet/travelpage3/travelpage3.component';
 
 const routes: Routes = [
   {
@@ -22,7 +24,15 @@ const routes: Routes = [
   }
   ,{
     path:'shop',
-    component:ShopComponent
+    component:ShopComponent,
+  }
+  ,{
+    path:'travelpage2',
+    component:Travelpage2Component,
+  }
+  ,{
+    path:'travelpage3',
+    component:Travelpage3Component,
   }]
 
 @NgModule({

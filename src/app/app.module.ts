@@ -18,6 +18,8 @@ import { HomeComponent } from './home/home.component';
 import { ArticleoverviewComponent } from './articleoverview/articleoverview.component';
 import { TravelComponent } from './travel/travel.component';
 import { ShopComponent } from './shop/shop.component';
+import { ComponetComponent } from './componet/componet.component';
+import { Travelpage3Component } from './componet/travelpage3/travelpage3.component'
 @NgModule({
   declarations: [
     AppComponent,
@@ -27,7 +29,9 @@ import { ShopComponent } from './shop/shop.component';
     HomeComponent,
     ArticleoverviewComponent,
     TravelComponent,
-    ShopComponent
+    ShopComponent,
+    ComponetComponent,
+    Travelpage3Component
   ],
   imports: [
     BrowserModule,

@@ -2,15 +2,13 @@
 .image-slider {
   position: relative;
   width: 100%; /* 宽度100%适配父容器 */
-  height: 600px; /* 设置容器高度 */
+  height: 700px; /* 设置容器高度 */
   overflow: hidden;
   display: flex;
   align-items: center;
   justify-content: center; /* 图片居中显示 */
 }
-section {
-  padding: 50px;
-}
+
 /* 图片样式 */
 .slider-image {
   width: 100%;
@@ -170,8 +168,8 @@ form {
 
 .form-overlay {
   position: absolute;
-  top: 50%;
-  left: 30%;
+  top: 58%;
+  left: 20%;
   transform: translate(-50%,-50%);
   background: rgba(0, 0, 0, 0.7);
   padding: 20px;
@@ -179,7 +177,7 @@ form {
   color: #fff;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
   width: 50%; /* Adjust this value to change the width of the form */
-  max-width: 800px; /* Adjust this value for a maximum width */
+  max-width: 400px; /* Adjust this value for a maximum width */
 
 }
 
