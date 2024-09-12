@@ -22,6 +22,7 @@ import { ShoplistComponent } from './component/shoplist/shoplist.component';
 import { CartComponent } from './component/cart/cart.component';
 import { SwiperModule } from 'swiper/angular';
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -34,8 +35,8 @@ import { SwiperModule } from 'swiper/angular';
     ShopComponent,
     ShoplistComponent,
     CartComponent,
-   
-   
+
+
   ],
   imports: [
     BrowserModule,
