@@ -1,22 +1,21 @@
 <div class="comment-section">
-  <!-- <h3>評論{{ (data$ | async)?.length }}</h3> -->
   <div class="comment-header">
     <button class="sort-btn active">按時間排序 <i class="fa fa-chevron-down"></i></button>
     <button class="sort-btn">按喜歡排序 <i class="fa fa-chevron-down"></i></button>
   </div>
-  <div class="comment" *ngFor="let comment of comments">
+  <div class="comment" *ngFor="let item of items">
     <div class="comment-user-avatar">
-      <img [src]="comment.userAvatar" alt="User Avatar" />
+      <img [src]="getCommentsPicture(item.MemberPicture) | async" alt="User Avatar" />
     </div>
     <div class="comment-content">
       <div class="comment-header">
-        <span class="username">{{ comment.username }}</span>
-        <span class="time">{{ comment.time | date: 'yyyy-MM-dd HH:mm' }}</span>
+        <span class="username">{{ item.MemberName }}</span>
+        <span class="time">{{ item.CommentDateTime | date: 'yyyy-MM-dd HH:mm' }}</span>
       </div>
-      <p>{{ comment.content }}</p>
+      <p>{{ item.CommentContent }}</p>
       <div class="comment-actions">
-        <button (click)="likeComment(comment)"><i class="fa fa-thumbs-up"></i> {{ comment.likes }}</button>
-        <button (click)="replyComment(comment)"><i class="fa fa-reply"></i> 回覆</button>
+         <!-- <button (click)="likeComment(item)"><i class="fa fa-thumbs-up"></i> {{ likes || 0 }} </button> -->
+        <button (click)="replyComment(item)"><i class="fa fa-reply"></i> 回覆</button>
         <button class="more-options">⋮</button>
       </div>
     </div>

@@ -1,12 +1,14 @@
 <div class="article-list-container">
   <div class="article-list-header">
-    <div> <button class="category-btn">文章列表</button>
+    <div>
+      <button class="category-btn">文章列表</button>
       <button class="filter-btn active">1111</button>
       <button class="filter-btn">最新發布</button>
       <button class="filter-btn">最多觀看</button>
     </div>
 
-    <div class="article-list-footer"> <button class="footer-btn">XXXX列表</button>
+    <div class="article-list-footer">
+      <button class="footer-btn">XXXX列表</button>
       <button class="footer-btn">前往列表所有文章</button>
     </div>
   </div>
@@ -18,12 +20,12 @@
     <div class="articles">
       <div class="article" *ngFor="let article of articles">
         <div class="article-image">
-          <img src="assets/article-placeholder.png" alt="Article Image" />
+          <!-- <img [src]="article.ArticleCoverImage || 'assets/article-placeholder.png'" alt="Article Image" />
         </div>
         <div class="article-info">
-          <p class="article-title">{{ article.title }}</p>
-          <p>瀏覽次數：{{ article.views }}次</p>
-          <p>建立日期：{{ article.date | date: 'MM-dd' }}</p>
+          <p class="article-title">{{ article.ArticleName }}</p>
+          <p>作者：{{ article.MemberuniqueId?.MemberName }}</p>
+          <p>建立日期：{{ article.CreateTime | date: 'MM-dd' }}</p> -->
         </div>
       </div>
     </div>

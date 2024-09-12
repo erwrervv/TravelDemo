@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { DataService } from '../../data.service';
-
+import { Articleoverviews } from 'src/app/interfaces/articleoverview';
 @Component({
   selector: 'app-article-list',
   templateUrl: './article-list.component.html',

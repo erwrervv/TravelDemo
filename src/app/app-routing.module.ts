@@ -5,7 +5,6 @@ import { TravelComponent } from './travel/travel.component';
 import { ShopComponent } from './shop/shop.component';
 import { ArticleoverviewComponent } from './component/articleoverview/articleoverview.component';
 import { HomepageComponent } from './component/homepage/homepage.component';
-
 const routes: Routes = [
   {
     path: '', redirectTo: '/home', pathMatch: 'full'

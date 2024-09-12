@@ -1,5 +1,9 @@
 export interface Comments {
-  CommentId: number;
+  // likes?: number;
+  CommentId?:Number;
   CommentContent?: string;
   CommentDateTime?: Date;
+  MemberName?: string;
+  MemberPicture?: Uint8Array;
+
 }
