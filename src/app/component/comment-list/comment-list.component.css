@@ -1,0 +1,133 @@
+.comments-section {
+  width: 100%;
+  margin-top: 20px;
+}
+
+.filter-bar {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+.comment {
+  display: flex;
+  margin-bottom: 15px;
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 15px;
+}
+
+.comment-user-avatar img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  margin-right: 15px;
+}
+
+.comment-content {
+  flex: 1;
+}
+
+.comment-header {
+  display: flex;
+  margin-bottom: 5px;
+}
+
+.username {
+  font-weight: bold;
+}
+
+.comment-actions {
+  display: flex;
+  gap: 10px;
+}
+
+.comment-actions button {
+  background: none;
+  border: none;
+  color: #007bff;
+  cursor: pointer;
+}
+/* -另一種評論區- */
+.comment-section {
+  padding: 20px;
+  background-color: #fefefe;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+}
+
+.comment-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.sort-btn {
+  background-color: #f2f2f2;
+  border: none;
+  padding: 8px 12px;
+  margin-right: 10px;
+  cursor: pointer;
+}
+
+.sort-btn.active {
+  background-color: #ff4040;
+  color: white;
+}
+
+.comment {
+  margin-bottom: 20px;
+  border-radius: 12px;
+  border: 1px solid #f2f2f2;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 10px;
+  background-color: #fff;
+}
+
+.comment-body {
+  display: flex;
+}
+
+.comment-image img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  margin-right: 15px;
+}
+
+.comment-content {
+  flex: 1;
+}
+
+.comment-title {
+  margin: 0;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.comment-text {
+  margin: 10px 0;
+  font-size: 14px;
+}
+
+.comment-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 12px;
+  color: #888;
+}
+
+.comment-actions button {
+  background-color: #f2f2f2;
+  border: none;
+  padding: 5px 10px;
+  margin-left: 5px;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.comment-actions .more-options {
+  background-color: transparent;
+  font-size: 18px;
+}

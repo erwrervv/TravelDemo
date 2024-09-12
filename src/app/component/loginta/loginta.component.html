@@ -1,0 +1,21 @@
+<div class="login-container">
+  <h2>登錄</h2>
+  <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label for="username">用戶名:</label>
+      <input type="text" id="username" formControlName="username" required>
+      <div *ngIf="loginForm.get('username')?.invalid && loginForm.get('username')?.touched" class="error">
+        用戶名是必填
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="password">密碼:</label>
+      <input type="password" id="password" formControlName="password" required>
+      <div *ngIf="loginForm.get('password')?.invalid && loginForm.get('password')?.touched" class="error">
+        密碼是必填
+      </div>
+    </div>
+    <button type="submit" [disabled]="loginForm.invalid">登錄</button>
+  </form>
+</div>
+

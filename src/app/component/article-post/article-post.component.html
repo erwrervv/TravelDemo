@@ -1,0 +1,21 @@
+<div class="article-post-container">
+  <div class="article-title">
+    <input type="text" placeholder="輸入標題（建議在20字以內）" maxlength="40" [(ngModel)]="articleTitle" />
+    <span>{{ articleTitle.length }}/40</span>
+  </div>
+
+  <div class="article-editor">
+    <p-editor [(ngModel)]="articleContent" [style]="{height: '320px'}"></p-editor>
+  </div>
+
+  <div class="article-settings">
+    <a href="javascript:void(0)" (click)="toggleSettings()">更多設置 <i class="fa fa-chevron-down"></i></a>
+    <div *ngIf="settingsVisible">
+    </div>
+  </div>
+
+  <div class="article-actions">
+    <button (click)="submitArticle()">提交文章</button>
+  </div>
+</div>
+<p>2</p>

@@ -15,9 +15,22 @@ import { FooterComponent } from './footer/footer.component';
 import { HeaderComponent } from './header/header.component';
 import { BannerComponent } from './banner/banner.component';
 import { HomeComponent } from './home/home.component';
-import { ArticleoverviewComponent } from './articleoverview/articleoverview.component';
+import { ArticleoverviewComponent } from './component/articleoverview/articleoverview.component';
 import { TravelComponent } from './travel/travel.component';
 import { ShopComponent } from './shop/shop.component';
+import { ArticleListComponent } from './component/article-list/article-list.component';
+import { ArticlePostComponent } from './component/article-post/article-post.component';
+import { CommentListComponent } from './component/comment-list/comment-list.component';
+import { LogintaComponent } from './component/loginta/loginta.component';
+import { HomepageComponent } from './component/homepage/homepage.component';
+import { DropdownModule } from 'primeng/dropdown';
+import { TreeSelectModule } from 'primeng/treeselect';
+import { TabViewModule } from 'primeng/tabview';
+import { RadioButtonModule } from 'primeng/radiobutton';
+import { DataService } from './data.service';
+import { ButtonModule } from 'primeng/button';
+import { EditorModule } from 'primeng/editor';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -27,7 +40,12 @@ import { ShopComponent } from './shop/shop.component';
     HomeComponent,
     ArticleoverviewComponent,
     TravelComponent,
-    ShopComponent
+    ShopComponent,
+    ArticleListComponent,
+    ArticlePostComponent,
+    CommentListComponent,
+    LogintaComponent,
+    HomepageComponent,
   ],
   imports: [
     BrowserModule,
@@ -42,8 +60,13 @@ import { ShopComponent } from './shop/shop.component';
     MatMenuModule,
     MatButtonModule,
     CheckboxModule,
+    ButtonModule,
+    EditorModule,
+    DropdownModule,
+    TabViewModule,
+    RadioButtonModule,
   ],
-  providers: [],
+  providers: [DataService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
