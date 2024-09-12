@@ -1,0 +1,427 @@
+/* 图片轮播容器 */
+.image-slider {
+  position: relative;
+  width: 100%; /* 宽度100%适配父容器 */
+  height: 600px; /* 设置容器高度 */
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center; /* 图片居中显示 */
+}
+section {
+  padding: 50px;
+}
+/* 图片样式 */
+.slider-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* 保持图片比例并填充容器 */
+  flex-shrink: 0;
+}
+/* 包含所有图片的容器 */
+.slider-images {
+  display: flex;
+  transition: transform 0.5s ease-in-out; /* 控制平滑过渡的速度 */
+}
+/* 箭头样式 */
+.arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  color: white;
+  font-size: 25px;
+  padding: 10px;
+  cursor: pointer;
+  z-index: 1;
+  border-radius: 30%;
+}
+/* 左侧箭头 */
+.left-arrow {
+  left: 10px;
+}
+/* 右侧箭头 */
+.right-arrow {
+  right: 10px;
+}
+/* 鼠标悬停时箭头的背景变得更深 */
+.arrow:hover {
+  background-color: rgba(0, 0, 0, 0.7);
+}
+
+.clickable-image {
+  cursor: pointer; /* 当鼠标悬停时，显示手指图案 */
+}
+
+.slider-image:active {
+  transform: scale(0.95); /* 点击时缩小效果 */
+  opacity: 0.8; /* 图片透明度减少 */
+}
+nav ul ul {
+  display: none; /* 隐藏子菜单 */
+}
+nav ul li:hover > ul {
+  display: block; /* 鼠标悬停显示子菜单 */
+}
+nav {
+  position: relative; /* 设置相对定位，以确保子菜单的绝对定位正确 */
+}
+.container {
+  justify-content: center;
+  align-items: center;
+  background-color: #f9f9f9; /* 背景颜色，可以根据需要调整 */
+}
+nav ul li a {
+  display: block;
+  padding: 10px;
+  text-decoration: none;
+  text-align: center; /* 主菜单项文本居中 */
+}
+
+/* 表單 */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+.menu-item {
+  position: relative;
+  display: inline-block;
+  margin-right: 20px;
+}
+
+.container {
+  position: relative;
+  display: inline-block;
+}
+
+.hidden-form {
+  opacity: 0; /* 初始时表单透明 */
+  visibility: hidden; /* 初始时表单不可见 */
+  position: absolute;
+  top: 32px;
+  background-color: #fff;
+  padding: 20px;
+  border: 1px solid #ccc;
+  z-index: 1000;
+  width: max-content;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+/* 显示表单的状态 */
+.hidden-form.show {
+  opacity: 1;
+  visibility: visible;
+}
+
+form {
+  text-align: left;
+}
+
+.menu-item li {
+  list-style: none;
+}
+
+.container2 {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.item,
+.item2 {
+  margin: 10px;
+  position: relative;
+}
+
+.item img,
+.item2 img {
+  width: 100%;
+  height: auto;
+}
+
+.info {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  background: rgba(0, 0, 0, 0.5);
+  color: #fff;
+  padding: 5px;
+}
+
+.form-section {
+  position: relative;
+  text-align: center;
+  color: #fff;
+  width: auto;
+  overflow: hidden;
+}
+
+.background-container {
+    position: relative;
+    text-align: center;
+    width: 100%;
+}
+
+.background-image {
+  width: 100%;
+  height: 500px;
+  display: block;
+}
+
+.form-overlay {
+  position: absolute;
+  top: 50%;
+  left: 30%;
+  transform: translate(-50%,-50%);
+  background: rgba(0, 0, 0, 0.7);
+  padding: 20px;
+  border-radius: 10px;
+  color: #fff;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+  width: 50%; /* Adjust this value to change the width of the form */
+  max-width: 800px; /* Adjust this value for a maximum width */
+
+}
+
+.form-container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.form-container label {
+  margin-bottom: 5px;
+}
+
+.form-container select,
+.form-container input {
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #ddd;
+  width: auto; /* Make input and select elements stretch to the container width */
+}
+
+.form-container input[type="submit"] {
+  background: #007bff;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.form-container input[type="submit"]:hover {
+  background: #0056b3;
+}
+
+.container2 {
+display: flex; /* 使用彈性盒子模型 */
+flex-wrap: wrap; /* 讓彈性容器可以換行 */
+justify-content: space-around; /* 元素間的空間均分 */
+max-width: 800px; /* 最大寬度 */
+margin:auto; /* 上下20像素，左右自動居中 */
+
+}
+.item {
+position: relative; /* 相對位置，用於定位文字 */
+width: calc(50% - 50px); /* 設置每個項目寬度為50%，減去兩倍的邊距 */
+margin: 20px; /* 邊距20像素 */
+padding: 20px; /* 內邊距20像素 */
+background-color: #f0f0f0; /* 灰色背景 */
+border-radius: 10px; /* 圓角10像素 */
+text-align: center; /* 文字居中對齊 */
+box-sizing: border-box; /* 盒模型設定 */
+overflow: hidden; /* 確保內容不會超出容器 */
+}
+.item a {
+display: block; /* 讓連結標籤以區塊元素顯示 */
+text-decoration: none; /* 取消連結下劃線 */
+color: inherit; /* 繼承父元素的文字顏色 */
+}
+.item img {
+width: 250px; /* 圖片寬度 */
+height: 200px; /* 圖片高度 */
+border-radius: 8px; /* 圓角8像素 */
+margin-bottom: 10px; /* 圖片下邊距10像素*/
+}
+.info {
+position: absolute; /* 絕對定位，相對於父元素 */
+right: 10px; /* 與右邊距離10像素 */
+bottom: 10px; /* 與底部距離10像素 */
+background-color: black; /* 半透明背景色 */
+color: #fff; /* 白色文字顏色 */
+padding: 5px 10px; /* 內邊距 */
+border-radius: 5px; /* 圓角5像素 */
+font-size: 12px; /* 文字大小 */
+}
+@media (max-width: 600px) {
+.item {
+width: calc(100% - 40px); /* 在小屏幕上，每個項目佔據100%的寬度 */
+}
+}
+
+.item2 img {
+width: 200px; /* 圖片寬度 */
+height: 200px; /* 圖片高度 */
+border-radius: 8px; /* 圓角8像素 */
+margin-bottom: 10px; /* 圖片下邊距10像素 */
+}
+
+.item2 a {
+display: block; /* 讓連結標籤以區塊元素顯示 */
+text-decoration: none; /* 取消連結下劃線 */
+color: inherit; /* 繼承父元素的文字顏色 */
+}
+.item2 {
+position: relative; /* 相對位置，用於定位文字 */
+width: calc(50% - 40px); /* 設置每個項目寬度為50%，減去兩倍的邊距 */
+margin: 20px; /* 邊距20像素 */
+padding: 20px; /* 內邊距20像素 */
+background-color: #f0f0f0; /* 灰色背景 */
+border-radius: 10px; /* 圓角10像素 */
+text-align: center; /* 文字居中對齊 */
+box-sizing: border-box; /* 盒模型設定 */
+overflow: hidden; /* 確保內容不會超出容器 */
+}
+
+.item:hover {
+transform: scale(1.2); /* 懸停時放大1.2倍 */
+}
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+
+.form-row {
+  display: flex;
+  gap: 20px; /* 子项之间的间距 */
+}
+
+
+/* 搜尋 */
+.search-container {
+  display: flex;
+  align-items: center;
+  border: 1px solid red;
+  padding: 10px;
+  border-radius: 5px;
+  position: relative;
+}
+.search-container label {
+  display: flex;
+  align-items: center;
+  color: red;
+  font-weight: bold;
+}
+.search-container i {
+  margin-right: 5px;
+}
+.dropdown {
+  position: relative;
+  flex-grow: 1;
+  display: flex;
+  align-items: center;
+}
+.dropdown input {
+  width: 100%;
+  padding: 5px 10px;
+  border: none;
+  outline: none;
+  font-size: 14px;
+  color: #333;
+}
+.dropdown input::placeholder {
+  color: #000000;
+}
+.dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  background-color: white;
+  border: 1px solid #ccc;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  max-height: 200px;
+  overflow-y: auto;
+}
+.dropdown-menu li {
+  padding: 10px;
+  cursor: pointer;
+  color: black;
+}
+.dropdown-menu li:hover {
+  background-color: #f8b7b7;
+}
+.fa-caret-down {
+  position: absolute;
+  right: 10px;
+  font-size: 14px;
+  color: #333;
+}
+
+/* 日期 */
+.date-range-picker {
+  display: flex;
+  align-items: center;
+}
+
+.date-range-picker mat-form-field {
+  margin-right: 10px;
+}
+
+.date-range-picker span {
+  margin: 0 10px;
+}
+
+
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 20px;
+  padding: 20px;
+}
+
+.grid-item {
+  position: relative;
+  overflow: hidden;
+}
+
+.grid-item img {
+  width: 100%;
+  height: auto;
+}
+
+.text-overlay {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  color: white;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+}
+
+h3, p {
+  margin: 0;
+}
+
+.grid-item a {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+  position: relative;
+}
+
+.grid-item img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.grid-item .text-overlay {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  color: white;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+}

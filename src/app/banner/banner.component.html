@@ -1,0 +1,137 @@
+<section id="專屬旅行計劃" class="form-section">
+  <div class="background-container">
+    <div class="image-slider">
+      <!-- 左侧箭头 -->
+      <div class="arrow left-arrow" (click)="previousImage()">&#10094;</div>
+      <!-- 图片容器，包含多个图片 -->
+      <div class="slider-wrapper">
+        <div class="slider-images" [style.transform]="getTransform()">
+          <img
+            *ngFor="let image of images"
+            [src]="image"
+            alt="Image"
+            class="slider-image clickable-image"
+            (click)="onImageClick(image)"
+          />
+        </div>
+      </div>
+      <!-- 右侧箭头 -->
+      <div class="arrow right-arrow" (click)="nextImage()">&#10095;</div>
+    </div>
+    <div class="form-overlay">
+      <h2>專屬旅行計劃</h2>
+      <form class="form-container">
+        <div class="search-container">
+          <label for="search-location">
+            <i class="fa fa-search"></i> 搜尋關鍵字
+          </label>
+          <div class="dropdown">
+            <input
+              type="text"
+              id="search-location"
+              [(ngModel)]="searchText"
+              (input)="filterLocations()"
+              (focus)="showDropdown()"
+              (blur)="hideDropdown()"
+              placeholder="輸入目的地或行程關鍵字"
+            />
+            <i class="fa fa-caret-down"></i>
+            <!-- 下拉箭头图标 -->
+            <ul class="dropdown-menu" *ngIf="isDropdownVisible">
+              <li
+                *ngFor="let location of filteredLocations"
+                (click)="selectLocation(location)"
+              >
+                {{ location }}
+              </li>
+            </ul>
+          </div>
+        </div>
+        <label for="departure-location">出發地:</label>
+        <select id="departure-location" name="departure-location">
+          <option *ngFor="let location of locations" [value]="location">
+            {{ location }}
+          </option>
+        </select>
+        <label for="arrival-location">目的地:</label>
+        <select id="arrival-location" name="arrival-location">
+          <option *ngFor="let location of locations" [value]="location">
+            {{ location }}
+          </option>
+        </select>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="departure-date">出發日期:</label>
+            <input
+              type="date"
+              id="departure-date"
+              name="departure-date"
+              class="small-date-input"
+            />
+          </div>
+          <div class="form-group">
+            <label for="return-date">結束日期:</label>
+            <input
+              type="date"
+              id="return-date"
+              name="return-date"
+              class="small-date-input"
+            />
+          </div>
+        </div>
+        <div>
+          <label for="Transportation">交通方式:</label>
+          <p-checkbox
+            name="groupname"
+            (onChange)="toggleCheckbox('是')"
+            inputId="是"
+            label="是"
+            [disabled]="isDisabled('是')"
+          ></p-checkbox>
+          <p-checkbox
+            name="groupname"
+            (onChange)="toggleCheckbox('否')"
+            inputId="否"
+            label="否"
+            [disabled]="isDisabled('否')"
+          ></p-checkbox>
+        </div>
+        <div>
+          <form [formGroup]="travelForm" (ngSubmit)="onSubmit()">
+            <label for="number-of-travelers">人數:</label>
+            <input
+              type="number"
+              id="number-of-travelers"
+              formControlName="numberOfTravelers"
+              min="1"
+              max="10"
+            />
+
+            <!-- 错误信息显示逻辑 -->
+            <div
+              *ngIf="
+                travelForm.get('numberOfTravelers')?.invalid &&
+                travelForm.get('numberOfTravelers')?.touched
+              "
+            >
+              <p *ngIf="travelForm.get('numberOfTravelers')?.hasError('max')">
+                不能超過 10 人
+              </p>
+              <p *ngIf="travelForm.get('numberOfTravelers')?.hasError('min')">
+                不能少於 1 人
+              </p>
+              <p
+                *ngIf="
+                  travelForm.get('numberOfTravelers')?.hasError('required')
+                "
+              >
+                人數是必填要是數字
+              </p>
+            </div>
+          </form>
+        </div>
+        <input type="submit" value="搜尋" />
+      </form>
+    </div>
+  </div>
+</section>
