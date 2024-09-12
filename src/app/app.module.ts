@@ -18,6 +18,9 @@ import { HomeComponent } from './home/home.component';
 import { ArticleoverviewComponent } from './articleoverview/articleoverview.component';
 import { TravelComponent } from './travel/travel.component';
 import { ShopComponent } from './shop/shop.component';
+import { ShoplistComponent } from './component/shoplist/shoplist.component';
+import { CartComponent } from './component/cart/cart.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -27,7 +30,11 @@ import { ShopComponent } from './shop/shop.component';
     HomeComponent,
     ArticleoverviewComponent,
     TravelComponent,
-    ShopComponent
+    ShopComponent,
+    ShoplistComponent,
+    CartComponent,
+   
+   
   ],
   imports: [
     BrowserModule,
