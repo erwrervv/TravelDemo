@@ -18,24 +18,30 @@
     <button (click)="submitArticle()">提交文章</button>
   </div>
 </div> -->
-<div class="article-post-container">
+<div class="article-post-container" [formGroup]="articleForm">
   <div class="article-title">
-    <input type="text" placeholder="輸入標題（建議在20字以內）" maxlength="40" [(ngModel)]="articleTitle" />
-    <span>{{ articleTitle.length }}/40</span>
+    <input type="text" formControlName="articleTitle" placeholder="輸入標題（建議在20字以內）" maxlength="40" />
+    <span>{{ articleForm.get('articleTitle')?.value?.length || 0 }}/40</span>
+    <div *ngIf="articleForm.get('articleTitle')?.invalid && articleForm.get('articleTitle')?.touched">
+      <small class="error" *ngIf="articleForm.get('articleTitle')?.hasError('required')">標題是必填項</small>
+      <small class="error" *ngIf="articleForm.get('articleTitle')?.hasError('maxlength')">標題不能超過40字</small>
+    </div>
   </div>
 
   <div class="article-editor">
-    <p-editor [(ngModel)]="articleContent" [style]="{height: '320px'}"></p-editor>
+    <p-editor  formControlName="articleContent" placeholder="輸入文章內容" [style]="{height: '320px'}"></p-editor>
+    <div *ngIf="articleForm.get('articleContent')?.invalid && articleForm.get('articleContent')?.touched">
+      <small class="error" *ngIf="articleForm.get('articleContent')?.hasError('required')">內容是必填項</small>
+    </div>
   </div>
 
-  <div class="article-settings">
-    <a href="javascript:void(0)" (click)="toggleSettings()">更多設置 <i class="fa fa-chevron-down"></i></a>
-    <div *ngIf="settingsVisible">
-      <!-- 你可以在这里添加更多设置选项 -->
-    </div>
+  <!-- 文件上传 -->
+  <div class="article-cover">
+    <input type="file" (change)="onFileSelected($event)" />
   </div>
 
   <div class="article-actions">
     <button (click)="submitArticle()">提交文章</button>
   </div>
 </div>
+

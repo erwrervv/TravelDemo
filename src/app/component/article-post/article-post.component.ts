@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { DataService } from 'src/app/data.service';
 import { Articleoverviews } from 'src/app/interfaces/articleoverview';
 
@@ -7,36 +8,51 @@ import { Articleoverviews } from 'src/app/interfaces/articleoverview';
   templateUrl: './article-post.component.html',
   styleUrls: ['./article-post.component.css']
 })
-export class ArticlePostComponent {
-  articleTitle: string = '';
-  articleContent: string = '';
-  settingsVisible: boolean = false;
-  memberId: number = 20; // 假设固定的会员 ID 20
+export class ArticlePostComponent implements OnInit {
+  articleForm!: FormGroup;
+  selectedFile: Uint8Array | undefined;
 
-  constructor(private dataService: DataService) {}
+  constructor(private fb: FormBuilder, private dataService: DataService) {}
 
-  toggleSettings() {
-    this.settingsVisible = !this.settingsVisible;
+  ngOnInit(): void {
+    this.articleForm = this.fb.group({
+      articleTitle: ['', [Validators.required, Validators.maxLength(40)]],
+      articleContent: ['', Validators.required],
+      articleCoverImage: [null]  // 初始化表单控件
+    });
   }
 
-  submitArticle() {
-    const article: Articleoverviews = {
-      ArticleId: 0, // 新文章的 ID 一般由后端生成
-      MemberuniqueId: { MemberuniqueId: this.memberId }, // 固定的会员 ID
-      ArticleName: this.articleTitle,
-      ArticleContent: this.articleContent,
-      CreateTime: new Date(),
-      UpdateTime: new Date(),
-      // ArticleCoverImage: new Uint8Array, // 如果有封面图片，可以在这里处理
-      // ArticleCoverImageString: ''
-    };
+  onFileSelected(event: any): void {
+    const file = event.target.files[0];
+    if (file) {
+      const reader = new FileReader();
+      reader.onload = () => {
+        this.selectedFile = new Uint8Array(reader.result as ArrayBuffer);  // 将文件读取为 Uint8Array
+      };
+      reader.readAsArrayBuffer(file);  // 读取文件
+    }
+  }
 
-    this.dataService.postArticleOverviews(article).subscribe(response => {
-      console.log('文章提交成功:', response);
-      // 在这里处理提交成功后的逻辑，比如导航到文章详情页面等
-    }, error => {
-      console.error('文章提交失败:', error);
-      // 在这里处理提交失败后的逻辑
-    });
+  submitArticle(): void {
+    if (this.articleForm.valid) {
+      const article: Articleoverviews = {
+        ArticleId: 0,  // 新文章的 ID 由后端生成
+        MemberuniqueId: { MemberuniqueId: 123 },  // 假设会员ID为123
+        ArticleName: this.articleForm.value.articleTitle,
+        ArticleContent: this.articleForm.value.articleContent,
+        CreateTime: new Date(),
+        UpdateTime: new Date(),
+        ArticleCoverImage: this.selectedFile,  // 使用用户上传的文件数据
+        ArticleCoverImageString: ''
+      };
+
+      this.dataService.postArticleOverviews(article).subscribe(response => {
+        console.log('文章提交成功:', response);
+      }, error => {
+        console.error('文章提交失败:', error);
+      });
+    } else {
+      console.error('表单无效');
+    }
   }
 }

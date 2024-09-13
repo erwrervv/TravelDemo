@@ -6,6 +6,7 @@ import { ShopComponent } from './shop/shop.component';
 import { ArticleoverviewComponent } from './component/articleoverview/articleoverview.component';
 import { HomepageComponent } from './component/homepage/homepage.component';
 import { LoginComponent } from './component/login/login.component';
+import { ArticlePostComponent } from './component/article-post/article-post.component';
 const routes: Routes = [
   {
     path: '', redirectTo: '/home', pathMatch: 'full'
@@ -34,6 +35,10 @@ const routes: Routes = [
   ,{
     path:'shop',
     component:ShopComponent
+  }
+  ,{
+    path:'article-post',
+    component:ArticlePostComponent
   }
 ]
 
