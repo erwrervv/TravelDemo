@@ -3,12 +3,12 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { DataService } from 'src/app/data.service';
 
 @Component({
-  selector: 'app-loginta',
-  templateUrl: './loginta.component.html',
-  styleUrls: ['./loginta.component.css'],
+  selector: 'app-login',
+  templateUrl: './login.component.html',
+  styleUrls: ['./login.component.css'],
   providers: [DataService]
 })
-export class LogintaComponent {
+export class LoginComponent {
   loginForm: FormGroup;
 
   constructor(private fb: FormBuilder) {

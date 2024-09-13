@@ -21,7 +21,6 @@ import { ShopComponent } from './shop/shop.component';
 import { ArticleListComponent } from './component/article-list/article-list.component';
 import { ArticlePostComponent } from './component/article-post/article-post.component';
 import { CommentListComponent } from './component/comment-list/comment-list.component';
-import { LogintaComponent } from './component/loginta/loginta.component';
 import { HomepageComponent } from './component/homepage/homepage.component';
 import { DropdownModule } from 'primeng/dropdown';
 import { TreeSelectModule } from 'primeng/treeselect';
@@ -30,6 +29,7 @@ import { RadioButtonModule } from 'primeng/radiobutton';
 import { DataService } from './data.service';
 import { ButtonModule } from 'primeng/button';
 import { EditorModule } from 'primeng/editor';
+import { LoginComponent } from './component/login/login.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -43,8 +43,8 @@ import { EditorModule } from 'primeng/editor';
     ArticleListComponent,
     ArticlePostComponent,
     CommentListComponent,
-    LogintaComponent,
     HomepageComponent,
+    LoginComponent,
   ],
   imports: [
     BrowserModule,
