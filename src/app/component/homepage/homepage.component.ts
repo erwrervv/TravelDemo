@@ -1,8 +1,10 @@
+import { AuthService } from 'src/app/auth.service';
 import { Component, OnInit, TemplateRef } from '@angular/core';
 import { DataService } from '../../data.service';
 import { forkJoin, Observable} from 'rxjs';
 import { map, switchMap } from 'rxjs/operators';
 import { NgIfContext } from '@angular/common';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-homepage',
   templateUrl: './homepage.component.html',
@@ -14,11 +16,12 @@ export class HomepageComponent implements OnInit {
   imageUrls: { [key: number]: string } = {};
 loading: TemplateRef<NgIfContext<any[] | null>> | null | undefined;
 
-  constructor(private dataService: DataService) { }
+  constructor(private dataService: DataService,private auth:AuthService,public router:Router) { }
 
 
   ngOnInit(): void {
     this.loadData();
+    console.log('homepage.userInfo',this.auth.baseUserInfo);
   }
 
   loadData(): void {
@@ -55,5 +58,7 @@ loading: TemplateRef<NgIfContext<any[] | null>> | null | undefined;
     this.loadData();
   }
 
-
+  goToComment(id:number){
+    this.router.navigate([`/article/${id}`])
+  }
 }

@@ -1,27 +1,42 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { AuthService } from 'src/app/auth.service';
 import { DataService } from 'src/app/data.service';
+import { User } from 'src/app/interfaces/user';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css'],
-  providers: [DataService]
+  providers: [DataService],
 })
 export class LoginComponent {
-  loginForm: FormGroup;
+  userInfo: User = new User();
 
-  constructor(private fb: FormBuilder) {
-    this.loginForm = this.fb.group({
-      username: ['', Validators.required],
-      password: ['', Validators.required]
-    });
+  constructor(private authService: AuthService, private router:Router) {}
+  ngOnInit(): void {
+    console.log('userInfo', this.authService.baseUserInfo);
   }
 
   onSubmit() {
-    if (this.loginForm.valid) {
-      console.log('表單提交', this.loginForm.value);
-      // 這裡寫驗證
-    }
+    this.authService
+      .login(this.userInfo.userName, this.userInfo.password)
+      .subscribe({
+        next: (response) => {
+          this.userInfo.token = JSON.stringify(response.token); // 賦予token值
+          this.userInfo.memberId=Number(JSON.stringify(response.memberId));
+          this.authService.setUser(this.userInfo); //把user資訊寫入localStorage內
+          localStorage.setItem('jwt', JSON.stringify(response.token)); //寫入localStorage內 KEY=token
+          window.location.reload();
+          this.router.navigate(['/home']); //跳轉頁面回首頁
+        },
+        error: () => {
+          //以下為失敗處理方式
+          alert('帳號或密碼錯誤');
+          this.userInfo.userName='';
+          this.userInfo.password=';';
+        },
+      });
   }
 }

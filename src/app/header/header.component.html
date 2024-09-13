@@ -4,63 +4,122 @@
       <div class="col-lg-12">
         <div class="nav-inner">
           <nav class="navbar navbar-expand-lg">
-            <a class="navbar-brand" routerLink="home" >
+            <a class="navbar-brand" routerLink="home">
               <img src="assets/images/homeicon200X100.png" alt="Logo" />
             </a>
-            <button class="navbar-toggler mobile-menu-btn" type="button" data-bs-toggle="collapse"
-              data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
-              aria-label="Toggle navigation">
+            <button
+              class="navbar-toggler mobile-menu-btn"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#navbarSupportedContent"
+              aria-controls="navbarSupportedContent"
+              aria-expanded="false"
+              aria-label="Toggle navigation"
+            >
               <span class="toggler-icon"></span>
               <span class="toggler-icon"></span>
               <span class="toggler-icon"></span>
             </button>
-            <div class="collapse navbar-collapse sub-menu-bar" id="navbarSupportedContent">
+            <div
+              class="collapse navbar-collapse sub-menu-bar"
+              id="navbarSupportedContent"
+            >
               <ul id="nav" class="navbar-nav ms-auto">
                 <li class="nav-item">
-                  <a routerLink="home" class="active" aria-label="Toggle navigation">首頁</a>
+                  <a
+                    routerLink="home"
+                    class="active"
+                    aria-label="Toggle navigation"
+                    >首頁</a
+                  >
                 </li>
                 <li class="nav-item">
-                  <a class=" dd-menu collapsed" routerLink="/travel" data-bs-toggle="collapse"
-                    data-bs-target="#submenu-1-3" aria-controls="navbarSupportedContent" aria-expanded="false"
-                    aria-label="Toggle navigation">旅遊</a>
+                  <a
+                    class="dd-menu collapsed"
+                    routerLink="/travel"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#submenu-1-3"
+                    aria-controls="navbarSupportedContent"
+                    aria-expanded="false"
+                    aria-label="Toggle navigation"
+                    >旅遊</a
+                  >
                   <ul class="sub-menu collapse" id="submenu-1-3">
-                    <li class="nav-item"><a href="item-listing-grid.html">Ad Grid</a></li>
-                    <li class="nav-item"><a href="item-listing-list.html">旅遊瀏覽</a></li>
-                    <li class="nav-item"><a href="~/cart/html/item-details.html">旅遊</a></li>
+                    <li class="nav-item">
+                      <a href="item-listing-grid.html">Ad Grid</a>
+                    </li>
+                    <li class="nav-item">
+                      <a href="item-listing-list.html">旅遊瀏覽</a>
+                    </li>
+                    <li class="nav-item">
+                      <a href="~/cart/html/item-details.html">旅遊</a>
+                    </li>
                   </ul>
                 </li>
                 <li class="nav-item">
-                  <a class=" dd-menu collapsed" routerLink="/article" data-bs-toggle="collapse"
-                    data-bs-target="#submenu-1-4" aria-controls="navbarSupportedContent" aria-expanded="false"
-                    aria-label="Toggle navigation">文章</a>
+                  <a
+                    class="dd-menu collapsed"
+                    routerLink="/article"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#submenu-1-4"
+                    aria-controls="navbarSupportedContent"
+                    aria-expanded="false"
+                    aria-label="Toggle navigation"
+                    >文章</a
+                  >
                   <ul class="sub-menu collapse" id="submenu-1-4">
-                        <li class="nav-item"><a href="about-us.html">文章瀏覽</a></li>
-                        <li class="nav-item"><a href="~/cart/html/item-details.html">文章列表</a></li>
+                    <li class="nav-item">
+                      <a href="about-us.html">文章瀏覽</a>
+                    </li>
+                    <li class="nav-item">
+                      <a href="~/cart/html/item-details.html">文章列表</a>
+                    </li>
                   </ul>
                 </li>
                 <li class="nav-item">
-                  <a class=" dd-menu collapsed" routerLink="/shop" data-bs-toggle="collapse"
-                    data-bs-target="#submenu-1-4" aria-controls="navbarSupportedContent" aria-expanded="false"
-                    aria-label="Toggle navigation">商店</a>
+                  <a
+                    class="dd-menu collapsed"
+                    routerLink="/shop"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#submenu-1-4"
+                    aria-controls="navbarSupportedContent"
+                    aria-expanded="false"
+                    aria-label="Toggle navigation"
+                    >商店</a
+                  >
                   <ul class="sub-menu collapse" id="submenu-1-4">
-                        <li class="nav-item"><a href="about-us.html">商店瀏覽</a></li>
+                    <li class="nav-item">
+                      <a href="about-us.html">商店瀏覽</a>
+                    </li>
                   </ul>
-                </li>
-              </ul>
-            </div> <!-- navbar collapse -->
-            <div class="login-button">
-              <ul>
-                <li>
-                  <a routerLink="/login"><i class="lni lni-enter"></i> 登錄</a>
-                </li>
-                <li>
-                  <a href="registration.html"><i class="lni lni-user"></i> 註冊</a>
                 </li>
               </ul>
             </div>
-          </nav> <!-- navbar -->
+            <!-- navbar collapse -->
+            <div class="login-button">
+              <ul>
+                <li (click)="loginUrl()" style="cursor: pointer" *ngIf="!authService.baseUserInfo.token">
+                  <a ><i class="lni lni-enter" ></i> 登錄</a>
+                </li>
+                <li (click)="logout()" style="cursor: pointer" *ngIf="authService.baseUserInfo.token">
+                <a *ngIf="authService.baseUserInfo.token"><i class="lni lni-enter" ></i> 登出</a>
+                </li>
+                <li *ngIf="memberData">
+                  <a href="registration.html"
+                    ><i class="lni lni-user"></i> 會員名稱： {{memberData?.MemberName}}</a
+                  >
+                </li>
+              </ul>
+              <ul>
+                <li></li>
+              </ul>
+            </div>
+          </nav>
+          <!-- navbar -->
         </div>
       </div>
-    </div> <!-- row -->
-  </div> <!-- container -->
+    </div>
+    <!-- row -->
+  </div>
+  <!-- container -->
 </header>

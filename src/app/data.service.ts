@@ -9,9 +9,9 @@ import { Comments } from 'src/app/interfaces/comments';
   providedIn: 'root'
 })
 export class DataService {
-  private articlesUrl = 'https://localhost:7003/api/ArticleOverviews';
-  private CommentsUrl  = 'https://localhost:7003/api/Comments';
-  private MemberInformationUrl = 'https://localhost:7003/api/BasicMemberInformations';
+  private articlesUrl = '/api/ArticleOverviews';
+  private CommentsUrl  = '/api/Comments';
+  private MemberInformationUrl = '/api/BasicMemberInformations';
 
   MemberPicture: any;
   constructor(private http: HttpClient) { }
@@ -46,8 +46,8 @@ export class DataService {
 
   //取得文字資料Comments
 
-  getComments(articleId: number): Observable<Comment[]> {
-    return this.http.get<Comment[]>(`${this.CommentsUrl}?articleId=${articleId}`);
+  getComments(articleId: number): Observable<Comments[]> {
+    return this.http.get<Comments[]>(`${this.CommentsUrl}?articleId=${articleId}`);
   }
   //  POST、PUT、DELETE
   postComments(data: any): Observable<any> {
@@ -86,5 +86,9 @@ export class DataService {
 
   getBasicMemberInformationPicture(id: number): Observable<Blob> {
     return this.http.get(`${this.MemberPicture}/GetPicture/${id}`, { responseType: 'blob' });
+  }
+
+  getBasicMember(id:number):Observable<BasicMemberInformation>{
+    return this.http.get<BasicMemberInformation>(`${this.MemberInformationUrl}/${id}`)
   }
 }
