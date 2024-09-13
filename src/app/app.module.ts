@@ -21,7 +21,8 @@ import { ShopComponent } from './shop/shop.component';
 import { ShoplistComponent } from './component/shoplist/shoplist.component';
 import { CartComponent } from './component/cart/cart.component';
 import { SwiperModule } from 'swiper/angular';
-
+import { ProductdetailComponent } from './component/productdetail/productdetail.component';
+import { RatingModule } from 'primeng/rating';
 
 @NgModule({
   declarations: [
@@ -35,6 +36,8 @@ import { SwiperModule } from 'swiper/angular';
     ShopComponent,
     ShoplistComponent,
     CartComponent,
+    ProductdetailComponent,
+   
 
 
   ],
@@ -51,7 +54,8 @@ import { SwiperModule } from 'swiper/angular';
     MatMenuModule,
     MatButtonModule,
     CheckboxModule,
-    SwiperModule
+    SwiperModule,
+    RatingModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
