@@ -14,7 +14,11 @@ import { User } from 'src/app/interfaces/user';
 export class LoginComponent {
   userInfo: User = new User();
 
-  constructor(private authService: AuthService, private router:Router) {}
+  constructor(
+    private authService: AuthService,
+    private router: Router,
+    private dataService: DataService
+  ) {}
   ngOnInit(): void {
     console.log('userInfo', this.authService.baseUserInfo);
   }
@@ -25,17 +29,25 @@ export class LoginComponent {
       .subscribe({
         next: (response) => {
           this.userInfo.token = JSON.stringify(response.token); // 賦予token值
-          this.userInfo.memberId=Number(JSON.stringify(response.memberId));
+          this.userInfo.memberId = Number(JSON.stringify(response.memberId));
           this.authService.setUser(this.userInfo); //把user資訊寫入localStorage內
           localStorage.setItem('jwt', JSON.stringify(response.token)); //寫入localStorage內 KEY=token
-          window.location.reload();
-          this.router.navigate(['/home']); //跳轉頁面回首頁
+          this.dataService.getBasicMember(
+            this.userInfo.memberId
+          ).subscribe(data=>{
+            this.authService.setMember(data)
+
+          })
+          //跳轉頁面回首頁
+          this.router.navigate(['/home']).then(()=>{
+            alert('登入成功')
+          })
         },
         error: () => {
           //以下為失敗處理方式
           alert('帳號或密碼錯誤');
-          this.userInfo.userName='';
-          this.userInfo.password=';';
+          this.userInfo.userName = '';
+          this.userInfo.password = ';';
         },
       });
   }

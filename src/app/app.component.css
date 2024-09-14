@@ -1,4 +1,15 @@
-.mb-400
+/* .mb-400
 {
   margin-bottom: 200px;
+} */
+.layout{
+  display: flex;
+  flex-direction: column;
+height: 100vh;
 }
+.content{
+  padding-top: 100px;
+}
+/* app-header{
+  height: 60px;
+} */

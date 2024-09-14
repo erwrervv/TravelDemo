@@ -1,5 +1,5 @@
 import { NgIfContext } from '@angular/common';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { forkJoin, Observable} from 'rxjs';
 import { Component, OnInit, TemplateRef } from '@angular/core';
 import { map, switchMap } from 'rxjs/operators';
@@ -20,7 +20,8 @@ throw new Error('Method not implemented.');
   imageUrls: { [key: number]: string } = {};
   constructor(
     private route: ActivatedRoute,
-    private dataService: DataService
+    private dataService: DataService,
+    private router:Router
   ) {}
 
 
@@ -46,5 +47,8 @@ throw new Error('Method not implemented.');
 
   followAuthor(): void {
     console.log('已關注作者');
+  }
+  goEditUrl(){
+    this.router.navigate(['/article-post'])
   }
 }

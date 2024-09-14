@@ -14,7 +14,6 @@ import { AuthService } from 'src/app/auth.service';
 export class CommentListComponent implements OnInit {
   items: Comments[] = [];
   likes: any;
-
   constructor(
     private dataService: DataService,
     private authService: AuthService,
@@ -28,24 +27,11 @@ export class CommentListComponent implements OnInit {
 
   loadComments(articleId: number): void {
     this.dataService.getComments(articleId).subscribe((data) => {
-      this.items = data;
+      if (data) {
+        this.items = data;
+      }
     });
   }
-
-  getCommentsPicture(id: number) {
-    this.dataService.getCommentsPicture(id).subscribe((res) => {
-      console.log('re', res);
-    });
-    // if (picture) {
-    //   // Assuming the picture is a binary image, convert it to a base64 string
-    //   const base64String = btoa(String.fromCharCode(...picture));
-    //   return of(`data:image/png;base64,${base64String}`);
-    // } else {
-    //   // Return a default image path if picture is not available
-    //   return of('assets/default-avatar.png');
-    // }
-  }
-
   replyComment(comments: Comments) {
     // Implement reply logic
   }

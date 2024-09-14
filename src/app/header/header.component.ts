@@ -10,15 +10,20 @@ import { BasicMemberInformation } from '../interfaces/basicMemberInformation';
   styleUrls: ['./header.component.css'],
 })
 export class HeaderComponent implements OnInit {
-  memberData:BasicMemberInformation | undefined;
+  memberData!: BasicMemberInformation | null;
   constructor(
     public rou: Router,
     public authService: AuthService,
     private dataService: DataService
-  ) {}
+  ) {
+    this.getMember();
+  }
   ngOnInit(): void {
     this.getMember();
-    console.log('memberData',this.memberData);
+    this.authService.memberData$.subscribe(data=>{
+      this.memberData=data
+    })
+
 
   }
   loginUrl() {
@@ -30,11 +35,12 @@ export class HeaderComponent implements OnInit {
     window.location.reload();
   }
   getMember() {
-    this.dataService
-      .getBasicMember(this.authService.baseUserInfo.memberId)
-      .subscribe((res) => {
-        this.memberData=res;
-
-      });
+    if (this.authService.baseUserInfo.memberId) {
+      this.dataService
+        .getBasicMember(this.authService.baseUserInfo.memberId)
+        .subscribe((res) => {
+          this.memberData = res;
+        });
+    }
   }
 }
