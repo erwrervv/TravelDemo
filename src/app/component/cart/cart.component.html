@@ -1,1 +1,76 @@
 <p>this is 購物車界面</p>
+
+<!-- 這是第一欄div -->
+
+<div class="cart-header d-flex justify-content-between">
+  <div class="cart-item">商品</div>
+  <div class="cart-price">單價</div>
+  <div class="cart-quantity">數量</div>
+  <div class="cart-total">總計</div>
+  <div class="cart-action">操作</div>
+</div>
+
+
+<!-- 這是商品層 -->
+<div *ngFor="let product of productcart" class="cart-item-row d-flex justify-content-between align-items-center">
+  <!-- 商品图片 -->
+  <div class="cart-item d-flex align-items-center">
+    <img src="{{ product.image }}" class="product-image" alt="{{ product.name }}" />
+    <span class="product-name">{{ product.name }}</span>
+  </div>
+
+  <!-- 商品单价 -->
+  <div class="cart-price">
+    {{ product.price | currency:'TWD': 'symbol':'1.0-0' }}
+  </div>
+
+  <!-- 商品数量 -->
+  <div class="cart-quantity">
+    <div class="product-quantity">
+      <div class="input-group product-qty">
+        <!-- 减少数量按钮 -->
+        <span class="input-group-btn">
+          <button (click)="decreaseQuantity(product)" class="btn btn-light btn-number">-</button>
+        </span>
+
+        <!-- 可编辑的输入框，绑定 product.quantity -->
+        <input
+        type="number"
+        class="form-control quantity input-number text-center"
+        [(ngModel)]="product.quantity"
+        (blur)="onQuantityBlur(product)"
+        min="1"
+      />
+
+        <!-- 增加数量按钮 -->
+        <span class="input-group-btn">
+          <button (click)="increaseQuantity(product)" class="btn btn-light btn-number">+</button>
+        </span>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- 商品总价symbol取整數 -->
+  <div class="cart-total">
+    {{ product.price * product.quantity | currency:'TWD': 'symbol':'1.0-0' }}
+  </div>
+
+  <!-- 删除商品按钮 -->
+  <div class="cart-action">
+    <button (click)="removeProduct(product)" class="btn btn-danger">刪除</button>
+  </div>
+</div>
+
+
+<!-- 這是最下層 -->
+
+<div class="checkout-section d-flex justify-content-between align-items-center">
+  <!-- 总金额 -->
+  <div class="total-price">
+    總金額: {{ calculateTotalPrice() | currency:'TWD' }}
+  </div>
+
+  <!-- 去買單按鈕 -->
+  <button class="btn btn-primary" (click)="checkout()">去買單</button>
+</div>

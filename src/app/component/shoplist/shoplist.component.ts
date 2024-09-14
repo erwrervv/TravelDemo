@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { AddToCartService } from './../../service/add-to-cart.service';
+import { Component, OnInit } from '@angular/core';
+
 
 @Component({
   selector: 'app-shoplist',
@@ -6,7 +8,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./shoplist.component.css']
 })
 export class ShoplistComponent {
-
+   searchKeyword = ''
   products = [
     {
       image: 'assets/images/flower.png',
@@ -86,12 +88,12 @@ export class ShoplistComponent {
       productdetailUrl: 'productdetail',
       productUrl: 'single-product.html'
     },
-    
 
-  
-  
-  
-  
+
+
+
+
+
   ];
 
   products2 = [
@@ -104,6 +106,10 @@ export class ShoplistComponent {
     },
   ]
 
-    
+  constructor(private adcService: AddToCartService) { }
 
+  addToCart(product: any) {
+    this.adcService.addToCart(product); // 传递单个商品对象
+
+  }
 }

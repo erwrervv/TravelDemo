@@ -65,8 +65,15 @@ i.pi {
 
 
 
+.p-rating {
+  font-size: 15px !important;
+  color: #ffab18 !important;
+}
 
+.p-rating .p-rating-icon.p-rating-icon-active {
+  color: #ffab18; /* Blue color */
+}
 
-
-
-
+.p-rating .p-rating-icon.p-rating-icon-active {
+  color: #ffab18;
+}

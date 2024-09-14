@@ -71,7 +71,7 @@
           <div class="element-header">
             <h2 itemprop="name" class="display-6">商品詳細</h2>
             <!-- 星數 -->
-            <div class="rating-container d-flex gap-0 align-items-center">
+            <!-- <div class="rating-container d-flex gap-0 align-items-center">
               <div class="rating" data-rating="1">
                 <svg width="32" height="32" class="text-warning">
                   <use xlink:href="#star-solid"></use>
@@ -98,13 +98,17 @@
                 </svg>
               </div>
               <span class="rating-count">(5)</span>
-            </div>
+            </div> -->
+
+              <p-rating [ngModel]="value"[readonly]="false" [cancel]="false" ></p-rating>
+
+
             <div class="item-title no-margin pe-2">已售出數:43</div>
           </div>
           <!-- 價格 -->
           <div class="product-price pt-3 pb-3">
             <strong class="display-6 fw-bold" style="color: #ea0000"
-              >$80.00</strong
+              >$80</strong
             >
 
             <!-- 刪除線 -->

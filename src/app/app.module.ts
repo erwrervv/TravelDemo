@@ -23,6 +23,8 @@ import { CartComponent } from './component/cart/cart.component';
 import { SwiperModule } from 'swiper/angular';
 import { ProductdetailComponent } from './component/productdetail/productdetail.component';
 import { RatingModule } from 'primeng/rating';
+import { AddToCartService } from './service/add-to-cart.service';
+
 
 @NgModule({
   declarations: [
@@ -37,7 +39,8 @@ import { RatingModule } from 'primeng/rating';
     ShoplistComponent,
     CartComponent,
     ProductdetailComponent,
-   
+
+
 
 
   ],
@@ -56,8 +59,9 @@ import { RatingModule } from 'primeng/rating';
     CheckboxModule,
     SwiperModule,
     RatingModule,
+
   ],
-  providers: [],
+  providers: [AddToCartService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

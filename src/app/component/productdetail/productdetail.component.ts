@@ -12,10 +12,10 @@ SwiperCore.use([ EffectFade, Autoplay]);
   selector: 'app-productdetail',
   templateUrl: './productdetail.component.html' ,
   styleUrls: ['./productdetail.component.css'],
-  
+
 })
 export class ProductdetailComponent {
-
+  value: number = 5;
 
  //手動切換
   // config: any = {
@@ -38,7 +38,7 @@ export class ProductdetailComponent {
   //   },
   // };
 
- 
+
 
 
 
@@ -80,6 +80,7 @@ public swiperConfig: SwiperOptions = {
 
 //加入購物車
 quantity: number = 1;
+  AddToCartService: any;
 
 constructor(private router: Router) {}
 
@@ -98,6 +99,7 @@ decreaseQuantity() {
 goToCart() {
   this.router.navigate(['/cart']);
 }
+
 
 
 
