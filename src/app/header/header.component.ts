@@ -12,7 +12,7 @@ import { BasicMemberInformation } from '../interfaces/basicMemberInformation';
 export class HeaderComponent implements OnInit {
   memberData!: BasicMemberInformation | null;
   constructor(
-    public rou: Router,
+    public router: Router,
     public authService: AuthService,
     private dataService: DataService
   ) {
@@ -27,7 +27,7 @@ export class HeaderComponent implements OnInit {
 
   }
   loginUrl() {
-    this.rou.navigate(['/login']);
+    this.router.navigate(['/login']);
   }
   logout() {
     localStorage.removeItem('jwt');
