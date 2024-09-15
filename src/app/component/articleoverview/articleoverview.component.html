@@ -9,7 +9,7 @@
     <div class="author-section">
       <span class="author-name">{{ articleId.MemberName }}</span>
       <span class="author-info">10 粉絲 · 15 文章</span>
-      <button (click)="goEditUrl()" class="follow-button">編輯</button>
+      <button (click)="goEditUrl(articleId.ArticleId)" class="follow-button">編輯</button>
     </div>
 
     <!-- -------修改卻不能正常顯示----- -->
@@ -18,7 +18,7 @@
       <img [src]="imageUrls[articleId.ArticleId] || 'assets/images/noimage.png'" style="width:350px; height:300px;" />
     </div>
     <div class="article-content">
-      <p>{{ articleId.ArticleContent }}</p>
+      <p [innerHTML]="articleId.ArticleContent"></p>
     </div>
     <div>
       <span>

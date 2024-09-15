@@ -1,5 +1,7 @@
 export interface ArticlesList {
-  articleListId: number;
-  articleListName: string;
-  memberuniqueId: number;
+  ArticleListId: number;
+  ArticleListName: string;
+  MemberuniqueId: number;
+  MemberName:string;
+  Image:string;
 }

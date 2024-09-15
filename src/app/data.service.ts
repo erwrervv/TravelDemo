@@ -1,10 +1,11 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { map, Observable } from 'rxjs';
 import { Articleoverviews } from 'src/app/interfaces/articleoverview';
 import { BasicMemberInformation } from 'src/app/interfaces/basicMemberInformation';
 import { Comments } from 'src/app/interfaces/comments';
 import { ArticlesList } from './interfaces/articles-list';
+import { PagedResult, pageinfo } from './interfaces/pageInfo';
 
 @Injectable({
   providedIn: 'root',
@@ -35,8 +36,8 @@ export class DataService {
   //   return this.http.post<any>(this.Articleoverviews, data);
   // }
 
-  putArticleOverviews(data: any): Observable<any> {
-    return this.http.put<any>(this.articlesUrl, data);
+  putArticleOverviews(id:number,data: any): Observable<any> {
+    return this.http.put<any>(`${this.articlesUrl}/${id}`, data);
   }
 
   removeArticleOverviews(id: number): Observable<any> {
@@ -58,16 +59,14 @@ export class DataService {
           return data.map((item) => ({
             CommentContent: item.CommentContent,
             MemberPicture: item.MemberPicture
-              ? `data:image/jpeg;base64,${item.MemberPicture}`
+              ? `data:image/png;base64,${item.MemberPicture}`
               : '', // 後端傳來blob格式需要+上'data:image/jpeg;base64,' 畫面才能顯示出來
             MemberName: item.MemberName,
-            CommentDateTime: item.CommentDateTime,
-            CommentId: item.CommentId,
+            CommentDateTime: item.CommentDateTime
           }));
         })
       );
   }
-
   //  POST、PUT、DELETE
   postComments(data: any): Observable<any> {
     return this.http.post<any>(this.CommentsUrl, data);
@@ -118,5 +117,11 @@ export class DataService {
   }
   getArticlesList(): Observable<ArticlesList[]> {
     return this.http.get<ArticlesList[]>(this.articlesListUrl);
+  }
+  getArticlesPaged(Page:pageinfo){
+    let params=new HttpParams();
+    params=params.append('PageSize',Page.PageSize);
+    params=params.append('PageNumber',Page.PageNumber);
+    return this.http.get<PagedResult<Articleoverviews>>(`${this.articlesUrl}/GetPaged`,{params:params})
   }
 }

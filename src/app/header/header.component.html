@@ -101,16 +101,26 @@
             <!-- navbar collapse -->
             <div class="login-button">
               <ul>
-                <li (click)="loginUrl()" style="cursor: pointer" *ngIf="!authService.baseUserInfo.token">
-                  <a ><i class="lni lni-enter" ></i> 登錄</a>
+                <li
+                  (click)="loginUrl()"
+                  style="cursor: pointer"
+                  *ngIf="!authService.baseUserInfo.token"
+                >
+                  <a><i class="lni lni-enter"></i> 登錄</a>
                 </li>
-                <li (click)="logout()" style="cursor: pointer" *ngIf="authService.baseUserInfo.token">
-                <a *ngIf="authService.baseUserInfo.token"><i class="lni lni-enter" ></i> 登出</a>
+                <li
+                  (click)="logout()"
+                  style="cursor: pointer"
+                  *ngIf="authService.baseUserInfo.token"
+                >
+                  <a *ngIf="authService.baseUserInfo.token"
+                    ><i class="lni lni-enter"></i> 登出</a
+                  >
                 </li>
                 <li *ngIf="memberData">
-                  <a href="registration.html"
-                    ><i class="lni lni-user"></i> 會員名稱：{{memberData.MemberName}}</a
-                  >
+                  <i class="lni lni-user"></i> 會員名稱：{{
+                    memberData.MemberName
+                  }}
                 </li>
               </ul>
               <ul>

@@ -36,7 +36,6 @@ export class LoginComponent {
             this.userInfo.memberId
           ).subscribe(data=>{
             this.authService.setMember(data)
-
           })
           //跳轉頁面回首頁
           this.router.navigate(['/home']).then(()=>{

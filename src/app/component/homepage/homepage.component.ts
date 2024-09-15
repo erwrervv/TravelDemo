@@ -1,64 +1,69 @@
 import { AuthService } from 'src/app/auth.service';
 import { Component, OnInit, TemplateRef } from '@angular/core';
 import { DataService } from '../../data.service';
-import { forkJoin, Observable} from 'rxjs';
+import { forkJoin, Observable } from 'rxjs';
 import { map, switchMap } from 'rxjs/operators';
 import { NgIfContext } from '@angular/common';
 import { Router } from '@angular/router';
+import { Articleoverviews } from 'src/app/interfaces/articleoverview';
+import { pageinfo } from 'src/app/interfaces/pageInfo';
+import { ArticlesList } from 'src/app/interfaces/articles-list';
 @Component({
   selector: 'app-homepage',
   templateUrl: './homepage.component.html',
   styleUrls: ['./homepage.component.css'],
-  providers: [DataService]
+  providers: [DataService],
 })
 export class HomepageComponent implements OnInit {
   data$: Observable<any[]> | undefined;
   imageUrls: { [key: number]: string } = {};
-loading: TemplateRef<NgIfContext<any[] | null>> | null | undefined;
+  loading: TemplateRef<NgIfContext<any[] | null>> | null | undefined;
+  ArticleOverviewData: Array<Articleoverviews> = new Array<Articleoverviews>();
+  page: pageinfo = new pageinfo(5, 1);
+  totalPages: number = 0;
+  articleListData: Array<ArticlesList> = new Array<ArticlesList>();
 
-  constructor(private dataService: DataService,private auth:AuthService,public router:Router) { }
-
+  constructor(
+    private dataService: DataService,
+    private authService: AuthService,
+    public router: Router
+  ) {}
 
   ngOnInit(): void {
-    this.loadData();
-    console.log('homepage.userInfo',this.auth.baseUserInfo);
+    this.getData();
   }
 
-  loadData(): void {
-       this.data$ = this.dataService.getArticleOverviews().pipe(
-      switchMap(data => {
-        // 获取所有图片的 Observable 数组
-        const pictureRequests = data.map(item =>
-          this.dataService.getArticleOverviewsPicture(item.ArticleId).pipe(
-            map(blob => {
-              const reader = new FileReader();
-              const promise = new Promise<string>((resolve, reject) => {
-                reader.onloadend = () => resolve(reader.result as string);
-                reader.onerror = () => reject('Could not read file');
-              });
-              reader.readAsDataURL(blob); // 将 Blob 转换为 Base64
-              return promise.then(url => ({ id: item.ArticleId, url }));
-            })
-          )
-        );
-
-        // 等待所有图片请求完成
-        return forkJoin(pictureRequests).pipe(
-          map(pictures => {
-            // 更新 imageUrls 对象
-            pictures.forEach(async p => this.imageUrls[(await p).id] = (await p).url);
-            return data;
-          })
-        );
-      })
-    );
+  goToComment(id: number) {
+    this.router.navigate([`/article/${id}`]);
   }
-
-  refreshData(): void {
-    this.loadData();
+  getData() {
+    this.dataService.getArticlesPaged(this.page).subscribe((res) => {
+      this.ArticleOverviewData = res.List; //賦予資料源
+      this.totalPages = res.TotalPages; //賦予總頁數
+      this.dataService.getArticlesList().subscribe((res) => {
+        this.articleListData = res;
+      });
+    });
   }
-
-  goToComment(id:number){
-    this.router.navigate([`/article/${id}`])
+  goToPage(pageNumber: number) {
+    if (pageNumber > 0 && pageNumber <= this.totalPages) {
+      this.page.PageNumber = pageNumber; //html觸發 event 前往指定分頁
+      this.getData();
+      window.scrollTo(0, 0); //回到畫面頂端
+    }
+  }
+  next() {
+    if (this.page.PageNumber < this.totalPages) {
+      this.page.PageNumber++; //HTML觸發EVENT 前往下一頁
+      this.getData(); //重新取得資料
+      window.scrollTo(0, 0); //回到畫面頂端
+    }
+  }
+  back() {
+    if (this.page.PageNumber > 1) {
+      this.page.PageNumber--;
+      this.getData(); //重新取得資料
+      window.scrollTo(0, 0); //回到畫面頂端
+    }
   }
 }

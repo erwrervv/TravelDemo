@@ -94,6 +94,11 @@
   cursor: pointer;
   border-radius: 4px;
 }
-p{
+p {
   color: red;
+}
+.listTitle {
+  text-align: center;
+  color: brown;
+  font-size: 3rem;
 }
