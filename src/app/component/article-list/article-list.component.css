@@ -56,11 +56,11 @@
 }
 
 .article-image img {
-  width: 100%;
-  height: auto;
+  width: 400px;
+  height: 400px;
+  margin-bottom: 10px;
   max-width: 600px;
   max-height: 400px;
-  margin-bottom: 10px;
 }
 
 .article-info {
