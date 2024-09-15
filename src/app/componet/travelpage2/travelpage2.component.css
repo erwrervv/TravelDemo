@@ -1,10 +1,10 @@
+/* 圖片 */
 .grid-container {
   display: grid;
   grid-template-columns: repeat(3, 1fr); /* 每行三列 */
   gap: 20px; /* 容器之間的間距 */
   padding: 20px; /* 網格容器的內邊距 */
 }
-
 .container a {
   display: block; /* 使 <a> 標籤覆蓋整個容器 */
   text-decoration: none; /* 去除鏈接的下劃線 */
@@ -12,14 +12,12 @@
   cursor: pointer; /* 鼠標懸停時顯示手指圖示 */
   height: 100%; /* 確保 <a> 覆蓋整個容器 */
 }
-
 .image-section img {
   width: 100%; /* 確保圖片寬度為100% */
   height: 200px; /* 固定圖片高度 */
   object-fit: cover; /* 保持圖片比例 */
   cursor: pointer; /* 鼠標移到圖片上也顯示手指圖示 */
 }
-
 .container {
   position: relative;
   background: #fff; /* 背景顏色 */
@@ -29,43 +27,36 @@
   transition: transform 0.3s, box-shadow 0.3s; /* 懸停效果 */
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* 初始陰影效果 */
 }
-
 .container:hover {
   transform: scale(1.05); /* 懸停時放大效果 */
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* 懸停陰影效果 */
 }
-
 .container a {
   display: block; /* 使 <a> 標籤覆蓋整個容器 */
   text-decoration: none; /* 去除鏈接下劃線 */
   color: inherit; /* 保持文字顏色 */
   height: 100%; /* 保持 <a> 佔滿整個容器 */
 }
-
 .image-section img {
   width: 100%; /* 圖片佔滿容器寬度 */
   height: 200px; /* 固定圖片高度 */
   object-fit: cover; /* 保持圖片比例 */
 }
-
 .title-section {
   padding: 10px;
   font-size: 1.2em;
   font-weight: bold;
   color: #333; /* 標題顏色 */
 }
-
 .description {
   padding: 0 10px 10px;
   font-size: 0.9em;
   color: #555; /* 描述文字顏色 */
 }
-
 .tags-section {
   padding: 0 10px;
   margin-bottom: 10px;
 }
-
 .tags-section .tag {
   display: inline-block;
   background: #eee;
@@ -75,13 +66,141 @@
   font-size: 0.8em;
   color: #666; /* 標籤顏色 */
 }
-
 .date-section, .price-section {
   padding: 0 10px;
   font-size: 0.9em;
   color: #333; /* 日期與價格文字顏色 */
 }
-
 .price-section {
   font-weight: bold;
 }
+
+
+
+/* 搜尋表單 */
+.search-form {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+.form-group {
+  flex: 1;
+  margin-right: 10px;
+}
+.form-group:last-child {
+  margin-right: 0;
+}
+label {
+  display: block;
+  font-size: 14px;
+  color: #d32f2f;
+  margin-bottom: 5px;
+}
+input[type="date"],
+input[type="text"],
+select {
+  width: 100%;
+  padding: 8px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+.search-btn {
+  background-color: #d32f2f;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+}
+.search-btn:hover {
+  background-color: #b71c1c;
+}
+input[type="checkbox"] {
+  margin-right: 5px;
+}
+.form-group.checkbox-group {
+  display: flex;
+  align-items: center;
+}
+
+
+
+/* 为下拉框设置样式 */
+.custom-select {
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background-color: #f9f9f9;
+  margin-bottom: 15px;
+}
+/* 为日期输入框设置样式 */
+.custom-input {
+  width: 100%;
+  padding: 8px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background-color: #fff;
+}
+/* 设置 form 行的排列方式 */
+.form-row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 15px;
+}
+/* form 组的样式 */
+.form-group {
+  flex: 1;
+  margin-right: 10px;
+}
+/* 控制小日期输入框的大小 */
+.small-date-input {
+  width: 100%;
+  padding: 8px;
+  box-sizing: border-box;
+}
+/* 最后一组移除右边的 margin */
+.form-group:last-child {
+  margin-right: 0;
+}
+
+
+/* 向上移動 */
+.scroll-to-top {
+  position: fixed;
+  bottom: 20px; /* 距离底部20px */
+  right: 20px;  /* 距离右边20px */
+  background-color: #007bff; /* 按钮背景颜色 */
+  color: white; /* 按钮文字颜色 */
+  border: none; /* 去掉边框 */
+  border-radius: 50%; /* 圆形按钮 */
+  width: 50px;  /* 按钮宽度 */
+  height: 50px; /* 按钮高度 */
+  display: flex; /* 使用 flexbox */
+  align-items: center; /* 垂直居中 */
+  justify-content: center; /* 水平居中 */
+  cursor: pointer; /* 鼠标悬停时显示手型 */
+  z-index: 1000; /* 确保按钮在其他内容之上 */
+  transition: background-color 0.3s ease; /* 背景颜色平滑过渡 */
+  font-size: 30px; /* 增加文本的大小 */
+  text-align: center; /* 确保文本在按钮中居中对齐 */
+}
+
+.scroll-to-top:hover {
+  background-color: #0056b3; /* 鼠标悬停时按钮颜色变化 */
+}
+
+
+
+
+
+
+
+
+

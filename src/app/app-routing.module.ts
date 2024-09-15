@@ -5,39 +5,42 @@ import { ArticleoverviewComponent } from './articleoverview/articleoverview.comp
 import { TravelComponent } from './travel/travel.component';
 import { ShopComponent } from './shop/shop.component';
 import { Travelpage2Component } from './componet/travelpage2/travelpage2.component';
-import { Travelpage3Component } from './componet/travelpage3/travelpage3.component';
 
+import { TravelDetailComponent } from './componet/travel-detail/travel-detail.component';
 const routes: Routes = [
   {
-    path: '', redirectTo: '/home', pathMatch: 'full'
-  },{
-    path:'home',
-    component:HomeComponent,
-  }
-  ,{
-    path:'article',
-    component:ArticleoverviewComponent,
-  }
-  ,{
-    path:'travel',
-    component:TravelComponent,
-  }
-  ,{
-    path:'shop',
-    component:ShopComponent,
-  }
-  ,{
-    path:'travelpage2',
-    component:Travelpage2Component,
-  }
-  ,{
-    path:'travelpage3',
-    component:Travelpage3Component,
-  }]
+    path: '',
+    redirectTo: '/home',
+    pathMatch: 'full',
+  },
+  {
+    path: 'home',
+    component: HomeComponent,
+  },
+  {
+    path: 'article',
+    component: ArticleoverviewComponent,
+  },
+  {
+    path: 'travel',
+    component: TravelComponent,
+  },
+  {
+    path: 'shop',
+    component: ShopComponent,
+  },
+  {
+    path: 'travelpage2',
+    component: Travelpage2Component,
+  },
+  {
+    path: 'traveldetail',
+    component: TravelDetailComponent,
+  },
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
-
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

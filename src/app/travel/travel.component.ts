@@ -43,6 +43,12 @@ export class TravelComponent {
   //精選景點
   travelItems2 = [
     {
+      imageUrl: 'assets/images/基隆景點基隆嶼.jpg',
+      title: '基隆景點基隆嶼',
+      description: '',
+      linkUrl: 'https://example.com/switzerland'
+    },
+    {
       imageUrl: 'assets/images/台北漁人碼頭煙火秀.jpg',
       title: '台北漁人碼頭煙火秀',
       description: '',
@@ -53,12 +59,6 @@ export class TravelComponent {
       title: '台中景點IKEA空中花園',
       description: '',
       linkUrl: '/travelpage2'
-    },
-    {
-      imageUrl: 'assets/images/基隆景點基隆嶼.jpg',
-      title: '基隆景點基隆嶼',
-      description: '',
-      linkUrl: 'https://example.com/switzerland'
     },
     {
       imageUrl: 'assets/images/台南後壁景點雅聞湖濱療癒森林.jpg',
@@ -94,17 +94,18 @@ export class TravelComponent {
       linkUrl: 'https://example.com/switzerland'
     },
     {
-      imageUrl: 'assets/images/花蓮悅樂旅店.jpg',
-      title: '花蓮悅樂旅店',
-      description: '',
-      linkUrl: 'https://example.com/japan'
-    },
-    {
       imageUrl: 'assets/images/高雄宮賞藝術大飯店.jpg',
       title: '高雄宮賞藝術大飯店',
       description: '',
       linkUrl: 'https://example.com/wuling'
     },
+    {
+      imageUrl: 'assets/images/花蓮悅樂旅店.jpg',
+      title: '花蓮悅樂旅店',
+      description: '',
+      linkUrl: 'https://example.com/japan'
+    },
+
   ];
   //美食特搜
   travelItems4 = [
@@ -115,16 +116,16 @@ export class TravelComponent {
       linkUrl: '/travelpage2'
     },
     {
+      imageUrl: 'assets/images/台中大江戶町鰻屋.jpg',
+      title: '台中大江戶町鰻屋',
+      description: '',
+      linkUrl: 'https://example.com/wuling'
+    },
+    {
       imageUrl: 'assets/images/高雄摩登餐酒館「永心浮島」.jpg',
       title: '高雄摩登餐酒館「永心浮島」',
       description: '',
       linkUrl: '/travelpage2'
-    },
-    {
-      imageUrl: 'assets/images/花蓮景觀餐廳原野牧場.jpg',
-      title: '花蓮景觀餐廳原野牧場',
-      description: '',
-      linkUrl: 'https://example.com/switzerland'
     },
     {
       imageUrl: 'assets/images/台南阿裕牛肉涮涮鍋.jpg',
@@ -133,10 +134,10 @@ export class TravelComponent {
       linkUrl: 'https://example.com/japan'
     },
     {
-      imageUrl: 'assets/images/台中大江戶町鰻屋.jpg',
-      title: '台中大江戶町鰻屋',
+      imageUrl: 'assets/images/花蓮景觀餐廳原野牧場.jpg',
+      title: '花蓮景觀餐廳原野牧場',
       description: '',
-      linkUrl: 'https://example.com/wuling'
+      linkUrl: 'https://example.com/switzerland'
     },
   ];
 }

@@ -17,9 +17,12 @@ import { BannerComponent } from './banner/banner.component';
 import { HomeComponent } from './home/home.component';
 import { ArticleoverviewComponent } from './articleoverview/articleoverview.component';
 import { TravelComponent } from './travel/travel.component';
+import { Travelpage2Component } from './componet/travelpage2/travelpage2.component';
 import { ShopComponent } from './shop/shop.component';
 import { ComponetComponent } from './componet/componet.component';
-import { Travelpage3Component } from './componet/travelpage3/travelpage3.component'
+import { TravelDetailComponent } from './componet/travel-detail/travel-detail.component';
+import { TraveldetailmanageComponent } from './traveldetailmanage/traveldetailmanage.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -31,7 +34,9 @@ import { Travelpage3Component } from './componet/travelpage3/travelpage3.compone
     TravelComponent,
     ShopComponent,
     ComponetComponent,
-    Travelpage3Component
+    Travelpage2Component,
+    TravelDetailComponent,
+    TraveldetailmanageComponent,
   ],
   imports: [
     BrowserModule,

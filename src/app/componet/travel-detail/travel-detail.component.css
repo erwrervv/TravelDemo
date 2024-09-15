@@ -1,0 +1,90 @@
+/* travel-detail.component.css */
+.travel-detail {
+  padding: 20px;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+.section {
+  margin-bottom: 20px;
+}
+
+button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+
+/* 結帳畫面 */
+.checkout-container {
+  max-width: 800px;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+}
+
+h1 {
+  text-align: center;
+}
+
+.travel-details, .payment-section {
+  margin-bottom: 20px;
+}
+
+.travel-details p {
+  font-size: 16px;
+  margin: 5px 0;
+}
+
+.payment-section h2 {
+  margin-bottom: 10px;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+label {
+  display: block;
+  font-weight: bold;
+}
+
+input {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.submit-btn {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.submit-btn:hover {
+  background-color: #0056b3;
+}
+
+
+
+/* .. */
+
+
+
+
