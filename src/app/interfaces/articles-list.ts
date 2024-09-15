@@ -3,5 +3,10 @@ export interface ArticlesList {
   ArticleListName: string;
   MemberuniqueId: number;
   MemberName:string;
-  Image:string;
+  PartialArticleOverviews:PartialArticleOverviews[];
+}
+export class PartialArticleOverviews{
+  Image?:string;
+  UpdateTime!:string;
+  ArticleId!:number;
 }

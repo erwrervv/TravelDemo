@@ -26,10 +26,9 @@ export class ArticleListComponent implements OnInit {
     private authService: AuthService
   ) {}
   ngOnInit(): void {
-    this.getData().then(()=>{
-    }).catch(err=>{
-    });
-
+    this.getData()
+      .then((res) => {})
+      .catch((err) => {});
   }
 
   getData(): Promise<void> {
