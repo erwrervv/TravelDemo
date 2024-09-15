@@ -34,7 +34,7 @@
         <div class="product-list">
           <div class="product-item">
             <div class="image-holder">
-              <img [src]="product.image" alt="plant" class="uniform-size" />
+              <img [src]="product.image" alt="圖片載入中" class="uniform-size" />
               <i class="icon icon-like-button"></i>
             </div>
             <div class="product-inner">
@@ -48,7 +48,8 @@
             <h3 class="product-title">
               <a (click)="goToProductDetail(product.id)">{{ product.title }}</a>
             </h3>
-            <div class="product-price">{{ product.price }}</div>
+            <div class="product-price" style="color: #ea0000">{{ product.price | currency:'TWD': 'symbol':'1.0-0'
+              }}</div>
           </div>
         </div>
       </div>

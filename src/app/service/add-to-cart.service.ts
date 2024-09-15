@@ -31,25 +31,7 @@ export class AddToCartService {
 
 
 
-  //ver2
-
-    // private cart: any[] = [];
-
-    // constructor() { }
-
-    // addToCart(product: any) {
-    //   this.cart.push(product);
-    //   console.log('Product added to cart:', product);
-    // }
-
-    // getCart() {
-    //   return this.cart;
-    // }
-
-
-
-
-    //ver3
+  // ver3 讓購物車右上角有一個數字
 
     private cart: any[] = [];
   private cartCount = new BehaviorSubject<number>(0); // 使用 BehaviorSubject 来跟踪购物车数量
@@ -65,4 +47,8 @@ export class AddToCartService {
   getCartCount() {
     return this.cartCount.asObservable(); // 使其可观察
   }
+
+  // ver3
+
 }
+
