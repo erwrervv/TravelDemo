@@ -33,12 +33,13 @@
                  "node_modules/@fortawesome/fontawesome-free/css/all.min.css",
                  "node_modules/primeicons/primeicons.css",
                   "src/app/icomoon/icomoon.css"
-                 
 
 
-  
+
+
+
             ],
-            "scripts": []
+            "scripts": ["node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"]
           },
           "configurations": {
             "production": {
@@ -104,12 +105,14 @@
                 "node_modules/swiper/swiper-bundle.min.css",
                 "node_modules/primeicons/primeicons.css",
                 "src/app/icomoon/icomoon.css"
-                 
-               
-  
+
+
+
+
 
             ],
-            "scripts": []
+            "scripts": ["node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"]
+
           }
         }
       }

@@ -43,10 +43,13 @@ const routes: Routes = [
     path: 'productdetail',
     component: ProductdetailComponent,
   },
+  { path: 'productdetail/:id',
+     component: ProductdetailComponent
+     },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule],
 })
-export class AppRoutingModule {}
+export class AppRoutingModule { }

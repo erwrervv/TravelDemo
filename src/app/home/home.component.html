@@ -1,1 +1,14 @@
-<p>home works!</p>
+
+<p>home!</p>
+<div class="image-slider">
+  <!-- 左侧箭头 -->
+       <!-- product-thumbnail-slider -->
+       <swiper class="swiper-container" [config]="swiperConfig">
+        <ng-template swiperSlide *ngFor="let image of images">
+          <img [src]="image.src" class="swiper-slide" [alt]="image.alt" />
+        </ng-template>
+      </swiper>
+      <!-- / product-thumbnail-slider -->
+
+
+</div>

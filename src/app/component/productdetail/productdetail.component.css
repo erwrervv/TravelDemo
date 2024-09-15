@@ -77,3 +77,52 @@ i.pi {
 .p-rating .p-rating-icon.p-rating-icon-active {
   color: #ffab18;
 }
+
+
+
+.alert {
+  padding: 15px;
+  background-color: #4CAF50; /* 绿色 */
+  color: white;
+  border-radius: 5px;
+  text-align: center;
+}
+
+
+
+/* 商品圖 */
+.product-detail-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.product-detail-container .col-md-7 {
+  flex: 7;
+}
+
+.product-detail-container .col-md-5 {
+  flex: 5;
+}
+
+.product-image {
+  max-width: 100%; /* 确保图片不超出父容器 */
+  height: auto;
+}
+
+/* 響應式 */
+@media (max-width: 768px) {
+  .product-detail-container {
+    flex-direction: column;
+  }
+
+  .product-detail-container .col-md-7,
+  .product-detail-container .col-md-5 {
+    flex: 100%;
+  }
+}
+.product-image {
+
+  width: 600px;
+  height: 400px;
+  object-fit: cover;
+}
