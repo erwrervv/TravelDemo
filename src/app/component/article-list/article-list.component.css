@@ -3,7 +3,8 @@
   background-color: #f9f9f9;
   padding: 20px;
   border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin-bottom: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
 }
 
 .article-list-header {
@@ -37,7 +38,7 @@
 .article-list-content {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  /* justify-content: space-between; */
 }
 
 .articles {
@@ -56,8 +57,8 @@
 }
 
 .article-image img {
-  width: 400px;
-  height: 400px;
+  width: 150px;
+  height: 150px;
   margin-bottom: 10px;
   max-width: 600px;
   max-height: 400px;

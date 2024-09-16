@@ -9,4 +9,5 @@ export class PartialArticleOverviews{
   Image?:string;
   UpdateTime!:string;
   ArticleId!:number;
+  ArticleName!:string;
 }
