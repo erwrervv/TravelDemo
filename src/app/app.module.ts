@@ -24,6 +24,8 @@ import { SwiperModule } from 'swiper/angular';
 import { ProductdetailComponent } from './component/productdetail/productdetail.component';
 import { RatingModule } from 'primeng/rating';
 import { AddToCartService } from './service/add-to-cart.service';
+import { ProducttableComponent } from './component/producttable/producttable.component';
+import { OrderpageComponent } from './component/orderpage/orderpage.component';
 
 
 @NgModule({
@@ -39,6 +41,8 @@ import { AddToCartService } from './service/add-to-cart.service';
     ShoplistComponent,
     CartComponent,
     ProductdetailComponent,
+    ProducttableComponent,
+    OrderpageComponent,
 
 
 

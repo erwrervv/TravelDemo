@@ -7,7 +7,8 @@ import { ShopComponent } from './shop/shop.component';
 import { ShoplistComponent } from './component/shoplist/shoplist.component';
 import { CartComponent } from './component/cart/cart.component';
 import { ProductdetailComponent } from './component/productdetail/productdetail.component';
-
+import { ProducttableComponent } from './component/producttable/producttable.component';
+import { OrderpageComponent } from './component/orderpage/orderpage.component';
 
 const routes: Routes = [
   {
@@ -45,11 +46,13 @@ const routes: Routes = [
   },
   { path: 'productdetail/:id',
      component: ProductdetailComponent
-     },
+   },
+  { path: 'producttable', component: ProducttableComponent },
+  { path: 'orderpage', component: OrderpageComponent },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}
