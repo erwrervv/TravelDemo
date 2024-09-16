@@ -35,11 +35,6 @@ export class ArticleoverviewComponent implements OnInit {
   loadArticle(id: number): void {
     this.dataService.getArticleById(id).subscribe((data) => {
       this.articleId = data;
-      if (data.ArticleCoverImage) {
-        this.imageUrls[
-          data.ArticleId
-        ] = `data:image/png;base64,${data.ArticleCoverImage}`;
-      }
     });
   }
 

@@ -15,7 +15,7 @@
     <!-- -------修改卻不能正常顯示----- -->
     <!-- ------ -->
     <div class="article-image">
-      <img [src]="imageUrls[articleId.ArticleId] || 'assets/images/noimage.png'" style="width:350px; height:300px;" />
+      <img [src]="articleId.ArticleCoverImageString" style="width:350px; height:300px;" />
     </div>
     <div class="article-content">
       <p [innerHTML]="articleId.ArticleContent"></p>

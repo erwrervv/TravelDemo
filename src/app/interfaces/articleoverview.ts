@@ -12,4 +12,5 @@ export interface Articleoverviews {
   ArticleCoverImageString?: string;
   MemberName?:string;
   Tag:string;
+  ImageUrl?:string
 }

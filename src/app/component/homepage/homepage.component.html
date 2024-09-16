@@ -115,13 +115,16 @@
                       <div class="single-item-grid">
                         <div class="image">
                           <a (click)="goToComment(item.ArticleId)">
-                            <img
+                            <!-- <img
                               [src]="
                                 'data:image/jpeg;base64,' +
                                 item.ArticleCoverImage
                               "
                               style="width: 100%; height: 300px"
-                            />
+                            /> -->
+                            <!-- <img [src]="'https://localhost:7003/images/articleId/'+item.ArticleId+'/1.jpg'" alt=""> -->
+                            <!-- <img [src]="'/images/articleId/' + item.ArticleId + '/1.jpg'" alt=""> -->
+                             <img [src]="item.ImageUrl" alt="">
                           </a>
                         </div>
                         <div class="content">
