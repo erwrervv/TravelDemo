@@ -1,75 +1,100 @@
+<!-- 旅遊明細 -->
+<!-- <div class="travel-detail">
+  <h1>旅行明細</h1>
+<ul>
+  <li>
+    <h2>{{travelDatas.TravelName[0]}}</h2>
+    <p><strong>天數:</strong> {{ travelDatas.AllDays }} 天</p>
+      <p><strong>日期:</strong> {{ travelDatas.TravelDatetime | date:'yyyy年MM月dd日' }}</p>
+      <p><strong>價格:</strong> {{ travelDatas.price | currency:'TWD' }}</p>
+  </li>
+</ul>
+</div> -->
+
+<!-- <div *ngFor="let travel of travelDatas">
+  <h1>{{ travelDatas.title }}</h1>
+  <p>旅行区域：{{ travelDatas.travelAreaId }}</p>
+  <p>旅行日期：{{ travelDatas.travelDatetime | date:'yyyy-MM-dd' }}</p>
+  <p>天数：{{ travelDatas.allDays }} 天</p>
+  <p>集合地点：{{ travelDatas.travelMeetingpoint }}</p>
+  <p>价格：{{ travelDatas.price | currency }}</p>
+  <p *ngIf="travelDatas.productShow">此旅游项目正在展示中</p>
+  <p *ngIf="!travelDatas.productShow">此旅游项目未展示</p>
+</div> -->
+<!-- <div>
+<h2>{{ travelDatas[0].TravelName }}</h2>
+<ul>
+  <li *ngFor="let travel of travelDatas">
+    <strong>{{ travel.TravelName }}:</strong> {{ travel.AllDays }}
+  </li>
+</ul>
+</div> -->
+
+
 <!-- travel-detail.component.html -->
-<div class="travel-detail" *ngIf="travelDetail">
+<div class="travel-detail" *ngIf="true">
+  <h1>旅行明细</h1>
+
   <!-- 基本信息 -->
-  <h1>{{ travelDetail.title }}</h1>
-  <img [src]="travelDetail.imageUrl" [alt]="travelDetail.title" />
-  <p class="intro">{{ travelDetail.intro }}</p>
+  <div class="basic-info">
+    <h2>{{ travelDatas.Title }}</h2>
+    <p><strong>天數:</strong> {{ travelDatas.AllDays }} 天</p>
+    <p><strong>日期:</strong> {{ travelDatas.TravelDatetime | date:'yyyy年MM月dd日' }}</p>
+    <p><strong>集合地點:</strong> {{ travelDatas.TravelMeetingpoint }}</p>
+    <p><strong>價格:</strong> {{ travelDatas.Price | currency:'TWD' }}</p>
+    <p *ngIf="travelDatas.ProductShow"><strong>展示狀態:</strong> 此旅行项目正在展示中</p>
+    <p *ngIf="!travelDatas.ProductShow"><strong>展示狀態:</strong> 此旅行项目未展示</p>
+  </div>
 
   <!-- 行程安排 -->
-  <div class="section">
+  <div class="section itinerary">
     <h2>行程安排</h2>
     <ul>
-      <li *ngFor="let section of travelDetail.itinerary">
-        <strong>{{ section.day }}:</strong> {{ section.description }}
+      <li *ngFor="let section of travelDatas.Itinerary">
+        <strong>第 {{ section.Day }} 天:</strong> {{ section.Description }}
       </li>
     </ul>
   </div>
 
-  <!-- 交通方式 -->
-  <div class="section">
-    <h2>交通方式</h2>
-    <p><strong>交通類型:</strong> {{ travelDetail.transportation}}</p>
-    <p><strong>詳細信息:</strong> {{ travelDetail.transportation}}</p>
+  <div class="section transportation">
+    <h2>交通信息</h2>
+    <p><strong>交通方式:</strong></p>
+    <ul>
+      <li *ngIf="travelDatas.Transportation === 'bus'">公車</li>
+      <li *ngIf="travelDatas.Transportation === 'tourbus'">遊覽車</li>
+      <li *ngIf="travelDatas.Transportation === 'train'">火車</li>
+      <li *ngIf="!travelDatas.Transportation">未提供交通信息</li>
+    </ul>
   </div>
 
-  <!-- 餐飲信息 -->
-  <div class="section">
+
+  <!-- 餐饮信息 -->
+  <div class="section meals">
     <h2>餐飲信息</h2>
     <ul>
-      <li *ngFor="let meal of travelDetail.meals">
-        <strong>{{ meal.type }}:</strong> {{ meal.details }}
+      <li *ngFor="let meal of travelDatas.Itinerary">
+        <strong>{{ meal.Meals}}:</strong>
       </li>
     </ul>
   </div>
 
   <!-- 住宿信息 -->
-  <div class="section">
+  <div class="section accommodation">
     <h2>住宿信息</h2>
-    <p><strong>酒店名稱:</strong> {{ travelDetail.accommodation }}</p>
-    <p><strong>描述:</strong> {{ travelDetail.accommodation }}</p>
+    <p><strong>住宿:</strong> {{ travelDatas.Accommodation }}</p>
   </div>
 
-  <!-- 价格与预订 -->
-  <div class="section">
-    <h2>價格與預訂</h2>
-    <p><strong>價格:</strong> {{ travelDetail.pricing }}</p>
-    <p>{{ travelDetail.booking }}</p>
-  </div>
-</div>
-
-
-<div class="checkout-container">
-  <h1>旅行明细 - 結帳</h1>
-  <div class="travel-details">
-    <h2>旅行套餐</h2>
-    <p><strong>目的地:</strong> {{ destination }}</p>
-    <p><strong>日期:</strong> {{ travelDate }}</p>
-    <p><strong>人數:</strong> {{ numberOfPeople }}</p>
-    <p><strong>價格:</strong> {{ price | currency }}</p>
+  <!-- 定价与预订 -->
+  <div class="section pricing-booking">
+    <h2>定價與預訂</h2>
+    <p><strong>價格:</strong> {{ travelDatas.Pricing }}</p>
+    <p><strong>預訂信息:</strong> {{ travelDatas.Booking }}</p>
   </div>
 
-  <div class="payment-section">
-    <h2>支付信息</h2>
-    <form (ngSubmit)="onSubmit()" #paymentForm="ngForm">
-      <div class="form-group">
-        <label for="name">持卡人姓名</label>
-        <input type="text" id="name" name="name" ngModel required />
-      </div>
-      <div class="form-group">
-        <label for="expiryDate">到期日期</label>
-        <input type="text" id="expiryDate" name="expiryDate" ngModel required />
-      </div>
-      <button type="submit" class="submit-btn" (click)="bookNow()">確認支付</button>
-    </form>
+  <!-- 图片展示 -->
+  <div class="section image-gallery">
+    <h2>圖片展示</h2>
+    <img [src]="travelDatas.ImageUrl" [alt]="travelDatas.Title" />
   </div>
 </div>
+

@@ -1,6 +1,6 @@
+import { DatatravelService } from './../../datatravel.service';
 // travel-detail.component.ts
 import { Component, OnInit } from '@angular/core';
-import { TravelDetailService } from './travel-detail.service';
 import { TravelDetail } from './travel-detail.model';
 
 @Component({
@@ -13,26 +13,31 @@ export class TravelDetailComponent implements OnInit {
   travelDetail: TravelDetail | null = null;
 section: any;
 
-  constructor(private travelDetailService: TravelDetailService) {}
+  constructor(private datatravelService: DatatravelService) {}
 
   ngOnInit(): void {
     this.loadTravelDetail();
   }
 
+  travelDatas:any
+
   loadTravelDetail(): void {
     // 这里应该是从服务中获取旅行细节的逻辑
-    this.travelDetailService.getTravelDetail().subscribe(detail => this.travelDetail = detail);
+    this.datatravelService.getDataTravel(1).subscribe(detail => {
+      console.log(detail)
+      this.travelDatas = detail
+    });
   }
 
   bookNow(): void {
     // 处理预订逻辑
     alert('立即預訂功能尚未實現');
   }
-  
-  destination = '基隆景點正濱漁港二日遊';
-  travelDate = '2024年10月1日';
-  numberOfPeople = 2;
-  price = 12000; // 价格以原币种表示
+
+  // destination = '基隆景點正濱漁港二日遊';
+  // travelDate = '2024年10月1日';
+  // numberOfPeople = 2;
+  // price = 12000; // 价格以原币种表示
 
   onSubmit() {
     // 处理表单提交逻辑，例如发送支付请求
