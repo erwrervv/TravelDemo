@@ -50,50 +50,10 @@
           </div>
           <!-- End Single Widget -->
           <!-- Start Single Widget -->
-          <div class="single-widget condition">
-            <h3>Condition</h3>
-            <div class="form-check">
-              <input
-                class="form-check-input"
-                type="checkbox"
-                value=""
-                id="flexCheckDefault1"
-              />
-              <label class="form-check-label" for="flexCheckDefault1">
-                All
-              </label>
-            </div>
-            <div class="form-check">
-              <input
-                class="form-check-input"
-                type="checkbox"
-                value=""
-                id="flexCheckDefault2"
-              />
-              <label class="form-check-label" for="flexCheckDefault2">
-                New
-              </label>
-            </div>
-            <div class="form-check">
-              <input
-                class="form-check-input"
-                type="checkbox"
-                value=""
-                id="flexCheckDefault3"
-              />
-              <label class="form-check-label" for="flexCheckDefault3">
-                Used
-              </label>
-            </div>
-          </div>
+
           <!-- End Single Widget -->
           <!-- Start Single Widget -->
-          <div class="single-widget banner">
-            <h3>Advertisement</h3>
-            <a href="javascript:void(0)">
-              <img src="assets/images/banner/banner.jpg" alt="#" />
-            </a>
-          </div>
+
           <!-- End Single Widget -->
         </div>
       </div>
@@ -173,13 +133,12 @@
                             }}
                           </a>
                           <h3 class="title">
-                            <a [routerLink]="['/article', item.ArticleId]">
+                            <a [routerLink]="['/article', item.ArticleId]" [innerHTML]="">
                               {{ item.ArticleName }}
                             </a>
                           </h3>
                           <ul class="info">
-                            <li class="price">
-                              {{ item.ArticleContent }}
+                            <li class="price" [innerHTML]="item.ArticleContent ">
                             </li>
                             <li class="like">
                               <a href="javascript:void(0)">

@@ -37,12 +37,17 @@ export class HomepageComponent implements OnInit {
   goToComment(id: number) {
     this.router.navigate([`/article/${id}`]);
   }
-  getData(listName?:string) {
-    if(listName)this.page.SearchTagName=listName; //點選tag的話會帶入文章分類名稱
+  getData(listName?: string) {
+    if (listName) {
+      this.page.SearchKeyword=undefined;
+      this.page.SearchTagName = listName; //點選tag的話會帶入文章分類名稱
+    } else {
+      this.page.SearchTagName = undefined;
+    }
     this.dataService.getArticlesPaged(this.page).subscribe((res) => {
       this.ArticleOverviewData = res.List; //賦予資料源
       this.totalPages = res.TotalPages; //賦予總頁數
-      window.scrollTo(0,0)
+      window.scrollTo(0, 0); //回到畫面頂端
     });
   }
   getArticlesList() {
@@ -55,21 +60,18 @@ export class HomepageComponent implements OnInit {
     if (pageNumber > 0 && pageNumber <= this.totalPages) {
       this.page.PageNumber = pageNumber; //html觸發 event 前往指定分頁
       this.getData();
-      window.scrollTo(0, 0); //回到畫面頂端
     }
   }
   next() {
     if (this.page.PageNumber < this.totalPages) {
       this.page.PageNumber++; //HTML觸發EVENT 前往下一頁
       this.getData(); //重新取得資料
-      window.scrollTo(0, 0); //回到畫面頂端
     }
   }
   back() {
     if (this.page.PageNumber > 1) {
       this.page.PageNumber--;
       this.getData(); //重新取得資料
-      window.scrollTo(0, 0); //回到畫面頂端
     }
   }
 }
