@@ -36,7 +36,7 @@ export class DataService {
   //   return this.http.post<any>(this.Articleoverviews, data);
   // }
 
-  putArticleOverviews(id:number,data: any): Observable<any> {
+  putArticleOverviews(id: number, data: any): Observable<any> {
     return this.http.put<any>(`${this.articlesUrl}/${id}`, data);
   }
 
@@ -62,7 +62,7 @@ export class DataService {
               ? `data:image/png;base64,${item.MemberPicture}`
               : '', // 後端傳來blob格式需要+上'data:image/jpeg;base64,' 畫面才能顯示出來
             MemberName: item.MemberName,
-            CommentDateTime: item.CommentDateTime
+            CommentDateTime: item.CommentDateTime,
           }));
         })
       );
@@ -118,10 +118,17 @@ export class DataService {
   getArticlesList(): Observable<ArticlesList[]> {
     return this.http.get<ArticlesList[]>(this.articlesListUrl);
   }
-  getArticlesPaged(Page:pageinfo){
-    let params=new HttpParams();
-    params=params.append('PageSize',Page.PageSize);
-    params=params.append('PageNumber',Page.PageNumber);
-    return this.http.get<PagedResult<Articleoverviews>>(`${this.articlesUrl}/GetPaged`,{params:params})
+  getArticlesPaged(Page: pageinfo) {
+    let params = new HttpParams();
+    params = params.append('PageSize', Page.PageSize);
+    params = params.append('PageNumber', Page.PageNumber);
+    if (Page.SearchKeyword)
+      params = params.append('SearchKeyword', Page.SearchKeyword);
+    if (Page.SearchTagName)
+      params = params.append('SearchTagName', Page.SearchTagName);
+    return this.http.get<PagedResult<Articleoverviews>>(
+      `${this.articlesUrl}/GetPaged`,
+      { params: params }
+    );
   }
 }

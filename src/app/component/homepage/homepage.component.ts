@@ -31,20 +31,26 @@ export class HomepageComponent implements OnInit {
 
   ngOnInit(): void {
     this.getData();
+    this.getArticlesList();
   }
 
   goToComment(id: number) {
     this.router.navigate([`/article/${id}`]);
   }
-  getData() {
+  getData(listName?:string) {
+    if(listName)this.page.SearchTagName=listName; //點選tag的話會帶入文章分類名稱
     this.dataService.getArticlesPaged(this.page).subscribe((res) => {
       this.ArticleOverviewData = res.List; //賦予資料源
       this.totalPages = res.TotalPages; //賦予總頁數
-      this.dataService.getArticlesList().subscribe((res) => {
-        this.articleListData = res;
-      });
+      window.scrollTo(0,0)
     });
   }
+  getArticlesList() {
+    this.dataService.getArticlesList().subscribe((res) => {
+      this.articleListData = res;
+    });
+  }
+
   goToPage(pageNumber: number) {
     if (pageNumber > 0 && pageNumber <= this.totalPages) {
       this.page.PageNumber = pageNumber; //html觸發 event 前往指定分頁

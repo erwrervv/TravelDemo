@@ -6,7 +6,7 @@
   </p>
 <![endif]-->
 <!-- Preloader -->
-<div class="preloader w-100" *ngIf="!data$">
+<div class="preloader w-100" *ngIf="!ArticleOverviewData">
   <div class="preloader-inner">
     <div class="preloader-icon">
       <span></span>
@@ -25,9 +25,9 @@
           <!-- Start Single Widget -->
           <div class="single-widget search">
             <h3>全站搜索</h3>
-            <form action="#">
-              <input type="text" placeholder="Search Here..." />
-              <button type="submit"><i class="lni lni-search-alt"></i></button>
+            <form action="#" >
+              <input type="text" [(ngModel)]="page.SearchKeyword" name="SearchKeyword" placeholder="Search Here..." />
+              <button type="submit" (click)="getData()"><i class="lni lni-search-alt"></i></button>
             </form>
           </div>
           <!-- End Single Widget -->
@@ -38,44 +38,14 @@
               class="list"
               *ngFor="let item of articleListData"
               style="cursor: pointer"
+              (click)="getData(item.ArticleListName)"
             >
               <li style="margin-bottom: 10px;">
-                <a href=""
+                <a
                   ><i class="lni lni-control-panel"></i
                   >{{ item.ArticleListName }}</a
                 >
               </li>
-
-              <!-- <li>
-                <a href="javascript:void(0)"
-                  ><i class="lni lni-dinner"></i> 旅遊<span>5</span></a
-                >
-              </li>
-              <li>
-                <a href="javascript:void(0)"
-                  ><i class="lni lni-control-panel"></i> 運動<span>6</span></a
-                >
-              </li>
-              <li>
-                <a href="javascript:void(0)"
-                  ><i class="lni lni-bullhorn"></i> 日常<span>5</span></a
-                >
-              </li>
-              <li>
-                <a href="javascript:void(0)"
-                  ><i class="lni lni-home"></i> 書籍<span>7</span></a
-                >
-              </li>
-              <li>
-                <a href="javascript:void(0)"
-                  ><i class="lni lni-bolt"></i> 藝術<span>8</span></a
-                >
-              </li>
-              <li>
-                <a href="javascript:void(0)"
-                  ><i class="lni lni-tshirt"></i> 電影<span>10</span></a
-                >
-              </li> -->
             </ul>
           </div>
           <!-- End Single Widget -->
