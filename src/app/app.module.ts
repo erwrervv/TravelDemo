@@ -30,6 +30,7 @@ import { DataService } from './data.service';
 import { ButtonModule } from 'primeng/button';
 import { EditorModule } from 'primeng/editor';
 import { LoginComponent } from './component/login/login.component';
+import { ArticleListPostComponent } from './component/article-list-post/article-list-post.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -45,6 +46,7 @@ import { LoginComponent } from './component/login/login.component';
     CommentListComponent,
     HomepageComponent,
     LoginComponent,
+    ArticleListPostComponent,
   ],
   imports: [
     BrowserModule,

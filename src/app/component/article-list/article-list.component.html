@@ -1,8 +1,15 @@
-<div class="article-list-container">
+<div class="container">
 
   <div *ngFor="let article of articlesListData; let idx = index">
+    <div class="">
     <div class="article-list-container">
-    <div class="listTitle">{{ article.ArticleListName }}</div>
+    <div class="listTitle">清單：{{ article.ArticleListName }}
+      <span class="article-list-put" style="float: right;">添加</span>
+      <span class="article-list-put" style="float: right;">更改名稱</span>
+    </div>
+  </div>
+  </div>
+<hr>
     <div class="article-list-content">
       <button class="nav-arrow left-arrow">
         <!-- <i class="fa fa-chevron-left"></i> -->
@@ -26,11 +33,5 @@
           </div>
         </div>
       </div>
-
-      <button class="nav-arrow right-arrow">
-        <!-- <i class="fa fa-chevron-right"></i> -->
-      </button>
-    </div>
-  </div>
 </div>
 

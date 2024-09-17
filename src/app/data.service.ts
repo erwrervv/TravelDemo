@@ -4,7 +4,7 @@ import { map, Observable } from 'rxjs';
 import { Articleoverviews } from 'src/app/interfaces/articleoverview';
 import { BasicMemberInformation } from 'src/app/interfaces/basicMemberInformation';
 import { Comments } from 'src/app/interfaces/comments';
-import { ArticlesList } from './interfaces/articles-list';
+import { ArticlesList, ArticlesListPost } from './interfaces/articles-list';
 import { PagedResult, pageinfo } from './interfaces/pageInfo';
 
 @Injectable({
@@ -115,8 +115,17 @@ export class DataService {
       `${this.MemberInformationUrl}/${id}`
     );
   }
+
+  //ArticlesList GET POST
+
   getArticlesList(): Observable<ArticlesList[]> {
     return this.http.get<ArticlesList[]>(this.articlesListUrl);
+  }
+  postArticleList(data:ArticlesListPost): Observable<ArticlesListPost>{
+    return this.http.post<ArticlesListPost>(this.articlesListUrl,data)
+  }
+  putArticleList(id:number,data:ArticlesListPost): Observable<ArticlesListPost>{
+    return this.http.post<ArticlesListPost>(`data${this.articlesListUrl}/${id}`,data)
   }
   getArticlesPaged(Page: pageinfo) {
     let params = new HttpParams();

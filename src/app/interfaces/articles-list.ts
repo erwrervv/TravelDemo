@@ -11,3 +11,8 @@ export class PartialArticleOverviews{
   ArticleId!:number;
   ArticleName!:string;
 }
+export class ArticlesListPost{
+  ArticleListId!: number;
+  ArticleListName!: string;
+  MemberuniqueId!: number;
+}
