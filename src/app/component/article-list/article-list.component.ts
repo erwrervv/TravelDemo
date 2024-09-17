@@ -51,6 +51,8 @@ this.router.navigate([`article`])
 
   }
 
-  putArticleListUrl(){}
+  putArticleListUrl(articlelistId:number){
+this.router.navigate([`/article-list-post/${articlelistId}`])
+  }
   // 在這裡添加事件處理器或其他邏輯
 }
