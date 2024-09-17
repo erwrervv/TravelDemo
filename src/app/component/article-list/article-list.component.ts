@@ -11,13 +11,13 @@ import { Observable } from 'rxjs';
   styleUrls: ['./article-list.component.css'],
 })
 export class ArticleListComponent implements OnInit {
-  articles = [
-    { title: '文章名稱', views: 1111, date: new Date('2022-12-01') },
-    { title: '文章名稱', views: 1111, date: new Date('2022-12-01') },
-    { title: '文章名稱', views: 1111, date: new Date('2022-12-01') },
-    { title: '文章名稱', views: 1111, date: new Date('2022-12-01') },
-    { title: '文章名稱', views: 1111, date: new Date('2022-12-01') },
-  ];
+  // articles = [
+  //   { title: '文章名稱', views: 1111, date: new Date('2022-12-01') },
+  //   { title: '文章名稱', views: 1111, date: new Date('2022-12-01') },
+  //   { title: '文章名稱', views: 1111, date: new Date('2022-12-01') },
+  //   { title: '文章名稱', views: 1111, date: new Date('2022-12-01') },
+  //   { title: '文章名稱', views: 1111, date: new Date('2022-12-01') },
+  // ];
   articlesListData: Array<ArticlesList> = new Array<ArticlesList>();
   articlesListData$!: Observable<ArticlesList[]>;
   constructor(
