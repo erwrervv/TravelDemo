@@ -141,8 +141,8 @@
                             </a>
                           </h3>
                           <ul class="info">
-                            <li class="price" [innerHTML]="item.ArticleContent ">
-                            </li>
+                            <!-- <li class="price" [innerHTML]="item.ArticleContent ">
+                            </li> -->
                             <li class="like" (click)="likeUpdete(item.ArticleId,item)">
                               <a href="javascript:void(0)">
                                 <i class="lni lni-heart"></i>
@@ -202,7 +202,7 @@
                 >
                   <div class="row">
                     <div
-                      *ngFor="let item of data$ | async"
+                      *ngFor="let item of ArticleOverviewData"
                       class="col-lg-12 col-md-12 col-12"
                     >
                       <!-- Start Single Item -->
@@ -210,14 +210,8 @@
                         <div class="row align-items-center">
                           <div class="col-lg-5 col-md-7 col-12">
                             <div class="image">
-                              <a [routerLink]="['/article', item.ArticleId]">
-                                <img
-                                  [src]="
-                                    imageUrls[item.ArticleId] ||
-                                    'assets/images/noimage.png'
-                                  "
-                                  style="width: 100%; height: 300px"
-                                />
+                              <a (click)="goToComment(item.ArticleId)">
+                                <img [src]="item.ArticleCoverImageString" style="width: 100%; height: 300px" alt="">
                               </a>
                             </div>
                           </div>
@@ -232,12 +226,9 @@
                                 }}
                               </a>
                               <h3 class="title">
-                                <a [routerLink]="['/article', item.ArticleId]">
+                                <a [routerLink]="['/article', item.ArticleId]" [innerHTML]="">
                                   {{
-                                    item.ArticleName?.length > 10
-                                      ? (item.ArticleName | slice : 0 : 10) +
-                                        "..."
-                                      : item.ArticleName
+                                    item.ArticleName
                                   }}
                                 </a>
                               </h3>
@@ -252,12 +243,10 @@
                                     item.ArticleContent ?? "" | slice : 0 : 100
                                   }}
                                   {{
-                                    item.ArticleContent?.length > 100
-                                      ? "..."
-                                      : ""
+                                    item.ArticleContent
                                   }}
                                 </li>
-                                <li class="like">
+                                <li class="like" (click)="likeUpdete(item.ArticleId,item)">
                                   <a href="javascript:void(0)">
                                     <i class="lni lni-heart"></i>
                                   </a>
@@ -275,13 +264,29 @@
                       <!-- Pagination -->
                       <div class="pagination left">
                         <ul class="pagination-list">
-                          <li><a href="javascript:void(0)">1</a></li>
-                          <li class="active">
-                            <a href="javascript:void(0)">2</a>
+                          <li
+                            (click)="goToPage(1)"
+                            *ngIf="page.PageNumber !== 1"
+                          >
+                            <a href="javascript:void(0)"
+                              ><i class="lni lni-chevron-left"></i
+                            ></a>
                           </li>
-                          <li><a href="javascript:void(0)">3</a></li>
-                          <li><a href="javascript:void(0)">4</a></li>
-                          <li>
+                          <li
+                            *ngFor="
+                              let pageNum of [].constructor(totalPages);
+                              let i = index
+                            "
+                            [class.active]="i + 1 === page.PageNumber"
+                            (click)="goToPage(i + 1)"
+                          >
+                            <a href="javascript:void(0)">{{ i + 1 }}</a>
+                          </li>
+                          <li
+                            (click)="next()"
+                            *ngIf="page.PageNumber !== totalPages"
+                            [class.disabled]="page.PageNumber >= totalPages"
+                          >
                             <a href="javascript:void(0)"
                               ><i class="lni lni-chevron-right"></i
                             ></a>
