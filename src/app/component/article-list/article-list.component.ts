@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { DataService } from '../../data.service';
 import { Articleoverviews } from 'src/app/interfaces/articleoverview';
 import { ArticlesList } from 'src/app/interfaces/articles-list';
@@ -23,7 +23,8 @@ export class ArticleListComponent implements OnInit {
   constructor(
     private activatedRouter: ActivatedRoute,
     private dataService: DataService,
-    private authService: AuthService
+    private authService: AuthService,
+    private router: Router
   ) {}
   ngOnInit(): void {
     this.getData()
@@ -44,5 +45,12 @@ export class ArticleListComponent implements OnInit {
       );
     });
   }
+
+  postArticleListUrl(){
+this.router.navigate([`article`])
+
+  }
+
+  putArticleListUrl(){}
   // 在這裡添加事件處理器或其他邏輯
 }
