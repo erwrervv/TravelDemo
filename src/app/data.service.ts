@@ -3,7 +3,7 @@ import { HttpClient, HttpParams } from '@angular/common/http';
 import { map, Observable } from 'rxjs';
 import { Articleoverviews } from 'src/app/interfaces/articleoverview';
 import { BasicMemberInformation } from 'src/app/interfaces/basicMemberInformation';
-import { Comments } from 'src/app/interfaces/comments';
+import { Comments, CommentsPost } from 'src/app/interfaces/comments';
 import { ArticlesList, ArticlesListPost } from './interfaces/articles-list';
 import { PagedResult, pageinfo } from './interfaces/pageInfo';
 
@@ -68,8 +68,8 @@ export class DataService {
       );
   }
   //  POST、PUT、DELETE
-  postComments(data: any): Observable<any> {
-    return this.http.post<any>(this.CommentsUrl, data);
+  postComments(data: CommentsPost): Observable<CommentsPost> {
+    return this.http.post<CommentsPost>(this.CommentsUrl, data);
   }
 
   putComments(data: any): Observable<any> {
@@ -121,12 +121,16 @@ export class DataService {
   getArticlesList(): Observable<ArticlesList[]> {
     return this.http.get<ArticlesList[]>(this.articlesListUrl);
   }
+  getArticlesListById(id:Number):Observable<ArticlesList>{
+    return this.http.get<ArticlesList>(`${this.articlesListUrl}/${id}`);
+  }
   postArticleList(data:ArticlesListPost): Observable<ArticlesListPost>{
     return this.http.post<ArticlesListPost>(this.articlesListUrl,data)
   }
-  putArticleList(id:number,data:ArticlesListPost): Observable<ArticlesListPost>{
-    return this.http.post<ArticlesListPost>(`data${this.articlesListUrl}/${id}`,data)
+  putArticleList(id:Number,data:ArticlesListPost): Observable<ArticlesListPost>{
+    return this.http.put<ArticlesListPost>(`${this.articlesListUrl}/${id}`,data)
   }
+
   getArticlesPaged(Page: pageinfo) {
     let params = new HttpParams();
     params = params.append('PageSize', Page.PageSize);

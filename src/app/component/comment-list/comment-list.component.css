@@ -131,3 +131,26 @@
   background-color: transparent;
   font-size: 18px;
 }
+
+
+/* /評論的CSS/ */
+.article-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.article-title input {
+  width: 90%;
+  padding: 10px;
+  font-size: 18px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.article-title span {
+  font-size: 14px;
+  color: #999;
+}
+/* /評論的CSS/ */

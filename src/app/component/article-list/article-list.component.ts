@@ -50,8 +50,13 @@ export class ArticleListComponent implements OnInit {
 this.router.navigate([`article/like`,name])
   }
 
-  putArticleListUrl(articlelistId:number){
-this.router.navigate([`/article-list-post/${articlelistId}`])
+  putArticleListUrl(ArticleListId:number){
+this.router.navigate([`/article-list-post/${ArticleListId}`])
+
+  }
+
+  gotoArticle(id:Number){
+    this.router.navigate([`/article/${id}`])
   }
   // 在這裡添加事件處理器或其他邏輯
 }

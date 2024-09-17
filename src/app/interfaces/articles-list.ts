@@ -6,10 +6,10 @@ export interface ArticlesList {
   PartialArticleOverviews:PartialArticleOverviews[];
 }
 export class PartialArticleOverviews{
-  Image?:string;
   UpdateTime!:string;
   ArticleId!:number;
   ArticleName!:string;
+  ArticleCoverImageString!:string;
 }
 export class ArticlesListPost{
   ArticleListId!: number;

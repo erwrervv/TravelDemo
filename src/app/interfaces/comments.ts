@@ -6,3 +6,11 @@ export interface Comments {
   MemberName: string;
   MemberPicture: string;
 }
+
+export class CommentsPost{
+  CommentId!:number
+  ArticleId!:number
+  MemberuniqueId!:number
+  CommentContent!:string
+  CommentDateTime!:string
+}

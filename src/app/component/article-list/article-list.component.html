@@ -16,11 +16,10 @@
       </button>
       <div class="articles" *ngFor="let item of article.PartialArticleOverviews">
         <div class="article">
-          <div class="article-image">
+          <div class="article-image" (click)="gotoArticle(item.ArticleId)">
             <img
               [src]="
-                'data:image/jpeg;base64,' +
-                item.Image
+                item.ArticleCoverImageString
               "
               alt="Article Image"
             />

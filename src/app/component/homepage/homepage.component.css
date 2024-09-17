@@ -6,9 +6,9 @@
   width: 100%
 }
 
-.card img {
-  width: 100%;
-  height: auto;
+img {
+  width: 300px;
+  height:300px;
 }
 
 .w-80 {
@@ -17,4 +17,12 @@
 
 .ma {
   margin: 0 auto
+}
+.price
+{
+  display: inline-block;
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow: ellipsis;
+  max-width: 10ch;
 }

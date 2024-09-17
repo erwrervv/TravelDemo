@@ -2,7 +2,7 @@ import { AuthService } from 'src/app/auth.service';
 import { Component, OnInit, TemplateRef } from '@angular/core';
 import { DataService } from '../../data.service';
 import { forkJoin, Observable } from 'rxjs';
-import { map, switchMap } from 'rxjs/operators';
+import { finalize, map, switchMap } from 'rxjs/operators';
 import { NgIfContext } from '@angular/common';
 import { Router, ActivatedRoute } from '@angular/router';
 import { Articleoverviews } from 'src/app/interfaces/articleoverview';
@@ -23,6 +23,7 @@ export class HomepageComponent implements OnInit {
   totalPages: number = 0;
   articleListData: Array<ArticlesList> = new Array<ArticlesList>();
   listName!: string;
+  totalCount!:number;
   constructor(
     private dataService: DataService,
     private authService: AuthService,
@@ -34,6 +35,8 @@ export class HomepageComponent implements OnInit {
     this.getData();
     this.getArticlesList();
     this.listName = this.activatedRoute.snapshot.paramMap.get('name')!;
+
+
   }
 
   goToComment(id: number) {
@@ -49,7 +52,9 @@ export class HomepageComponent implements OnInit {
     this.dataService.getArticlesPaged(this.page).subscribe((res) => {
       this.ArticleOverviewData = res.List; //賦予資料源
       this.totalPages = res.TotalPages; //賦予總頁數
+      this.totalCount=res.TotalCount;
       window.scrollTo(0, 0); //回到畫面頂端
+      console.log(this.ArticleOverviewData);
     });
   }
   getArticlesList() {
