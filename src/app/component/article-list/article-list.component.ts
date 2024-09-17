@@ -46,9 +46,8 @@ export class ArticleListComponent implements OnInit {
     });
   }
 
-  postArticleListUrl(){
-this.router.navigate([`article`])
-
+  goArticleLikeMenu(name:string){
+this.router.navigate([`article/like`,name])
   }
 
   putArticleListUrl(){}

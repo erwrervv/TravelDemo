@@ -4,7 +4,7 @@ import { DataService } from '../../data.service';
 import { forkJoin, Observable } from 'rxjs';
 import { map, switchMap } from 'rxjs/operators';
 import { NgIfContext } from '@angular/common';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { Articleoverviews } from 'src/app/interfaces/articleoverview';
 import { pageinfo } from 'src/app/interfaces/pageInfo';
 import { ArticlesList } from 'src/app/interfaces/articles-list';
@@ -22,16 +22,18 @@ export class HomepageComponent implements OnInit {
   page: pageinfo = new pageinfo(5, 1);
   totalPages: number = 0;
   articleListData: Array<ArticlesList> = new Array<ArticlesList>();
-
+  listName!: string;
   constructor(
     private dataService: DataService,
     private authService: AuthService,
-    public router: Router
+    public router: Router,
+    private activatedRoute: ActivatedRoute
   ) {}
 
   ngOnInit(): void {
     this.getData();
     this.getArticlesList();
+    this.listName = this.activatedRoute.snapshot.paramMap.get('name')!;
   }
 
   goToComment(id: number) {
@@ -39,7 +41,7 @@ export class HomepageComponent implements OnInit {
   }
   getData(listName?: string) {
     if (listName) {
-      this.page.SearchKeyword=undefined;
+      this.page.SearchKeyword = undefined;
       this.page.SearchTagName = listName; //點選tag的話會帶入文章分類名稱
     } else {
       this.page.SearchTagName = undefined;
@@ -73,5 +75,16 @@ export class HomepageComponent implements OnInit {
       this.page.PageNumber--;
       this.getData(); //重新取得資料
     }
+  }
+  likeUpdete(id: number, data: Articleoverviews) {
+    data.Tag += `,${this.listName}`;
+    this.dataService.putArticleOverviews(id, data).subscribe(
+      () => {
+        alert(`添加喜愛清單成功${this.listName}`);
+      },
+      (err) => {
+        alert(err.error);
+      }
+    );
   }
 }

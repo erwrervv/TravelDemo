@@ -28,6 +28,11 @@ const routes: Routes = [
     path:'article',
     component:HomepageComponent,
   }
+  ,
+  {
+    path:'article/like/:name',
+    component:HomepageComponent,
+  }
   ,{
     path:'article/:id',
     component:ArticleoverviewComponent,

@@ -124,7 +124,7 @@
                             /> -->
                             <!-- <img [src]="'https://localhost:7003/images/articleId/'+item.ArticleId+'/1.jpg'" alt=""> -->
                             <!-- <img [src]="'/images/articleId/' + item.ArticleId + '/1.jpg'" alt=""> -->
-                             <img [src]="item.ImageUrl" alt="">
+                             <img [src]="item.ArticleCoverImageString" alt="">
                           </a>
                         </div>
                         <div class="content">
@@ -143,7 +143,7 @@
                           <ul class="info">
                             <li class="price" [innerHTML]="item.ArticleContent ">
                             </li>
-                            <li class="like">
+                            <li class="like" (click)="likeUpdete(item.ArticleId,item)">
                               <a href="javascript:void(0)">
                                 <i class="lni lni-heart"></i>
                               </a>

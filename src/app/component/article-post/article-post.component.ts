@@ -29,9 +29,7 @@ export class ArticlePostComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.activatedRoute.paramMap.subscribe((params) => {
-      this.articleId = Number(params.get('id')); //取得URL ID 並轉回number
-    });
+    this.articleId = Number(this.activatedRoute.snapshot.paramMap.get('id')!);
 
     this.getarticleListData();
     this.articleForm = this.fb.group({

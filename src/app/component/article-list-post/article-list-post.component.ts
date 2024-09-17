@@ -25,9 +25,8 @@ constructor (
 ){}
 
 ngOnInit(data: ArticlesListPost): void {
-  this.activatedRoute.paramMap.subscribe((params) => {
-    this.articleListId = Number(params.get('id')); //取得URL ID 並轉回number
-  });
+  this.articleListId=Number(this.activatedRoute.snapshot.paramMap.get('id'));
+
 console.log(this.articleListId);
 
 
