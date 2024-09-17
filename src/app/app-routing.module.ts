@@ -9,6 +9,7 @@ import { HomepageComponent } from './component/homepage/homepage.component';
 import { LoginComponent } from './component/login/login.component';
 import { ArticlePostComponent } from './component/article-post/article-post.component';
 import { ArticleListComponent } from './component/article-list/article-list.component';
+import { ArticleListPostComponent } from './component/article-list-post/article-list-post.component';
 
 const routes: Routes = [
   {
@@ -52,6 +53,16 @@ const routes: Routes = [
   {
     path:'article-list',
     component:ArticleListComponent
+  }
+  ,
+  {
+    path:'article-list-post',
+    component:ArticleListPostComponent
+  }
+  ,
+  {
+    path:'article-list-post/:id',
+    component:ArticleListPostComponent
   }
 ]
 
