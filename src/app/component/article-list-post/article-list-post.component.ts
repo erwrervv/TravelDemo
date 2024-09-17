@@ -14,7 +14,7 @@ export class ArticleListPostComponent {
 articlelist : ArticlesListPost= new ArticlesListPost();
 articleListPost!:number;
 articlelistData!:ArticlesListPost;
-ArticleListId!: number;
+articleListId!: number;
 MemberuniqueId!: number;
 constructor (
   private dataService:DataService,
@@ -26,14 +26,25 @@ constructor (
 
 ngOnInit(data: ArticlesListPost): void {
   this.activatedRoute.paramMap.subscribe((params) => {
-    this.articleListPost = Number(params.get('id')); //取得URL ID 並轉回number
+    this.articleListId = Number(params.get('id')); //取得URL ID 並轉回number
   });
-  this.getarticleListData(data);
+console.log(this.articleListId);
+
+
 }
-postArticleData(data:ArticlesListPost){
-  data.MemberuniqueId = this.authService.baseUserInfo.memberId;
-this.dataService.postArticleList(this.articlelist).subscribe(res=>{
-  console.log(res);
+
+postArticleData(){
+if(this.articlelist.ArticleListId){
+
+}
+else{
+
+}
+
+  this.articlelist.MemberuniqueId = this.authService.baseUserInfo.memberId;
+  this.dataService.postArticleList(this.articlelist).subscribe(res=>{
+    console.log(res);
+
 
 })
 
