@@ -31,6 +31,7 @@ import { ButtonModule } from 'primeng/button';
 import { EditorModule } from 'primeng/editor';
 import { LoginComponent } from './component/login/login.component';
 import { ArticleListPostComponent } from './component/article-list-post/article-list-post.component';
+import { ArticleListHomeComponent } from './component/article-list-home/article-list-home.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -47,6 +48,7 @@ import { ArticleListPostComponent } from './component/article-list-post/article-
     HomepageComponent,
     LoginComponent,
     ArticleListPostComponent,
+    ArticleListHomeComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,33 @@
+<div class="container" [routerLink]="['/article']">
+  <div *ngFor="let article of articlesListData; let idx = index" class="mid">
+    <div class="article-list-shadow4">
+      <div class="article-list-container">
+        <div class="listTitle text-shadow-example">文章瀏覽</div>
+      </div>
+      <div class="article-list-content">
+        <div
+          class="articles"
+          (click)="gotoArticle(item.ArticleId)"
+          *ngFor="let item of article.PartialArticleOverviews"
+        >
+          <div class="article">
+            <div class="article-image">
+              <img [src]="item.ArticleCoverImageString" alt="Article Image" />
+            </div>
+            <div class="article-info">
+              <p class="article-title">{{ item.ArticleName }}</p>
+              <p>作者：{{ article.MemberName }}</p>
+              <p>更新日期：{{ item.UpdateTime | date : "MM-dd" }}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- <div class="video-container container1">
+    <video autoplay muted loop id="background-video" >
+        <source src="../../assets/video/travel.mp4" type="video/mp4">
+    </video>
+  </div> -->

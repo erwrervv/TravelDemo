@@ -7,7 +7,7 @@
         用戶名是必填
       </div>
     </div>
-    <div >
+    <div class="mb-50">
       <label for="password">密碼:</label>
       <input type="password" id="password"  required [(ngModel)]="userInfo.password" #pass="ngModel">
       <div *ngIf="pass.touched&&!pass.valid" class="error">
