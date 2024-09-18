@@ -43,4 +43,15 @@ export class HeaderComponent implements OnInit {
         });
     }
   }
+  gotoArticlePost(){
+    this.router.navigate(["/article-post"]).then(()=>{
+      window.scrollTo(0,0);
+    })
+  }
+
+  gotoArticleListPost(){
+    this.router.navigate(["/article-list-post"]).then(()=>{
+      window.scrollTo(0,0);
+    })
+  }
 }

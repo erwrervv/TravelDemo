@@ -143,15 +143,16 @@
                           <ul class="info">
                             <!-- <li class="price" [innerHTML]="item.ArticleContent ">
                             </li> -->
+                            <li class="price tag" >
+                            {{
+                            item.MemberName
+                          }}</li>
                             <li class="like" (click)="likeUpdete(item.ArticleId,item)">
                               <a href="javascript:void(0)">
                                 <i class="lni lni-heart"></i>
                               </a>
                             </li>
                           </ul>
-                          <a href="javascript:void(0)" class="tag">{{
-                            item.MemberName
-                          }}</a>
                         </div>
                       </div>
                     </div>
@@ -233,18 +234,12 @@
                                 </a>
                               </h3>
                               <p class="location">
-                                <a href="javascript:void(0)" class="tag">{{
-                                  item.MemberName
-                                }}</a>
                               </p>
                               <ul class="info">
-                                <li class="price">
-                                  {{
-                                    item.ArticleContent ?? "" | slice : 0 : 100
-                                  }}
-                                  {{
-                                    item.ArticleContent
-                                  }}
+                                <li>
+                                <a href="javascript:void(0)" class="price tag">{{
+                                  item.MemberName
+                                }}</a>
                                 </li>
                                 <li class="like" (click)="likeUpdete(item.ArticleId,item)">
                                   <a href="javascript:void(0)">

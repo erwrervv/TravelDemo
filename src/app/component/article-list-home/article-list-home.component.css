@@ -68,7 +68,7 @@
   background-color:rgba(255, 255, 255, 0.7);
   padding: 20px 10px 20px 20px;
   border-radius: 10px;
-  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px; 
+  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
 }
 
 .articles {
@@ -82,6 +82,7 @@
   background-color: rgba(70, 95, 83, 0.5);
   border-radius: 10px;
   /* padding: 10px; */
+
   margin-right: 10px;
   text-align: center;
   /* border: 1px solid #ddd; */
@@ -90,26 +91,16 @@
 }
 
 .article-image img {
-  width: 170px;
-  height: 150px;
-  margin-bottom: 10px;
+  width: 250px;
+  height: 200px;
+  margin-bottom: 20px;
   min-width: 100px;
   min-height: 100px;
   border-radius:10px 10px 0 0 ;
 }
 
 .article-info {
-  font-size: 14px;
-}
-
-
-
-.nav-arrow.left-arrow {
-  margin-right: 10px;
-}
-
-.nav-arrow.right-arrow {
-  margin-left: 10px;
+  font-size: 16px;
 }
 
 .article-list-footer {
@@ -137,6 +128,9 @@ p {
   /* color: rgb(59, 95, 238); */
   font-size: 3rem;
 }
+.article-title{
+  font-size:20px;
+}
 .article-list-put-head{
 /*
   width: 12%;
@@ -154,18 +148,11 @@ margin-left: 20px;
 .article-list-shadow4{
   padding: 20px;
   border-radius: 20px;
-  margin-bottom: 80px;
+
+  margin-top: 80px;
+  margin-bottom: 20px;
   /* box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px; */
 }
-/* 影片 */
-#background-video {
-  object-fit: cover;
-}
-video::-webkit-media-controls-volume-slider,
-video::-webkit-media-controls-mute-button {
-  display: none;
-}
-
 html {
   scrollbar-color: #83aeff #55aaff; /* 滚动条滑块颜色 滚动条轨道颜色 */
   scrollbar-width: thin; /* 滚动条宽度: auto, thin, none */
