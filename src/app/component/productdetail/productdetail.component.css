@@ -126,3 +126,14 @@ i.pi {
   height: 400px;
   object-fit: cover;
 }
+
+/* 移除所有浏览器默认的加减按钮 */
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type="number"] {
+  -moz-appearance: textfield; /* 对Firefox隐藏加减按钮 */
+}

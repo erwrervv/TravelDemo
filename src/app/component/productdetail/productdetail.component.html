@@ -156,61 +156,51 @@
                 </li>
               </ul>
             </div> -->
-
             <!-- 數量增減紐 -->
-            <div class="product-quantity pt-3">
-              <!-- <div class="stock-number text-dark"><em>2 in stock</em></div> -->
-              <div class="stock-button-wrap">
-                <div class="input-group product-qty" style="max-width: 150px">
-                  <span class="input-group-btn">
-                    <button type="button" class="quantity-left-minus btn btn-light btn-number"
-                      (click)="decreaseQuantity()">
-                      <svg width="16" height="16">
-                        <use xlink:href="#minus"></use>
-                      </svg>
-                    </button>
-                  </span>
-                  <!-- <input type="text" id="quantity" (input)="onInputChange($event)"
-                    class="form-control quantity input-number text-center" [value]="inputValue"  /> -->
-                    <!-- 測試用 -->
-                    <input
-                    type="number"
-                    class="form-control quantity input-number text-center"
-                    [(ngModel)]="product.selledquant"
-                    (blur)="onQuantityBlur(product)"
-                    min="1"
-                  />
+            <div class="input-group">
+  <span class="input-group-btn">
+    <button type="button" class="quantity-left-minus btn btn-light btn-number"
+      (click)="decreaseQuantity()">
+      <svg width="16" height="16">
+        <use xlink:href="#minus"></use>
+      </svg>
+    </button>
+  </span>
 
-                  <span class="input-group-btn">
-                    <button type="button" class="quantity-right-plus btn btn-light btn-number"
-                      (click)="increaseQuantity()">
-                      <svg width="16" height="16">
-                        <use xlink:href="#plus"></use>
-                      </svg>
-                    </button>
-                  </span>
-                </div>
-                <br />
-                <div class="qty-button d-flex flex-wrap">
-                  <button type="submit" class="btn btn-primary py-3 px-4 text-uppercase me-3" (click)="goToCart()"
-                    style="color: black">
-                    <i class="pi pi-shopping-cart me-2"></i>
-                    立即購買
-                  </button>
-                  <button type="submit" name="add-to-cart" class="btn btn-dark py-3 px-4 text-uppercase"
-                    (click)="addToCart()" style="color: white">
-                    加入購物車
-                  </button>
+  <input
+    type="number"
+    class="form-control quantity input-number text-center"
+    [(ngModel)]="inputValue"
+    (blur)="onQuantityBlur(product)"
+    min="1"
+  />
 
+  <span class="input-group-btn">
+    <button type="button" class="quantity-right-plus btn btn-light btn-number"
+      (click)="increaseQuantity()">
+      <svg width="16" height="16">
+        <use xlink:href="#plus"></use>
+      </svg>
+    </button>
+  </span>
+</div>
+<div class="qty-button d-flex flex-wrap">
+  <button type="submit" class="btn btn-primary py-3 px-4 text-uppercase me-3" (click)="goToCart()"
+    style="color: black">
+    <i class="pi pi-shopping-cart me-2"></i>
+    立即購買
+  </button>
+  <button type="submit" name="add-to-cart" class="btn btn-dark py-3 px-4 text-uppercase"
+    (click)="addToCart()" style="color: white">
+    加入購物車
+  </button>
+</div>
+<div *ngIf="isModalVisible" class="alert alert-success" style="margin-top: 20px;">
+  商品已加入購物車！
+</div>
 
-                </div>
-                <!-- 窗口 -->
-                <div *ngIf="isModalVisible" class="alert alert-success" style="margin-top: 20px;">
-                  商品已加入購物車！
-                </div>
-                <!-- 窗口 -->
-              </div>
-            </div>
+            <!-- 購買/加入購物車 -->
+           
           </div>
           <div class="meta-product py-2">
             <div class="meta-item d-flex align-items-baseline">

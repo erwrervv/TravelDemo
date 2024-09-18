@@ -4,6 +4,7 @@
 
 <div class="cart-header d-flex justify-content-between">
   <div class="cart-item">商品</div>
+  <div class="cart-item">商品名稱</div>
   <div class="cart-price">單價</div>
   <div class="cart-quantity">數量</div>
   <div class="cart-total">總計</div>
@@ -18,6 +19,12 @@
     <img src="{{ product.image }}" class="product-image" alt="{{ product.title }}" />
     <span class="product-name">{{ product.title }}</span>
   </div>
+  <!-- 商品名稱 -->
+  <div class="cart-item d-flex align-items-center">
+
+    <span class="product-name">{{ product.name }}</span>
+  </div>
+
 
   <!-- 商品单价 -->
   <div class="cart-price">
