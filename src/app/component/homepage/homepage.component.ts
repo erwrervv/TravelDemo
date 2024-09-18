@@ -32,7 +32,10 @@ export class HomepageComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.getData();
+    setTimeout(() => {
+
+      this.getData();
+    }, 2000);
     this.getArticlesList();
     this.listName = this.activatedRoute.snapshot.paramMap.get('name')!;
 

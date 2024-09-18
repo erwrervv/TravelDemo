@@ -29,12 +29,11 @@
   <!-- // -->
   <div class="comment" *ngFor="let item of items; let idx = index">
     <div class="comment-user-avatar">
-      會員頭貼
       <img [src]="item.MemberPicture" alt="User Avatar" />
     </div>
     <div class="comment-content">
       <div class="comment-header">
-        <span class="username">{{ item.MemberName }}</span>
+        <span class="username">{{ item.MemberName }}　</span>
         <span class="time">{{
           item.CommentDateTime | date : "yyyy-MM-dd HH:mm"
         }}</span>

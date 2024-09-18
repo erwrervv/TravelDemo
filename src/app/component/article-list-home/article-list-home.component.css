@@ -4,27 +4,20 @@
   align-items: center;
   justify-content: center;
 }
-.container {
-  margin-top: 40px;
+.container-head{
   background-image: url('../../../assets/images/風景.jpg');
   /* padding-right: var(--bs-gutter-x, .75rem);
   padding-left: var(--bs-gutter-x, .75rem); */
   background-size: cover;
   background-position: center;
+  padding: 20px;
+}
+.container {
+
 
   cursor: pointer;
 }
 
-.container1 {
-  width: 100%;
-  margin-top: 40px;
-  /* background-image: url('../../../assets/images/風景.jpg'); */
-
-  padding-right: var(--bs-gutter-x, 0);
-  padding-left: var(--bs-gutter-x, 0);
-  background-size: cover;
-  background-position: center;
-}
 
 .article-list-container {
 
@@ -71,20 +64,23 @@
 .article-list-content {
   display: flex;
   align-items: center;
-  /* justify-content: space-between; */
   overflow-x:visible;
+  background-color:rgba(255, 255, 255, 0.7);
+  padding: 20px 10px 20px 20px;
+  border-radius: 10px;
+  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px; 
 }
 
 .articles {
   display: flex;
   /* overflow-x: auto; */
 
-  padding-bottom: 50px;
+  /* padding-bottom: 50px; */
 }
 
 .article {
   background-color: rgba(70, 95, 83, 0.5);
-  border-radius: 20px;
+  border-radius: 10px;
   /* padding: 10px; */
   margin-right: 10px;
   text-align: center;
@@ -99,7 +95,7 @@
   margin-bottom: 10px;
   min-width: 100px;
   min-height: 100px;
-  border-radius:8px ;
+  border-radius:10px 10px 0 0 ;
 }
 
 .article-info {
