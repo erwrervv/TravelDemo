@@ -62,12 +62,15 @@ const routes: Routes = [
   ,
   {
     path:'article-list-post',
-    component:ArticleListPostComponent
+    component:ArticleListPostComponent,
+    canActivate:[authGuard]
   }
   ,
   {
     path:'article-list-post/:id',
-    component:ArticleListPostComponent
+    component:ArticleListPostComponent,
+    canActivate:[authGuard]
+
   }
 ]
 

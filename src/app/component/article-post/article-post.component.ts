@@ -49,6 +49,8 @@ export class ArticlePostComponent implements OnInit {
         this.editor.quill.root.innerHTML = res.ArticleContent; //強制寫入HTML內
       });
     }
+
+    window.scrollTo(0,0);
   }
 
   onFileSelected(event: any): void {

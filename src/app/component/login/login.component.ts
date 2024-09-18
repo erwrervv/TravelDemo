@@ -31,7 +31,7 @@ export class LoginComponent {
           this.userInfo.token = JSON.stringify(response.token); // 賦予token值
           this.userInfo.memberId = Number(JSON.stringify(response.memberId));
           this.authService.setUser(this.userInfo); //把user資訊寫入localStorage內
-          localStorage.setItem('jwt', JSON.stringify(response.token)); //寫入localStorage內 KEY=token
+          localStorage.setItem('jwt', response.token); //寫入localStorage內 KEY=token
           this.dataService.getBasicMember(
             this.userInfo.memberId
           ).subscribe(data=>{

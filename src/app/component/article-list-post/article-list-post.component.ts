@@ -1,3 +1,4 @@
+import { Articleoverviews } from 'src/app/interfaces/articleoverview';
 import { Router, ActivatedRoute } from '@angular/router';
 import { ArticlesListPost } from './../../interfaces/articles-list';
 import { Component } from '@angular/core';
@@ -29,6 +30,7 @@ export class ArticleListPostComponent {
     );
     console.log('this.articleListId', this.articleListId);
     this.getData();
+    window.scrollTo(0,0);
   }
 
   postArticleData() {

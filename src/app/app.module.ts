@@ -6,8 +6,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatFormFieldModule } from '@angular/material/form-field';
-import { HttpClientModule } from '@angular/common/http';
-import { ReactiveFormsModule,FormsModule } from '@angular/forms';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatButtonModule } from '@angular/material/button';
 import { CheckboxModule } from 'primeng/checkbox';
@@ -32,6 +32,7 @@ import { EditorModule } from 'primeng/editor';
 import { LoginComponent } from './component/login/login.component';
 import { ArticleListPostComponent } from './component/article-list-post/article-list-post.component';
 import { ArticleListHomeComponent } from './component/article-list-home/article-list-home.component';
+import { AuthInterceptor } from './auth.interceptor';
 @NgModule({
   declarations: [
     AppComponent,
@@ -69,7 +70,10 @@ import { ArticleListHomeComponent } from './component/article-list-home/article-
     TabViewModule,
     RadioButtonModule,
   ],
-  providers: [DataService],
+  providers: [DataService, {
+    provide: HTTP_INTERCEPTORS,
+    useClass: AuthInterceptor, multi: true
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
