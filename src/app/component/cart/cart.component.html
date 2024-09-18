@@ -1,6 +1,7 @@
 <p>this is 購物車界面</p>
 
 <!-- 這是第一欄div -->
+ <div>
 
 <div class="cart-header d-flex justify-content-between">
   <div class="cart-item">商品</div>
@@ -13,7 +14,9 @@
 
 
 <!-- 這是商品層 -->
-<div *ngFor="let product of products" class="cart-item-row d-flex justify-content-between align-items-center">
+ <div class="mb-50">
+ 
+<div *ngFor="let product of products" class="cart-item-row d-flex justify-content-between align-items-center ">
   <!-- 商品图片 -->
   <div class="cart-item d-flex align-items-center">
     <img src="{{ product.image }}" class="product-image" alt="{{ product.title }}" />
@@ -46,9 +49,11 @@
         <input
         type="number"
         class="form-control quantity input-number text-center"
-        [(ngModel)]="product.selledquant"
-        (blur)="onQuantityBlur(product)"
+        [(ngModel)]="product.quantity"
+        (change)="onQuantityChange()" 
+         (blur)="onQuantityBlur(product)"
         min="1"
+        max="10"
       />
 
         <!-- 增加数量按钮 -->
@@ -62,7 +67,7 @@
 
   <!-- 商品总价symbol取整數 -->
   <div class="cart-total">
-    {{ product.price * product.selledquant | currency:'TWD': 'symbol':'1.0-0' }}
+    {{ product.price * product.quantity | currency:'TWD': 'symbol':'1.0-0' }}
   </div>
 
   <!-- 删除商品按钮 -->
@@ -71,15 +76,20 @@
   </div>
 </div>
 
+</div>
+
 
 <!-- 這是最下層 -->
 
 <div class="checkout-section d-flex justify-content-between align-items-center">
   <!-- 总金额 -->
-  <div class="total-price">
-    總金額: {{ calculateTotalPrice() | currency:'TWD' }}
+  <div class="total-price" >
+    
+    總金額: {{TotalCalc  | currency:'TWD' : 'symbol':'1.0-0'}}
   </div>
 
   <!-- 去買單按鈕 -->
   <button class="btn btn-primary" (click)="checkout()">去買單</button>
+
+</div>
 </div>

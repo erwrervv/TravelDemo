@@ -126,8 +126,8 @@ export class CartComponent implements OnInit{
   //變數區
   storedValues: number [] = [];
   AddToCartService: any;
-  quantity: number = 1;
   products: any[] = []; // 用于存储购物车中的商品
+  TotalCalc :number = 0;
 
 
   constructor(private route: ActivatedRoute) { }
@@ -146,9 +146,9 @@ export class CartComponent implements OnInit{
     //透過local storage找到cartItems
     const cartItems = JSON.parse(localStorage.getItem('cartItems') || '[]');
     this.products = cartItems;
-
+    
     //取local storage剛剛在
-
+    console.log('Cart Items:', this.products);
 
     const storedString  = localStorage.getItem('inputValues');
     if (storedString) {
@@ -157,6 +157,8 @@ export class CartComponent implements OnInit{
 
 
     }
+
+    this.updateTotalPrice();
   }
 
 
@@ -164,16 +166,20 @@ export class CartComponent implements OnInit{
 
 
   // 使用者輸入框 這個是可以用的
-  onQuantityBlur(product: { selledquant: number; }) {
-    if (product.selledquant > 10) {
-      alert('一次最多只能選擇10件商品!');
-      product.selledquant = 10; // 限制最多选择 10 件
-    } else if (product.selledquant < 1) {
-      product.selledquant = 1; // 确保数量不能小于 1
+  onQuantityBlur(product: { quantity: number; }) {
+
+    if (product.quantity < 1 || isNaN(product.quantity)) {
+      alert('商品結帳需為一件以上');
+      product.quantity = 1; // 自动修正为空或小于 1 的情况
     }
+      if (product.quantity > 10) {
+        alert('一次最多只能選擇10件商品!');
+        product.quantity = 10; // 自动修正为 10
+      }
+      this.saveCartToLocalStorage();
 
-    this.saveCartToLocalStorage();
-
+      // 更新总金额
+      this.updateTotalPrice();
 
   }
 
@@ -181,40 +187,45 @@ export class CartComponent implements OnInit{
 
 
   //增加紐 防呆
-  increaseQuantity(product: { selledquant: number; }) {
+  increaseQuantity(product: { quantity: number; }) {
 
-    if (product.selledquant >= 10) {
+    if (product.quantity >= 10) {
       alert('一次最多只能選擇10件商品!');
-      product.selledquant = 10;
+      product.quantity = 10;
     } else {
       // 允许增加数量
-      product.selledquant++;
+      product.quantity++;
     }
 
+
     this.saveCartToLocalStorage();
+    this.TotalCalc = this.calculateTotalPrice(); 
   }
   //減少紐 防呆
-  decreaseQuantity(product: { selledquant: number; }) {
-    if (product.selledquant > 1) {
-      product.selledquant--;
+  decreaseQuantity(product: { quantity: number; }) {
+    if (product.quantity > 1) {
+      product.quantity--;
     }
     else {
-      alert('最低數量不可小於1!')
+      alert('商品結帳需為一件以上!')
     }
 
     this.saveCartToLocalStorage();
+    this.TotalCalc = this.calculateTotalPrice(); 
   }
 
   //清除並儲存local storage
-  removeProduct(product: { selledquant: number; }) {
+  removeProduct(product: { quantity: number; }) {
     this.products = this.products.filter(p => p !== product);
 
     this.saveCartToLocalStorage();
+    this.updateTotalPrice();
   }
 
   //計算價格
   calculateTotalPrice() {
-    return this.products.reduce((total, product) => total + (product.price * product.selledquant), 0);
+    return this.products.reduce((total, product) => total + (product.price * product.quantity), 0);
+
   }
 
   checkout() {
@@ -227,6 +238,17 @@ export class CartComponent implements OnInit{
   }
 
 
+  updateTotalPrice() {
+    this.TotalCalc = this.products.reduce((total, product) => total + (product.price * product.quantity), 0);
+  }
+
+
+  // 当数量变更时更新总金额
+  onQuantityChange() {
+    
+    this.updateTotalPrice(); // 每次数量变化时重新计算总金额
+   
+  }
 
 }
 

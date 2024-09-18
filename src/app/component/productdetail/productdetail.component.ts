@@ -84,7 +84,7 @@ ngOnInit() {
 
   //變數
   inputValue: number = 1;
-  quantity: number = 1;
+  
   AddToCartService: any;
   isModalVisible: boolean = false;
 
@@ -112,11 +112,11 @@ ngOnInit() {
   //放入input值
  
 onQuantityBlur(product: any) {
-  const value = product.selledquant;
+  const value = product.inputValue;
   if (!isNaN(value) && value > 0) {
-    let values: number[] = JSON.parse(localStorage.getItem('inputValues') || '[]');
+    let values: number[] = JSON.parse(localStorage.getItem('inputValue') || '[]');
     values.push(value);
-    localStorage.setItem('inputValues', JSON.stringify(values)); // 存储为 JSON 数组
+    localStorage.setItem('inputValue', JSON.stringify(values)); // 存储为 JSON 数组
   }
 }
 
@@ -191,11 +191,12 @@ navigateToDisplay() {
       name: this.product.MallProductName,  // 商品名称
       image: this.product.Pimage,          // 商品图片
       price: this.product.GoldAmount,      // 商品金额
-      quantity: this.product.selledquant,  // 商品数量
+      quantity: this.inputValue  //使用者輸入商品數量
     })
     localStorage.setItem('cartItems', JSON.stringify(cartItems));
   
     this.router.navigate(['/cart']);
+   
   };
 
 
@@ -232,7 +233,7 @@ navigateToDisplay() {
       name: this.product.MallProductName,  // 商品名稱
       image: this.product.Pimage,          // 商品圖片
       price: this.product.GoldAmount,      // 商品金额
-      quantity: this.product.selledquant,  // 商品数量
+      quantity: this.inputValue ,  // 商品数量
     })
     localStorage.setItem('cartItems', JSON.stringify(cartItems));
     // 3秒后关闭模态框并导航到购物车页面

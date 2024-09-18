@@ -10,6 +10,8 @@ import { ProductdetailComponent } from './component/productdetail/productdetail.
 import { ProducttableComponent } from './component/producttable/producttable.component';
 import { OrderpageComponent } from './component/orderpage/orderpage.component';
 
+
+
 const routes: Routes = [
   {
     path: '',
