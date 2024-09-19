@@ -1,0 +1,47 @@
+<p>checkout works!</p>
+
+<!-- 這是頭版介面 -->
+<header class="checkout-header">
+    <h1>XX购物 | 结账</h1>
+  </header>
+  <!-- 這是商品資訊欄 -->
+  <section class="order-items">
+    <h2>訂單商品</h2>
+    <div *ngFor="let item of cartItems" class="item">
+      <div class="item-info">
+        <span>{{ item.name }}</span>
+        <span>{{ item.price | currency:'USD' }}</span>
+        <span>{{ item.quantity }}</span>
+        <span>{{ item.total | currency:'USD' }}</span>
+      </div>
+    </div>
+
+    <div class="order-total">
+      <span>訂單總額：</span>
+      <span>{{ calculateTotalPrice() | currency:'TWD' }}</span>
+    </div>
+  </section>
+
+  <!-- 這是使用者資訊填寫欄 -->
+  <section class="order-notes">
+    <h3>備註：</h3>
+    <textarea placeholder="管理室代收/電話聯絡的時間..."></textarea>
+  
+    <h3>寄送資訊</h3>
+    <input type="text" placeholder="收件人姓名">
+    <input type="text" placeholder="收件地址">
+    <input type="text" placeholder="電話號碼">
+  </section>
+
+
+  <!-- 這是支付資訊欄 -->
+  <section class="payment-method">
+    <h3>付款方式</h3>
+    <button type="button">信用卡支付</button>
+    <button type="button">街口支付</button>
+    <button type="button">信用卡分期付款</button>
+  </section>
+  
+  <section class="place-order">
+    <button type="submit">下訂單</button>
+  </section>

@@ -26,6 +26,7 @@ import { RatingModule } from 'primeng/rating';
 import { AddToCartService } from './service/add-to-cart.service';
 import { ProducttableComponent } from './component/producttable/producttable.component';
 import { OrderpageComponent } from './component/orderpage/orderpage.component';
+import { CheckoutComponent } from './component/checkout/checkout.component';
 
 
 @NgModule({
@@ -43,6 +44,7 @@ import { OrderpageComponent } from './component/orderpage/orderpage.component';
     ProductdetailComponent,
     ProducttableComponent,
     OrderpageComponent,
+    CheckoutComponent,
 
 
 

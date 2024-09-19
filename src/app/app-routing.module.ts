@@ -9,6 +9,7 @@ import { CartComponent } from './component/cart/cart.component';
 import { ProductdetailComponent } from './component/productdetail/productdetail.component';
 import { ProducttableComponent } from './component/producttable/producttable.component';
 import { OrderpageComponent } from './component/orderpage/orderpage.component';
+import { CheckoutComponent } from './component/checkout/checkout.component';
 
 
 
@@ -49,8 +50,13 @@ const routes: Routes = [
   { path: 'productdetail/:id',
      component: ProductdetailComponent
    },
-  { path: 'producttable', component: ProducttableComponent },
-  { path: 'orderpage', component: OrderpageComponent },
+  { path: 'producttable',
+     component: ProducttableComponent },
+  { path: 'orderpage',
+     component: OrderpageComponent },
+
+  { path: 'checkout',
+     component: CheckoutComponent },
 ];
 
 @NgModule({
