@@ -33,6 +33,20 @@ import { LoginComponent } from './component/login/login.component';
 import { ArticleListPostComponent } from './component/article-list-post/article-list-post.component';
 import { ArticleListHomeComponent } from './component/article-list-home/article-list-home.component';
 import { AuthInterceptor } from './auth.interceptor';
+import { ShoplistComponent } from './component/shoplist/shoplist.component';
+import { CartComponent } from './component/cart/cart.component';
+import { SwiperModule } from 'swiper/angular';
+import { ProductdetailComponent } from './component/productdetail/productdetail.component';
+import { RatingModule } from 'primeng/rating';
+import { AddToCartService } from './service/add-to-cart.service';
+import { ProducttableComponent } from './component/producttable/producttable.component';
+import { OrderpageComponent } from './component/orderpage/orderpage.component';
+import { CheckoutComponent } from './component/checkout/checkout.component';
+import { ShopbannerComponent } from './shop/shopbanner/shopbanner.component';
+import { Shopbanner1Component } from './shop/shopbanner1/shopbanner1.component';
+import { ShopHomePageComponent } from './shop/shop-home-page/shop-home-page.component';
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -50,6 +64,15 @@ import { AuthInterceptor } from './auth.interceptor';
     LoginComponent,
     ArticleListPostComponent,
     ArticleListHomeComponent,
+    ShoplistComponent,
+    CartComponent,
+    ProductdetailComponent,
+    ProducttableComponent,
+    OrderpageComponent,
+    CheckoutComponent,
+    ShopbannerComponent,
+    Shopbanner1Component,
+    ShopHomePageComponent,
   ],
   imports: [
     BrowserModule,
@@ -69,8 +92,10 @@ import { AuthInterceptor } from './auth.interceptor';
     DropdownModule,
     TabViewModule,
     RadioButtonModule,
+    SwiperModule,
+    RatingModule,
   ],
-  providers: [DataService, {
+  providers: [DataService, AddToCartService, {
     provide: HTTP_INTERCEPTORS,
     useClass: AuthInterceptor, multi: true
   }],

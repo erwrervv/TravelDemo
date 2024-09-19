@@ -1,0 +1,51 @@
+.cart-header, .cart-item-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+}
+
+.product-image {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+  margin-right: 10px;
+}
+
+.cart-item {
+  flex: 2;
+}
+
+.cart-price, .cart-quantity, .cart-total, .cart-action {
+  flex: 1;
+  text-align: center;
+}
+
+.checkout-section {
+  position: relative;
+  bottom: 0;
+  width: 100%;
+  background-color: white;
+  padding: 20px;
+  border-top: 1px solid #ddd;
+}
+
+
+
+/* 隐藏 Chrome, Safari, Edge, Opera 的数字输入框箭头 */
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* 隐藏 Firefox 的数字输入框箭头 */
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+
+.mb-50{
+
+  margin-bottom: 80px;
+}

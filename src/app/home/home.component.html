@@ -1,5 +1,15 @@
 <div>
   <app-banner></app-banner>
-  
+
 <app-article-list-home></app-article-list-home>
+
+<div class="swiper-container">
+
+  <swiper class="swiper-container" [config]="swiperConfig">
+    <ng-template swiperSlide *ngFor="let image of images">
+      <img [src]="image.src" class="swiper-slide" alt="圖片載入中" />
+    </ng-template>
+  </swiper>
+
+
 </div>

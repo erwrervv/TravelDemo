@@ -1,0 +1,7 @@
+h1 {
+  font-size: 30px; /* 字體大小 */
+  text-align: left; /* 文本對齊 */
+  margin-left: 0;   
+  padding-left: 0;  
+  font-weight:bolder; /*设置为粗體字 */
+}
