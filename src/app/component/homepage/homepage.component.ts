@@ -23,7 +23,7 @@ export class HomepageComponent implements OnInit {
   totalPages: number = 0;
   articleListData: Array<ArticlesList> = new Array<ArticlesList>();
   listName!: string;
-  totalCount!:number;
+  totalCount!: number;
   constructor(
     private dataService: DataService,
     private authService: AuthService,
@@ -32,12 +32,9 @@ export class HomepageComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-
     this.getData();
     this.getArticlesList();
     this.listName = this.activatedRoute.snapshot.paramMap.get('name')!;
-
-
   }
 
   goToComment(id: number) {
@@ -45,17 +42,19 @@ export class HomepageComponent implements OnInit {
   }
   getData(listName?: string) {
     if (listName) {
+      this.page.PageNumber = 1;
       this.page.SearchKeyword = undefined;
       this.page.SearchTagName = listName; //點選tag的話會帶入文章分類名稱
-    } else {
+    } else if (!this.page.SearchTagName) {
+      // 只有在沒有 SearchTagName 時，才重置
       this.page.SearchTagName = undefined;
     }
+
     this.dataService.getArticlesPaged(this.page).subscribe((res) => {
       this.ArticleOverviewData = res.List; //賦予資料源
       this.totalPages = res.TotalPages; //賦予總頁數
-      this.totalCount=res.TotalCount;
+      this.totalCount = res.TotalCount;
       window.scrollTo(0, 0); //回到畫面頂端
-      console.log(this.ArticleOverviewData);
     });
   }
   getArticlesList() {
@@ -81,6 +80,14 @@ export class HomepageComponent implements OnInit {
       this.page.PageNumber--;
       this.getData(); //重新取得資料
     }
+  }
+  resetGetAllData(isSearch: boolean) {
+    //如果是搜尋 SearchKeyword不清空 其他則回預設值
+    this.page.PageNumber = 1;
+    this.page.PageSize = 5;
+    if (!isSearch) this.page.SearchKeyword = undefined;
+    this.page.SearchTagName = undefined;
+    this.getData();
   }
   likeUpdete(id: number, data: Articleoverviews) {
     data.Tag += `,${this.listName}`;

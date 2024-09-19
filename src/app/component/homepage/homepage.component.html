@@ -25,9 +25,10 @@
           <!-- Start Single Widget -->
           <div class="single-widget search">
             <h3>全站搜索</h3>
+            <button style="color: blue; border: 0cm;" (click)="resetGetAllData(false)">顯示所有文章</button>
             <form action="#" >
               <input type="text" [(ngModel)]="page.SearchKeyword" name="SearchKeyword" placeholder="Search Here..." />
-              <button type="submit" (click)="getData()"><i class="lni lni-search-alt"></i></button>
+              <button type="submit" (click)="resetGetAllData(true)"><i class="lni lni-search-alt"></i></button>
             </form>
           </div>
           <!-- End Single Widget -->
@@ -160,7 +161,7 @@
                   <div class="row">
                     <div class="col-12">
                       <!-- Pagination -->
-                      <div class="pagination left">
+                      <div class="pagination left" >
                         <ul class="pagination-list">
                           <li
                             (click)="goToPage(1)"
