@@ -1,14 +1,13 @@
-/* .mb-400
-{
-  margin-bottom: 200px;
-} */
 .layout{
   display: flex;
   flex-direction: column;
 height: 100vh;
 }
-.content{
-  padding: 200px 0;
+.mt-100{
+  margin-top: 100px;
+}
+.mb-100{
+  margin-bottom: 100px;
 }
 /* app-header{
   height: 60px;

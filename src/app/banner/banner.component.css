@@ -2,7 +2,7 @@
 .image-slider {
   position: relative;
   width: 100%; /* 宽度100%适配父容器 */
-  height: 600px; /* 设置容器高度 */
+  height: 800px; /* 设置容器高度 */
   overflow: hidden;
   display: flex;
   align-items: center;
