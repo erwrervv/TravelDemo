@@ -239,8 +239,9 @@ navigateToDisplay() {
     // 3秒后关闭模态框并导航到购物车页面
     setTimeout(() => {
       this.isModalVisible = false;
-      this.router.navigate(['/cart']);  // 导航到购物车页面
+      this.router.navigate(['/productdetail', this.productId]);  // 导航到购物车页面
     }, 3000); // 3秒后关闭
+      
 
   
     
