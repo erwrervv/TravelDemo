@@ -1,17 +1,20 @@
 import { DatatravelService } from './../../datatravel.service';
 // travel-detail.component.ts
 import { Component, OnInit } from '@angular/core';
+import { ProductTravels } from './travel-detail.model';
 import { TravelDetail } from './travel-detail.model';
-
 @Component({
   selector: 'app-travel-detail',
   templateUrl: './travel-detail.component.html',
-  styleUrls: ['./travel-detail.component.css']
+  styleUrls: ['./travel-detail.component.css'],
 })
 export class TravelDetailComponent implements OnInit {
-
-  travelDetail: TravelDetail | null = null;
-section: any;
+  travelDetail: ProductTravels | TravelDetail | null = null;
+  section: any;
+  isTransportationProvided: any;
+  travelService: any;
+  Transportation: any;
+travel: any;
 
   constructor(private datatravelService: DatatravelService) {}
 
@@ -19,13 +22,13 @@ section: any;
     this.loadTravelDetail();
   }
 
-  travelDatas:any
+  travelDatas: any;
 
   loadTravelDetail(): void {
     // 这里应该是从服务中获取旅行细节的逻辑
-    this.datatravelService.getDataTravel(1).subscribe(detail => {
-      console.log(detail)
-      this.travelDatas = detail
+    this.datatravelService.getDataTravel(1).subscribe((detail) => {
+      console.log(detail);
+      this.travelDatas = detail;
     });
   }
 
@@ -34,16 +37,10 @@ section: any;
     alert('立即預訂功能尚未實現');
   }
 
-  // destination = '基隆景點正濱漁港二日遊';
-  // travelDate = '2024年10月1日';
-  // numberOfPeople = 2;
-  // price = 12000; // 价格以原币种表示
-
   onSubmit() {
     // 处理表单提交逻辑，例如发送支付请求
     console.log('支付信息已提交');
   }
-
 
   // 抓API的ID
   // travelDetail: any;
@@ -61,4 +58,5 @@ section: any;
   //     }
   //   );
   // }
+
 }

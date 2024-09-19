@@ -1,7 +1,7 @@
 // travel-detail.service.ts
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
-import { TravelDetail } from './travel-detail.model';
+import { ProductTravels } from './travel-detail.model';
 
 @Injectable({
   providedIn: 'root'

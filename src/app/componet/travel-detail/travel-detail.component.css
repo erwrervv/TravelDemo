@@ -146,6 +146,28 @@ input {
   margin-bottom: 10px;
 }
 
+/* test */
+.travel-detail {
+  padding: 20px;
+}
+
+.section {
+  margin-bottom: 20px;
+  padding: 15px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+}
+
+h2 {
+  font-size: 1.5em;
+  margin-bottom: 10px;
+}
+
+p {
+  margin: 5px 0;
+}
+
 
 
 

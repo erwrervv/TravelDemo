@@ -1,17 +1,32 @@
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
-import { TravelDetail } from './componet/travel-detail/travel-detail.model';
+import {
+  ProductTravels,
+  TravelDetail,
+} from './componet/travel-detail/travel-detail.model';
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class DatatravelService {
-getTravelDetails() {
-  throw new Error('Method not implemented.');
-}
-constructor(private http: HttpClient) {}
+  checkTransportationAvailability(type: string, selectedOption: boolean) {
+    throw new Error('Method not implemented.');
+  }
+  getTravelDetails() {
+    throw new Error('Method not implemented.');
+  }
+  constructor(private http: HttpClient) {}
 
-getDataTravel(travelId:number){
-return this.http.get<TravelDetail>(`https://localhost:7003/api/ProductTravels/${travelId}`);
-}
+  getDataTravel(travelId: number) {
+    return this.http.get<ProductTravels>(
+      `https://localhost:7003/api/ProductTravels/${travelId}`
+    );
+  }
+
+  // 获取所有旅游项目
+  getAllTravelDetails(traveldetailsId: number) {
+    return this.http.get<TravelDetail[]>(
+      `https://localhost:7003/api/TravelDetails/${traveldetailsId}`
+    );
+  }
 }

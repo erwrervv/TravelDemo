@@ -34,3 +34,29 @@ h3, p {
   display: block;
   position: relative;
 }
+
+
+/* 向上移動 */
+.scroll-to-top {
+  position: fixed;
+  bottom: 20px; /* 距离底部20px */
+  right: 20px;  /* 距离右边20px */
+  background-color: #007bff; /* 按钮背景颜色 */
+  color: white; /* 按钮文字颜色 */
+  border: none; /* 去掉边框 */
+  border-radius: 50%; /* 圆形按钮 */
+  width: 50px;  /* 按钮宽度 */
+  height: 50px; /* 按钮高度 */
+  display: flex; /* 使用 flexbox */
+  align-items: center; /* 垂直居中 */
+  justify-content: center; /* 水平居中 */
+  cursor: pointer; /* 鼠标悬停时显示手型 */
+  z-index: 1000; /* 确保按钮在其他内容之上 */
+  transition: background-color 0.3s ease; /* 背景颜色平滑过渡 */
+  font-size: 30px; /* 增加文本的大小 */
+  text-align: center; /* 确保文本在按钮中居中对齐 */
+}
+
+.scroll-to-top:hover {
+  background-color: #0056b3; /* 鼠标悬停时按钮颜色变化 */
+}

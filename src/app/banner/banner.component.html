@@ -37,7 +37,11 @@
             />
             <i class="fa fa-caret-down"></i>
             <!-- 下拉箭头图标 -->
-            <ul class="dropdown-menu" *ngIf="isDropdownVisible">
+            <ul
+              class="dropdown-menu"
+              *ngIf="isDropdownVisible"
+              (mousedown)="onDropdownSelect($event)"
+            >
               <li
                 *ngFor="let location of filteredLocations"
                 (click)="selectLocation(location)"
