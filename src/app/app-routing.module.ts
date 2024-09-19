@@ -18,7 +18,9 @@ import { OrderpageComponent } from './component/orderpage/orderpage.component';
 import { CheckoutComponent } from './component/checkout/checkout.component';
 import { ShopbannerComponent } from './shop/shopbanner/shopbanner.component';
 import { ShopHomePageComponent } from './shop/shop-home-page/shop-home-page.component';
+import { Travelpage2Component } from './componet/travelpage2/travelpage2.component';
 
+import { TravelDetailComponent } from './componet/travel-detail/travel-detail.component';
 const routes: Routes = [
   {
     path: '', redirectTo: '/home', pathMatch: 'full'
@@ -124,6 +126,18 @@ const routes: Routes = [
       { path: 'checkout', component: CheckoutComponent },
       { path: 'cart', component: CartComponent },
     ]
+  },
+  {
+    path: 'travelpage2',
+    component: Travelpage2Component,
+  },
+  {
+    path: 'traveldetail',
+    component: TravelDetailComponent,
+  },
+  {
+    path: 'travel-detail/:id',
+    component: TravelDetailComponent
   },
 ]
 

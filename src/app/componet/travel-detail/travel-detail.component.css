@@ -1,0 +1,178 @@
+/* travel-detail.component.css
+.travel-detail {
+  padding: 20px;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+.section {
+  margin-bottom: 20px;
+}
+
+button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+
+/* 結帳畫面 */
+/* .checkout-container {
+  max-width: 800px;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+}
+
+h1 {
+  text-align: center;
+}
+
+.travel-details, .payment-section {
+  margin-bottom: 20px;
+}
+
+.travel-details p {
+  font-size: 16px;
+  margin: 5px 0;
+}
+
+.payment-section h2 {
+  margin-bottom: 10px;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+label {
+  display: block;
+  font-weight: bold;
+}
+
+input {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.submit-btn {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.submit-btn:hover {
+  background-color: #0056b3;
+} */
+/* travel-detail.component.css */
+
+/* travel-detail.component.css */
+
+/* travel-detail.component.css */
+
+.travel-detail {
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.travel-detail h1 {
+  font-size: 24px;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.travel-detail h2 {
+  font-size: 20px;
+  color: #555;
+  margin-bottom: 10px;
+}
+
+.travel-detail .section {
+  margin-bottom: 20px;
+}
+
+.travel-detail ul {
+  list-style: none;
+  padding: 0;
+}
+
+.travel-detail ul li {
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+}
+
+.travel-detail ul li:last-child {
+  border-bottom: none;
+}
+
+.travel-detail p {
+  margin: 0;
+  padding: 5px 0;
+}
+
+.travel-detail p strong {
+  font-weight: bold;
+}
+
+.travel-detail .price {
+  font-size: 18px;
+  color: #e74c3c;
+}
+
+.travel-detail .image-gallery img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 4px;
+  margin-bottom: 10px;
+}
+
+/* test */
+.travel-detail {
+  padding: 20px;
+}
+
+.section {
+  margin-bottom: 20px;
+  padding: 15px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+}
+
+h2 {
+  font-size: 1.5em;
+  margin-bottom: 10px;
+}
+
+p {
+  margin: 5px 0;
+}
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,163 @@
+<div class="search-form">
+  <div class="form-row">
+    <div class="form-group">
+      <label for="departure-date">出發日期</label>
+      <input type="date" id="departure-date" name="departure-date" />
+    </div>
+    <div class="form-group">
+      <label for="return-date">結束日期</label>
+      <input type="date" id="return-date" name="return-date" />
+    </div>
+  </div>
+
+  <div class="form-row">
+    <div class="form-group">
+      <label for="departure-location">出發地</label>
+      <select id="departure-location" name="departure-location">
+        <option value="">不限</option>
+        <!-- 其他選項 -->
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="arrival-location">目的地</label>
+      <select id="arrival-location" name="arrival-location">
+        <option value="">不限</option>
+        <!-- 其他選項 -->
+      </select>
+    </div>
+  </div>
+
+  <div class="form-row">
+    <div class="form-group">
+      <label for="search-keyword">搜尋關鍵字</label>
+      <input
+        type="text"
+        id="search-keyword"
+        name="search-keyword"
+        placeholder="輸入目的地或行程關鍵字"
+        [(ngModel)]="searchKeyword"
+      />
+    </div>
+    <div class="form-group">
+      <button type="button" class="search-btn" (click)="onSearch()">搜尋</button>
+    </div>
+  </div>
+
+  <div class="grid-container">
+    <div class="container" *ngFor="let travel of filteredTravelList">
+      <!-- 整個區塊都可以點擊 -->
+      <a [href]="travel.link" target="_self" rel="noopener noreferrer">
+        <!-- 圖片區 -->
+        <div class="image-section">
+          <img [src]="travel.imageUrl" [alt]="travel.altText" />
+        </div>
+        <!-- 標題和描述區 -->
+        <div class="title-section">
+          <h3>{{ travel.title }}</h3>
+        </div>
+        <div class="description">
+          {{ travel.description }}
+        </div>
+        <!-- 標籤區 -->
+        <div class="tags-section">
+          <span class="tag" *ngFor="let tag of travel.tags" [ngClass]="{'orange': tag === '自然生態', 'green': tag === '在地文化體驗'}">
+            {{ tag }}
+          </span>
+        </div>
+        <!-- 日期區 -->
+        <div class="date-section">{{ travel.date }}</div>
+        <!-- 價格區 -->
+        <div class="price-section">{{ travel.price }}</div>
+      </a>
+    </div>
+  </div>
+
+
+<!-- 向上按鈕 -->
+<button class="scroll-to-top" (click)="scrollToTop()">
+  ^
+</button>
+
+<!-- test -->
+<div class="search-form">
+  <div class="form-row">
+    <div class="form-group">
+      <label for="departure-date">出發日期</label>
+      <input type="date" id="departure-date" name="departure-date" />
+    </div>
+    <div class="form-group">
+      <label for="return-date">結束日期</label>
+      <input type="date" id="return-date" name="return-date" />
+    </div>
+  </div>
+
+  <div class="form-row">
+    <div class="form-group">
+      <label for="departure-location">出發地</label>
+      <select id="departure-location" name="departure-location">
+        <option value="">不限</option>
+        <option *ngFor="let location of travelDatas" [value]="location.id">
+          {{ location.name }}
+        </option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="arrival-location">目的地</label>
+      <select id="arrival-location" name="arrival-location">
+        <option value="">不限</option>
+        <option *ngFor="let location of travelDatas" [value]="travelDatas.Id">
+          {{ travelDatas.Travelarea }}
+        </option>
+      </select>
+    </div>
+  </div>
+
+  <div class="form-row">
+    <div class="form-group">
+      <label for="search-keyword">搜尋關鍵字</label>
+      <input
+        type="text"
+        id="search-keyword"
+        name="search-keyword"
+        placeholder="輸入目的地或行程關鍵字"
+        [(ngModel)]="searchKeyword"
+      />
+    </div>
+    <div class="form-group">
+      <button type="button" class="search-btn" (click)="onSearch()">搜尋</button>
+    </div>
+  </div>
+
+  <!-- 旅遊項目篩選結果 -->
+  <div class="grid-container">
+    <div class="container" *ngFor="let travel of travelDatas">
+      <!-- 整個區塊都可以點擊 -->
+      <a [href]="travel.link" target="_self" rel="noopener noreferrer">
+        <!-- 圖片區 -->
+        <div class="image-section">
+          <img [src]="travel.imageUrl" [alt]="travel.altText" />
+        </div>
+        <!-- 標題和描述區 -->
+        <div class="title-section">
+          <h3>{{ travel.TravelName }}</h3>
+        </div>
+        <div class="description">
+          {{ travel.TravelIntroduction | slice:0:30 }}...
+        </div>
+        <!-- 標籤區 -->
+        <div class="tags-section">
+          <span class="tag" *ngFor="let travel of travelDatas" [ngClass]="{'orange': travel.Tag === '自然生態', 'green': travel.Tag === '在地文化體驗'}">
+            {{ travel.Tag }}
+          </span>
+        </div>
+        <!-- 日期區 -->
+        <div class="date-section">{{ travel.TravelDatetime | date:'yyyy年MM月dd日' }}</div>
+        <!-- 價格區 -->
+        <div class="price-section">{{ travel.Price | currency:'TWD':'symbol':'1.0-0' }}起</div>
+      </a>
+    </div>
+  </div>
+</div>
+
+<!-- 向上按鈕 -->
+<button class="scroll-to-top" (click)="scrollToTop()">^</button>

@@ -17,6 +17,7 @@ import { BannerComponent } from './banner/banner.component';
 import { HomeComponent } from './home/home.component';
 import { ArticleoverviewComponent } from './component/articleoverview/articleoverview.component';
 import { TravelComponent } from './travel/travel.component';
+import { Travelpage2Component } from './componet/travelpage2/travelpage2.component';
 import { ShopComponent } from './shop/shop.component';
 import { ArticleListComponent } from './component/article-list/article-list.component';
 import { ArticlePostComponent } from './component/article-post/article-post.component';
@@ -45,7 +46,9 @@ import { CheckoutComponent } from './component/checkout/checkout.component';
 import { ShopbannerComponent } from './shop/shopbanner/shopbanner.component';
 import { Shopbanner1Component } from './shop/shopbanner1/shopbanner1.component';
 import { ShopHomePageComponent } from './shop/shop-home-page/shop-home-page.component';
-
+import { ComponetComponent } from './componet/componet.component';
+import { TravelDetailComponent } from './componet/travel-detail/travel-detail.component';
+import { TraveldetailmanageComponent } from './traveldetailmanage/traveldetailmanage.component';
 
 @NgModule({
   declarations: [
@@ -73,6 +76,10 @@ import { ShopHomePageComponent } from './shop/shop-home-page/shop-home-page.comp
     ShopbannerComponent,
     Shopbanner1Component,
     ShopHomePageComponent,
+    ComponetComponent,
+    Travelpage2Component,
+    TravelDetailComponent,
+    TraveldetailmanageComponent,
   ],
   imports: [
     BrowserModule,
