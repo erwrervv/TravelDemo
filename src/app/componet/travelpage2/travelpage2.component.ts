@@ -1,5 +1,6 @@
 import { Component, HostListener } from '@angular/core';
-
+import { DatatravelService } from 'src/app/datatravel.service';
+import { ProductTravels, TravelDetail } from '../travel-detail/travel-detail.model';
 @Component({
   selector: 'app-travelpage2',
   templateUrl: './travelpage2.component.html',
@@ -7,6 +8,35 @@ import { Component, HostListener } from '@angular/core';
 })
 export class Travelpage2Component {
 
+  travelDetail: ProductTravels | TravelDetail | null = null;
+  section: any;
+  isTransportationProvided: any;
+  travelService: any;
+  Transportation: any;
+  travel: any;
+
+  constructor(private datatravelService:
+     DatatravelService) {}
+
+
+  ngOnInit(): void {
+    const travelId = 1;
+    this.loadTravelDetail();
+  }
+
+  travelDatas: any;
+
+  loadTravelDetail(): void {
+    // 这里应该是从服务中获取旅行细节的逻辑
+    this.datatravelService.getDataTravel().subscribe((detail: any) => {
+      console.log(detail);
+      this.travelDatas = detail;
+    });
+  }
+
+  getFirstTenRecords(data:any[]){
+    return data.length>10 ? data.slice(0.10): data;
+  }
   departureDate: string = '';
   returnDate: string = '';
   departureLocation: string = '';

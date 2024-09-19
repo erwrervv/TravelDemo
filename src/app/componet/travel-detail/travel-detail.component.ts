@@ -26,7 +26,7 @@ travel: any;
 
   loadTravelDetail(): void {
     // 这里应该是从服务中获取旅行细节的逻辑
-    this.datatravelService.getDataTravel(1).subscribe((detail) => {
+    this.datatravelService.getDataTravel().subscribe((detail: any) => {
       console.log(detail);
       this.travelDatas = detail;
     });

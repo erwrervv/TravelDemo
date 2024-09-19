@@ -17,9 +17,9 @@ export class DatatravelService {
   }
   constructor(private http: HttpClient) {}
 
-  getDataTravel(travelId: number) {
-    return this.http.get<ProductTravels>(
-      `https://localhost:7003/api/ProductTravels/${travelId}`
+  getDataTravel() {
+    return this.http.get<any>(
+      `https://localhost:7003/api/ProductTravels/`
     );
   }
 
