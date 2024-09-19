@@ -10,6 +10,8 @@ import { ProductdetailComponent } from './component/productdetail/productdetail.
 import { ProducttableComponent } from './component/producttable/producttable.component';
 import { OrderpageComponent } from './component/orderpage/orderpage.component';
 import { CheckoutComponent } from './component/checkout/checkout.component';
+import { ShopbannerComponent } from './shop/shopbanner/shopbanner.component';
+import { ShopHomePageComponent } from './shop/shop-home-page/shop-home-page.component';
 
 
 
@@ -57,6 +59,24 @@ const routes: Routes = [
 
   { path: 'checkout',
      component: CheckoutComponent },
+     {
+      path: 'shopbanner',
+      component: ShopbannerComponent,
+    },
+    {
+      path: 'shophomepage',
+      component: ShopHomePageComponent,
+      
+
+      children: [
+        { path: 'orderpage', component: OrderpageComponent },
+        { path: 'productdetail', component: ProductdetailComponent },
+        { path: 'shoplist', component: ShoplistComponent },
+        { path: 'checkout', component: CheckoutComponent },
+        { path: 'cart', component: CartComponent },
+      ]
+    },
+    
 ];
 
 @NgModule({

@@ -27,6 +27,9 @@ import { AddToCartService } from './service/add-to-cart.service';
 import { ProducttableComponent } from './component/producttable/producttable.component';
 import { OrderpageComponent } from './component/orderpage/orderpage.component';
 import { CheckoutComponent } from './component/checkout/checkout.component';
+import { ShopbannerComponent } from './shop/shopbanner/shopbanner.component';
+import { Shopbanner1Component } from './shop/shopbanner1/shopbanner1.component';
+import { ShopHomePageComponent } from './shop/shop-home-page/shop-home-page.component';
 
 
 @NgModule({
@@ -45,6 +48,9 @@ import { CheckoutComponent } from './component/checkout/checkout.component';
     ProducttableComponent,
     OrderpageComponent,
     CheckoutComponent,
+    ShopbannerComponent,
+    Shopbanner1Component,
+    ShopHomePageComponent,
 
 
 
