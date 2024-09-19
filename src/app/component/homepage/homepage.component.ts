@@ -19,7 +19,7 @@ export class HomepageComponent implements OnInit {
   imageUrls: { [key: number]: string } = {};
   loading: TemplateRef<NgIfContext<any[] | null>> | null | undefined;
   ArticleOverviewData: Array<Articleoverviews> = new Array<Articleoverviews>();
-  page: pageinfo = new pageinfo(5, 1);
+  page: pageinfo = new pageinfo(6, 1);
   totalPages: number = 0;
   articleListData: Array<ArticlesList> = new Array<ArticlesList>();
   listName!: string;

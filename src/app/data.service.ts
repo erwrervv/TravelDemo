@@ -130,6 +130,9 @@ export class DataService {
   putArticleList(id:Number,data:ArticlesListPost): Observable<ArticlesListPost>{
     return this.http.put<ArticlesListPost>(`${this.articlesListUrl}/${id}`,data)
   }
+  removeArticleList(id:Number):Observable<ArticlesListPost>{
+    return this.http.delete<ArticlesListPost>(`${this.articlesListUrl}/${id}`)
+  }
 
   getArticlesPaged(Page: pageinfo) {
     let params = new HttpParams();
