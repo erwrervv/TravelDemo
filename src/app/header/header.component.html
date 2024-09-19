@@ -40,11 +40,11 @@
                     data-bs-target="#submenu-1-4" aria-controls="navbarSupportedContent" aria-expanded="false"
                     aria-label="Toggle navigation">文章</a>
                   <ul class="sub-menu collapse" id="submenu-1-4">
-                    <li class="nav-item">
-                      <a [routerLink]="['/article']">文章瀏覽</a>
+                    <li class="nav-item" [routerLink]="['/article']">
+                      <a>文章瀏覽</a>
                     </li>
-                    <li class="nav-item">
-                      <a [routerLink]="['/article-list']">文章列表</a>
+                    <li class="nav-item" [routerLink]="['/article-list']">
+                      <a >文章列表</a>
                     </li>
                     <li class="nav-item" (click)="gotoArticlePost()"><a>新增文章</a></li>
                     <li class="nav-item" (click)="gotoArticleListPost()"><a>新增文章列表</a></li>
