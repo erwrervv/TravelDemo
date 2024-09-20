@@ -5,6 +5,7 @@ import { SwiperOptions } from 'swiper';
 import SwiperCore, { EffectFade, Autoplay } from 'swiper';
 import { ActivatedRoute } from '@angular/router';
 import { DataproductService } from 'src/app/service/dataproduct.service';
+import { Router } from '@angular/router';
 
 
 
@@ -130,7 +131,7 @@ export class CartComponent implements OnInit{
   TotalCalc :number = 0;
 
 
-  constructor(private route: ActivatedRoute) { }
+  constructor(private route: ActivatedRoute , private router: Router) { }
   ngOnInit(): void {
     // 获取路由参数中的 id
     // this.route.queryParamMap.subscribe(params => {
@@ -229,7 +230,8 @@ export class CartComponent implements OnInit{
   }
 
   checkout() {
-    alert('買單測試')
+    this.router.navigate(['/checkout']);
+    console.log('cartItems:',this.products)
   }
 
   //把更新存進去local storage
