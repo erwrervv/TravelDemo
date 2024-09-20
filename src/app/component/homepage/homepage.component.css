@@ -26,3 +26,6 @@ img {
   text-overflow: ellipsis;
   max-width: 10ch;
 }
+a{
+  text-decoration: none !important ;
+}
