@@ -11,7 +11,7 @@
   background-size: cover;
   background-position: center;
   padding: 20px;
-  
+
 }
 .container {
 
@@ -31,7 +31,7 @@
   /* background-image: url('../../../assets/images/風景_2.jpg'); */
   background-size: cover;
   background-position: center;
-  background-color:rgba(255, 255, 255, 0.5);
+  background-color:rgba(255, 255, 255, 0.7);
 }
 
 .category-btn {
