@@ -1,0 +1,38 @@
+<div class="container">
+  <div *ngFor="let article of articlesListData; let idx = index" class="mb-20 articleImage bordrad10">
+    <div class="article-list-shadow4 insetshadow">
+      <div class="article-list-container radcolor insetshadow">
+        <div class="listTitle">
+          清單：{{ article.ArticleListName }}
+          <span (click)="goArticleLikeMenu(article.ArticleListName)" class="article-list-put insetshadowlistTitle backgroundColorWhite"  style="float: right;"  >
+            添加
+          </span>
+          <span (click)="putArticleListUrl(article.ArticleListId)" class="article-list-put insetshadowlistTitle backgroundColorWhite" style="float: right;" >
+            更改名稱
+          </span>
+        </div>
+      </div>
+
+    <div class="article-list-content article-list-shadow4 backgroundColorWhite">
+      <button class="nav-arrow left-arrow">
+        <!-- <i class="fa fa-chevron-left"></i> -->
+      </button>
+      <div
+        class="articles"
+        *ngFor="let item of article.PartialArticleOverviews"
+      >
+        <div class="article">
+          <div class="article-image" (click)="gotoArticle(item.ArticleId)">
+            <img [src]="item.ArticleCoverImageString" alt="Article Image" />
+          </div>
+          <div class="article-info ">
+            <p class="article-title">{{ item.ArticleName }}</p>
+            <p>作者：{{ article.MemberName }}</p>
+            <p>更新日期：{{ item.UpdateTime | date : "MM-dd" }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+</div>

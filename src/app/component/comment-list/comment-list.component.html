@@ -1,0 +1,49 @@
+<div class="comment-section">
+  <div class="comment-header">
+    <button class="sort-btn active">
+      按時間排序 <i class="fa fa-chevron-down"></i>
+    </button>
+    <button class="sort-btn">
+      按喜歡排序 <i class="fa fa-chevron-down"></i>
+    </button>
+  </div>
+  <!-- // -->
+  <div class="comment">
+    <div class="comment-user-avatar">
+      <img [src]="'data:/image/jpge;base64,'+basicmember.MemberPicture"  alt="User Avatar" />
+    </div>
+    <div class="comment-content">
+      <div class="comment-header">
+        <span class="username"> {{basicmember.MemberName}} </span>
+      </div>
+      <div class="article-title">
+        <input [(ngModel)]="commentsData.CommentContent"  name="ArticleListName" type="text" placeholder="輸入評論" />
+      </div>
+      <div class="article-title">
+        <div class="comment-actions">
+          <button (click)="postCommentsData()" ><i class="fa fa-reply"></i> 新增評論</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- // -->
+  <div class="comment" *ngFor="let item of items; let idx = index">
+    <div class="comment-user-avatar">
+      <img [src]="item.MemberPicture" alt="User Avatar" />
+    </div>
+    <div class="comment-content">
+      <div class="comment-header">
+        <span class="username">{{ item.MemberName }}　</span>
+        <span class="time">{{
+          item.CommentDateTime | date : "yyyy-MM-dd HH:mm"
+        }}</span>
+      </div>
+      <p>{{ item.CommentContent }}</p>
+      <div class="comment-actions">
+        <!-- <button (click)="likeComment(item)"><i class="fa fa-thumbs-up"></i> {{ likes || 0 }} </button> -->
+        <button><i class="fa fa-reply"></i>回覆</button>
+        <button class="more-options">⋮</button>
+      </div>
+    </div>
+  </div>
+</div>

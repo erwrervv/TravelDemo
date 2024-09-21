@@ -1,0 +1,17 @@
+{
+  "/api": {
+    "target": "https://localhost:7003",
+    "secure": false,
+    "changeOrigin": true,
+    "pathRewrite": {
+      "^/": ""
+    }
+  },
+
+    "/images": {
+      "target": "https://localhost:7003",
+      "secure": false,
+      "changeOrigin": true,
+      "logLevel": "debug"
+    }
+}

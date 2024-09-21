@@ -1,0 +1,167 @@
+
+.container {
+  font-weight: bold;
+  margin-top: 100px;
+}
+
+
+.article-list-container {
+
+  /* background-color: #f9f9f9; */
+
+  padding: 20px;
+  border-radius: 8px;
+  margin-bottom: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.category-btn {
+  background-color: #f2f2f2;
+  border: none;
+  padding: 8px 12px;
+  margin-right: 10px;
+  cursor: pointer;
+}
+
+.filter-btn {
+  background-color: #f2f2f2;
+  border: none;
+  padding: 8px 12px;
+  margin-right: 10px;
+  cursor: pointer;
+}
+
+.filter-btn.active {
+  background-color: #0d6efd;
+  color: white;
+}
+
+.article-list-header {
+  display: flex;
+  /* justify-content: center; */
+  align-items: center;
+  justify-content: space-between;
+}
+.article-list-content {
+  display: flex;
+  align-items: center;
+  /* justify-content: space-between; */
+  overflow-x: auto;
+}
+
+.articles {
+  display: flex;
+  /* overflow-x: auto; */
+}
+
+.article {
+  /* background-color: white; */
+  padding: 10px;
+  margin-right: 10px;
+  text-align: center;
+  /* border: 1px solid #ddd; */
+  /* border-radius: 4px; */
+  min-width: 200px;
+}
+
+.article-image img {
+  width: 170px;
+  height: 150px;
+  margin-bottom: 10px;
+  min-width: 100px;
+  min-height: 100px;
+  border-radius:8px ;
+}
+
+.article-info {
+  font-size: 14px;
+}
+
+.nav-arrow {
+  background-color: #f2f2f2;
+  border: none;
+  cursor: pointer;
+}
+
+.nav-arrow.left-arrow {
+  margin-right: 10px;
+}
+
+.nav-arrow.right-arrow {
+  margin-left: 10px;
+}
+
+.article-list-footer {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 20px;
+}
+
+.footer-btn {
+  background-color: #0d6efd;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  margin-left: 10px;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+p {
+  color: rgb(18, 18, 18);
+}
+
+.listTitle {
+  text-align: center;
+  color: rgb(59, 95, 238);
+  font-size: 3rem;
+}
+.article-list-put-head{
+
+}
+.article-list-put {
+  box-shadow: rgba(17, 17, 26, 0.1) 0px 4px 16px, rgba(17, 17, 26, 0.05) 0px 8px 32px;
+  font-size: 0.5em;
+
+
+border-radius: 8px;
+padding:0 20px ;
+margin-left: 20px;
+}
+.article-list-shadow4{
+  padding: 20px;
+  border-radius: 20px;
+  margin-bottom: 10px;
+  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+}
+.mb-20{
+  margin-bottom: 40px;
+}
+.radcolor{
+  background: rgb(148,233,183);
+background: radial-gradient(circle, rgb(219, 231, 227) 10%, rgb(148,233,183,1) 60%);}
+.bordrad10{
+border-radius:20px ;
+}
+.articleImage{
+  background-image: url('../../../assets/images/風景.jpg');
+  /* padding-right: var(--bs-gutter-x, .75rem);
+  padding-left: var(--bs-gutter-x, .75rem); */
+  background-size: cover;
+  background-position: center;
+}
+.backgroundColorWhite
+{
+background-color: #f2f2f2;
+}
+
+.insetshadow {
+  /* background-color: #f0f0f0; */
+  box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.5); /* 陰影向內 */
+
+}
+.insetshadowlistTitle {
+  /* background-color: #f0f0f0; */
+  box-shadow: inset 0 0 20px rgba(170, 153, 153, 0.5); /* 陰影向內 */
+
+}

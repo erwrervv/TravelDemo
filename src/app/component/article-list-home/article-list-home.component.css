@@ -1,0 +1,188 @@
+.mid{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.container-head{
+  background-image: url('../../../assets/images/風景.jpg');
+  /* padding-right: var(--bs-gutter-x, .75rem);
+  padding-left: var(--bs-gutter-x, .75rem); */
+  background-size: cover;
+  background-position: center;
+  padding: 20px;
+
+}
+.container {
+
+
+  cursor: pointer;
+}
+
+
+.article-list-container {
+
+  width: 40%;
+
+  padding: 5px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+  /* background-image: url('../../../assets/images/風景_2.jpg'); */
+  background-size: cover;
+  background-position: center;
+  background-color:rgba(255, 255, 255, 0.7);
+}
+
+.category-btn {
+  background-color: #f2f2f2;
+  border: none;
+  padding: 8px 12px;
+  margin-right: 10px;
+  cursor: pointer;
+}
+
+.filter-btn {
+  background-color: #f2f2f2;
+  border: none;
+  padding: 8px 12px;
+  margin-right: 10px;
+  cursor: pointer;
+}
+
+.filter-btn.active {
+  background-color: #0d6efd;
+  color: white;
+}
+
+.article-list-header {
+  display: flex;
+  /* justify-content: center; */
+  align-items: center;
+  justify-content: space-between;
+}
+
+.article-list-content {
+  display: flex;
+  align-items: center;
+  overflow-x:visible;
+  background-color:rgba(255, 255, 255, 0.7);
+  padding: 20px 10px 20px 20px;
+  border-radius: 10px;
+  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+}
+
+.articles {
+  display: flex;
+  /* overflow-x: auto; */
+
+  /* padding-bottom: 50px; */
+}
+
+.article {
+  background-color: rgba(70, 95, 83, 0.5);
+  border-radius: 10px;
+  /* padding: 10px; */
+
+  margin-right: 10px;
+  text-align: center;
+  /* border: 1px solid #ddd; */
+  /* border-radius: 4px; */
+  /* min-width: 200px; */
+}
+
+.article-image img {
+  width: 250px;
+  height: 200px;
+  margin-bottom: 20px;
+  min-width: 100px;
+  min-height: 100px;
+  border-radius:10px 10px 0 0 ;
+}
+
+.article-info {
+  font-size: 16px;
+}
+
+.article-list-footer {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 20px;
+}
+
+.footer-btn {
+  background-color: #0d6efd;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  margin-left: 10px;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+p {
+  color: rgb(255, 255, 255);
+}
+
+.listTitle {
+  text-align: center;
+  /* color: rgb(59, 95, 238); */
+  font-size: 3rem;
+}
+.article-title{
+  font-size:20px;
+}
+.article-list-put-head{
+
+}
+.article-list-put {
+  box-shadow: rgba(17, 17, 26, 0.1) 0px 4px 16px, rgba(17, 17, 26, 0.05) 0px 8px 32px;
+  font-size: 0.5em;
+
+
+border-radius: 8px;
+padding:0 20px ;
+margin-left: 20px;
+}
+.article-list-shadow4{
+  padding: 20px;
+  border-radius: 20px;
+
+  margin-top: 80px;
+  margin-bottom: 20px;
+  /* box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px; */
+}
+html {
+  scrollbar-color: #83aeff #55aaff; /* 滚动条滑块颜色 滚动条轨道颜色 */
+  scrollbar-width: thin; /* 滚动条宽度: auto, thin, none */
+}
+/* 整个滚动条 */
+::-webkit-scrollbar {
+  width: 12px; /* 宽度 */
+  height: 12px; /* 高度 */
+}
+
+/* 滚动条轨道 */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 10px;
+}
+
+/* 滚动条滑块 */
+::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 10px;
+}
+
+/* 鼠标悬停时的滑块样式 */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+/*字體*/
+.text-shadow-example {
+  color: #2b3033; /* 字体颜色 */
+  text-shadow: 1px 1px 1px rgb(223, 241, 25); /* 字体阴影 */
+  font-size: 64px; /* 字体大小 */
+  font-weight: bold; /* 字体加粗 */
+}

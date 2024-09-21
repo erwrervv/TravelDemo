@@ -1,4 +1,4 @@
-<section id="專屬旅行計劃" class="form-section">
+<section id="專屬旅行計劃" class="form-section content">
   <div class="background-container">
     <div class="image-slider">
       <!-- 左侧箭头 -->
@@ -37,7 +37,11 @@
             />
             <i class="fa fa-caret-down"></i>
             <!-- 下拉箭头图标 -->
-            <ul class="dropdown-menu" *ngIf="isDropdownVisible">
+            <ul
+              class="dropdown-menu"
+              *ngIf="isDropdownVisible"
+              (mousedown)="onDropdownSelect($event)"
+            >
               <li
                 *ngFor="let location of filteredLocations"
                 (click)="selectLocation(location)"

@@ -1,0 +1,14 @@
+.layout{
+  display: flex;
+  flex-direction: column;
+height: 100vh;
+}
+.mt-100{
+  margin-top: 200px;
+}
+.mb-100{
+  margin-bottom: 100px;
+}
+/* app-header{
+  height: 60px;
+} */

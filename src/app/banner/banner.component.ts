@@ -10,10 +10,10 @@ export class BannerComponent {
   locations = ['台北', '台中', '台南', '台東'];
   selectedValues: string[] = [];
   images: string[] = [
-    "assets/images/台中景點背景圖.jpg",
-    "assets/images/高雄背景圖.jpg",
-    "assets/images/101背景圖.jpg",
-    "assets/images/台灣東部背景圖.jpg"
+    "assets/images/travelimage/台中景點背景圖.jpg",
+    "assets/images/travelimage/高雄背景圖.jpg",
+    "assets/images/travelimage/101背景圖.jpg",
+    "assets/images/travelimage/台灣東部背景圖.jpg"
   ];
   currentIndex = 0; // 当前显示的图片索引
   autoSlideInterval: any; // 定时器变量
@@ -94,6 +94,11 @@ export class BannerComponent {
       this.isDropdownVisible = false;
     }, 200);  // 延迟隐藏下拉菜单以允许用户点击选项
   }
+  onDropdownSelect(event: Event) {
+    event.preventDefault();
+    event.stopPropagation();
+    // 处理下拉菜单选择逻辑
+  }
   //人數控制
   travelForm: FormGroup;
   constructor(private fb: FormBuilder) {
@@ -172,4 +177,5 @@ export class BannerComponent {
     // 如果 '否' 被选中，则禁用 '是'
     return (this.selectedValue === '是' && value === '否') || (this.selectedValue === '否' && value === '是');
   }
+
 }

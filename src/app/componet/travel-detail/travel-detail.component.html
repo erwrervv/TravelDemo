@@ -1,0 +1,76 @@
+<!-- travel-detail.component.html -->
+<div class="travel-detail">
+  <h1>旅行明細</h1>
+
+  <!-- 基本信息 -->
+  <div class="section basic-info">
+    <h2>{{ travelDatas.TravelName }}</h2>
+    <p><strong>天數:</strong> {{ travelDatas.AllDays }} 天</p>
+    <p><strong>日期:</strong> {{ travelDatas.TravelDatetime | date:'yyyy年MM月dd日' }}</p>
+    <p><strong>集合地點:</strong> {{ travelDatas.TravelMeetingpoint }}</p>
+    <p><strong>價格:</strong> {{ travelDatas.Price | currency:'TWD' }}</p>
+  </div>
+
+  <!-- 行程資訊 -->
+  <div class="section itinerary">
+    <h2>行程資訊</h2>
+    <ul>
+         {{ travelDatas.TravelIntroduction }}
+    </ul>
+  </div>
+
+  <!-- 交通信息 -->
+  <div class="section transportation">
+    <h2>交通信息</h2>
+    <label>
+      <strong>是否提供交通信息:</strong>
+      <input type="radio" name="transportation" [(ngModel)]="isTransportationProvided" [value]="true"> 是
+      <input type="radio" name="transportation" [(ngModel)]="isTransportationProvided" [value]="false"> 否
+    </label>
+
+    <div *ngIf="isTransportationProvided">
+      <label>
+        <strong>交通方式:</strong>
+        <select [(ngModel)]="travelDatas.Transportation">
+          <option value="bus">公車</option>
+          <option value="tourbus">遊覽車</option>
+          <option value="train">火車</option>
+        </select>
+      </label>
+    </div>
+
+    <p *ngIf="!isTransportationProvided">未提供交通信息</p>
+  </div>
+
+  <!-- 餐饮信息 -->
+  <div class="section meals">
+    <h2>餐飲信息</h2>
+    <ul>
+      <li *ngFor="let meal of travelDatas.Itinerary">
+        <strong>{{ meal.Meals }}:</strong>
+      </li>
+    </ul>
+  </div>
+
+  <!-- 住宿信息 -->
+  <div class="section accommodation">
+    <h2>住宿信息</h2>
+    <p><strong>住宿:</strong> {{ travelDatas.Accommodation }}</p>
+  </div>
+
+  <!-- 定价与预订 -->
+  <div class="section pricing-booking">
+    <h2>定價與預訂</h2>
+    <p><strong>價格:</strong> {{ travelDatas.Pricing }}</p>
+    <p><strong>預訂信息:</strong> {{ travelDatas.Booking }}</p>
+  </div>
+
+  <!-- 图片展示 -->
+  <div class="section image-gallery">
+    <h2>圖片展示</h2>
+    <img [src]="travelDatas.ImageUrl" [alt]="travelDatas.Title" />
+  </div>
+</div>
+
+<app-traveldetailmanage></app-traveldetailmanage>
+

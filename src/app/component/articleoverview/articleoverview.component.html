@@ -1,0 +1,45 @@
+<div class="container">
+  <!-- 文章展示區域 -->
+  <div class="article-section">
+    <h1>{{ articleId.ArticleName }}</h1>
+    <div class="article-meta">
+      <span>{{ articleId.UpdateTime | date:'yyyy-MM-dd HH:mm' }}</span>
+    </div>
+    <!-- -------- -->
+    <div class="author-section">
+      <span class="author-name">{{ articleId.MemberName }}</span>
+      <span class="author-info">10 粉絲 · 15 文章</span>
+      <button (click)="goEditUrl(articleId.ArticleId)" class="follow-button">編輯</button>
+    </div>
+
+    <!-- -------修改卻不能正常顯示----- -->
+    <!-- ------ -->
+    <div class="article-image">
+      <img [src]="articleId.ArticleCoverImageString" style="width:350px; height:300px;" />
+    </div>
+    <div class="article-content">
+      <p [innerHTML]="articleId.ArticleContent"></p>
+    </div>
+    <div>
+      <span>
+        <button (click)="likes()" class="btn btn-sho">
+           <i class="fa fa-thumbs-up"></i> <!--{{ articleId.ArticleLikes }}--> 點讚
+        </button>
+      </span>
+    </div>
+  </div>
+
+
+
+  <!-- 評論區域 -->
+  <div class="comments-section">
+    <app-comment-list></app-comment-list>
+  </div>
+
+  <!--文章新增介面 -->
+  <!-- <div class="article-post-section">
+    <app-article-post></app-article-post>
+  </div> -->
+
+
+</div>
