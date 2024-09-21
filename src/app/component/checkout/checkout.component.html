@@ -4,9 +4,9 @@
   </header>
   <!-- 這是商品資訊欄 -->
   <!-- <section class="order-items">
-   
+
 <div class="cart-header d-flex justify-content-between">
-  
+
   <div class="cart-item">商品名稱</div>
   <div class="cart-price">商品價格</div>
   <div class="cart-quantity">商品數量</div>
@@ -23,8 +23,8 @@
         <div class="cart-price">
           {{ product.price | currency:'TWD': 'symbol':'1.0-0' }}
         </div>
-      
-      
+
+
         <span>商品價格{{ product.price }}</span>
         <span>商品數量{{ product.quantity }}</span>
         <span>{{ product.total }}</span>
@@ -44,7 +44,7 @@
       <div class="cart-quantity">商品數量</div>
       <div class="cart-action">操作</div>
     </div>
-  
+
     <div *ngFor="let product of products" class="item">
       <div class="item-info d-flex justify-content-between align-items-center">
         <div class="cart-item d-flex align-items-center">
@@ -56,26 +56,26 @@
         <div class="cart-quantity">
           {{ product.quantity }}
         </div>
-      
+
         <div class="cart-action">
           <!-- 添加操作按钮或链接 -->
         </div>
       </div>
     </div>
-  
+
     <div class="order-total">
       <span>訂單總額：</span>
-      <span>{{ calculateTotalPrice()  | currency:'TWD' }}</span>
+      <span>{{ calculateTotalPrice()  | currency:'TWD' : 'symbol':'1.0-0'  }}</span>
     </div>
   </section>
-  
+
 
 
   <!-- 這是使用者資訊填寫欄 -->
   <section class="order-notes">
     <h3>備註：</h3>
     <textarea placeholder="管理室代收/電話聯絡的時間..."></textarea>
-  
+
     <h3>寄送資訊</h3>
     <input type="text" placeholder="收件人姓名">
     <input type="text" placeholder="收件地址">
@@ -90,7 +90,7 @@
     <button type="button">街口支付</button>
     <button type="button">信用卡分期付款</button>
   </section>
-  
+
   <section class="place-order">
     <button type="submit">下訂單</button>
   </section>

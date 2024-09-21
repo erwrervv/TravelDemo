@@ -33,22 +33,31 @@ export class AddToCartService {
 
   // ver3 讓購物車右上角有一個數字
 
-    private cart: any[] = [];
-  private cartCount = new BehaviorSubject<number>(0); // 使用 BehaviorSubject 来跟踪购物车数量
+     cartItems: any[] =JSON.parse(localStorage.getItem('cartItems') || '[]');;
+   cartCount = new BehaviorSubject<number>(this.cartItems.length); // 使用 BehaviorSubject 来跟踪购物车数量
 
   constructor() { }
 
-  addToCart(product: any) {
-    this.cart.push(product);
-    this.cartCount.next(this.cart.length); // 更新购物车数量
-    console.log('Product added to cart:', product);
+  addToicon(product: any) {
+    this.cartItems.push(product);
+
+    this.cartCount.next(this.cartItems.length); // 更新购物车数量
+    localStorage.setItem('cartItems', JSON.stringify(this.cartItems));
+    console.log('Product added to cart:', this.cartItems);
   }
 
   getCartCount() {
     return this.cartCount.asObservable(); // 使其可观察
   }
 
-  // ver3
+  getCartItems() {
+    return this.cartItems; // 獲取購物車內的產品
+  }
+
+  clearCart() {
+    this.cartItems = [];
+    this.cartCount.next(0); // 重置购物车数量
+  }
 
 }
 

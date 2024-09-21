@@ -117,13 +117,13 @@
 
             <p-rating
               [ngModel]="value"
-              [readonly]="false"
+              [readonly]="true"
               [cancel]="false"
             ></p-rating>
             <!-- 售出數量 -->
             <div >
               <div
-                
+
                 class="item-title no-margin pe-2"
               >
                 已售出: {{ selectedProduct.selledquant }}
@@ -198,9 +198,11 @@
                 type="number"
                 class="form-control quantity input-number text-center"
                 [(ngModel)]="inputValue"
-                (blur)="onQuantityBlur(product)"
+                (blur)="onInputChange(inputValue)"
                 min="1"
+                max="10"
               />
+
               <!-- 數量增加紐 -->
               <span class="input-group-btn">
                 <button
@@ -218,7 +220,7 @@
             <!-- 購買按鈕 -->
             <div class="qty-button d-flex flex-wrap">
               <button
-                type="submit"
+                type="button"
                 class="btn btn-primary py-3 px-4 text-uppercase me-3"
                 (click)="goToCart()"
                 style="color: black"
@@ -227,7 +229,7 @@
                 立即購買
               </button>
               <button
-                type="submit"
+                type="button"
                 name="add-to-cart"
                 class="btn btn-dark py-3 px-4 text-uppercase"
                 (click)="addToCart()"
@@ -284,11 +286,12 @@
       </div>
     </div>
   </div>
+  <span></span>
 
-  
-<div >
-</div>
+
+
 </section>
+
 
 
 

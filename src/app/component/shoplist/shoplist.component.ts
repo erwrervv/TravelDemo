@@ -134,7 +134,7 @@ export class ShoplistComponent {
       selledquant: 7,
     },
     {
-      id: 12,
+      id: 13,
       image: 'assets/images/perfume2.png',
       title: '一絲清香_為生活增添情趣',
       price: 5000,
@@ -157,6 +157,6 @@ goToProductDetail(productId: number) {
 
 
 goToProductDetailwithF(id: number){
-  
+
 }
 }

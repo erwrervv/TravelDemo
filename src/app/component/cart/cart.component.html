@@ -14,7 +14,7 @@
 
 <!-- 這是商品層 -->
  <div class="mb-50">
- 
+
 <div *ngFor="let product of products" class="cart-item-row d-flex justify-content-between align-items-center ">
   <!-- 商品图片 -->
   <div class="cart-item d-flex align-items-center">
@@ -49,7 +49,7 @@
         type="number"
         class="form-control quantity input-number text-center"
         [(ngModel)]="product.quantity"
-        (change)="onQuantityChange()" 
+        (change)="onQuantityChange()"
          (blur)="onQuantityBlur(product)"
         min="1"
         max="10"
@@ -83,7 +83,7 @@
 <div class="checkout-section d-flex justify-content-between align-items-center">
   <!-- 总金额 -->
   <div class="total-price" >
-    
+
     總金額: {{TotalCalc  | currency:'TWD' : 'symbol':'1.0-0'}}
   </div>
 

@@ -21,11 +21,17 @@ export class HeaderComponent implements OnInit {
 
   cartCount: number = 0;
 
+
   constructor(private adcService: AddToCartService) { }
 
   ngOnInit() {
     this.adcService.getCartCount().subscribe(count => {
       this.cartCount = count; // 更新购物车数量
-    });
-  }
+      console.log('Updated Cart Count:', this.cartCount); // 用於檢查
+
+
+
+
+  })
+}
 }

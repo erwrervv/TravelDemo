@@ -17,7 +17,11 @@ export class OrderpageComponent implements OnInit {
     exchange_status: '已付款'
   };
   constructor() {}
+  products: any[] = [];
+  ngOnInit(): void {
 
-  ngOnInit(): void {}
+
+
+  }
 
 }

@@ -17,14 +17,14 @@ ngOnInit(): void {
   const cartItems = JSON.parse(localStorage.getItem('cartItems') || '[]');
     this.products = cartItems;
     
-    
+
 }
 
 
   cartItems = [
     { name: 'HERAN 風扇', price: 1480, quantity: 1, total: 1480 },
   ];
-  
+
   calculateTotalPrice() {
     let totalPrice = 0;
     this.products.forEach(product => {
@@ -35,10 +35,10 @@ ngOnInit(): void {
     });
     return totalPrice; // 此為最後總金額
   }
-  
+
   placeOrder() {
     console.log('訂單已送出');
     // 在这里处理下订单逻辑
   }
-  
+
 }

@@ -128,10 +128,12 @@ export class CartComponent implements OnInit{
   storedValues: number [] = [];
   AddToCartService: any;
   products: any[] = []; // 用于存储购物车中的商品
+
+  cartCount: number = 0;
   TotalCalc :number = 0;
 
 
-  constructor(private route: ActivatedRoute , private router: Router) { }
+  constructor(private route: ActivatedRoute , private router: Router, private adcService: AddToCartService) { }
   ngOnInit(): void {
     // 获取路由参数中的 id
     // this.route.queryParamMap.subscribe(params => {
@@ -142,24 +144,30 @@ export class CartComponent implements OnInit{
     //     this.products = [product];
     //   }
     // });
-    
+
 
     //透過local storage找到cartItems
     const cartItems = JSON.parse(localStorage.getItem('cartItems') || '[]');
     this.products = cartItems;
-    
+
+
+
     //取local storage剛剛在
     console.log('Cart Items:', this.products);
 
-    const storedString  = localStorage.getItem('inputValues');
-    if (storedString) {
-      this.storedValues = JSON.parse(storedString); // 解析为数字数组
-      localStorage.removeItem('inputValues'); // 清除 localStorage 中的值
+    this.cartCount = this.products.length;
+    console.log('Cart Count:', this.cartCount); // 可用來檢查
 
 
-    }
+    // const storedString  = localStorage.getItem('inputValue');
+    // if (storedString) {
+    //   this.storedValues = JSON.parse(storedString); // 解析为数字数组
+    //   localStorage.removeItem('inputValue'); // 清除 localStorage 中的值
+
+    // }
 
     this.updateTotalPrice();
+
   }
 
 
@@ -200,7 +208,7 @@ export class CartComponent implements OnInit{
 
 
     this.saveCartToLocalStorage();
-    this.TotalCalc = this.calculateTotalPrice(); 
+    this.TotalCalc = this.calculateTotalPrice();
   }
   //減少紐 防呆
   decreaseQuantity(product: { quantity: number; }) {
@@ -212,7 +220,7 @@ export class CartComponent implements OnInit{
     }
 
     this.saveCartToLocalStorage();
-    this.TotalCalc = this.calculateTotalPrice(); 
+    this.TotalCalc = this.calculateTotalPrice();
   }
 
   //清除並儲存local storage
@@ -247,11 +255,13 @@ export class CartComponent implements OnInit{
 
   // 当数量变更时更新总金额
   onQuantityChange() {
-    
+
     this.updateTotalPrice(); // 每次数量变化时重新计算总金额
-   
+
   }
 
+
+ 
 }
 
 
