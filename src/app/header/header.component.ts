@@ -32,7 +32,7 @@ export class HeaderComponent implements OnInit {
     this.adcService.getCartCount().subscribe(count => {
       this.cartCount = count; // 更新购物车数量
 
-      
+
     });
 
   }

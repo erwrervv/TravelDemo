@@ -24,6 +24,14 @@ export class DataproductService {
   getProductPic (id : number):Observable<any>{
     return this.http.get<any>(`https://localhost:7003/api/MallProductTables/get-product/${id}`);
   }
+
+
+  createOrder(order: any): Observable<any> {
+    return this.http.post('https://localhost:7003/api/Shoprecords', order);
+  }
+
+
+
   }
   // createOrder(Order){
   //   this.http.post('api',Order)
