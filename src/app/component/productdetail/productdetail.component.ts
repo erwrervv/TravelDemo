@@ -241,9 +241,12 @@ ngOnInit() {
    const id = Number(params.get('id'));
    this.dProduct.getProductDetail(id).subscribe(data =>{
      console.log("data:",data)
-     this.product = data
+     this.product = data;
+
 
      //這行為透過api專案讀取data的id轉為loaddata 也就是products[]需要的id
+
+
      this.loadProductData(this.product.MallProductTableId)
    })
 
@@ -401,7 +404,9 @@ navigateToDisplay() {
     // let cartItems = JSON.parse(localStorage.getItem('cartItems') || '[]');
     // cartItems.push(this.product);
     // localStorage.setItem('cartItems', JSON.stringify(cartItems));  // 存储到 localStorage
+
     this.adcService.addToicon({
+      id: this.product.MallProductTableId,
       name: this.product.MallProductName,  // 商品名稱
       image: this.product.Pimage,          // 商品圖片
       price: this.product.GoldAmount,      // 商品金额
@@ -409,7 +414,7 @@ navigateToDisplay() {
     })
 
     this.router.navigate(['/cart']);
-
+    console.log('MallProductTableID',this.product.MallProductTableId)
 
 
   };
@@ -446,6 +451,7 @@ navigateToDisplay() {
     // let cartItems = JSON.parse(localStorage.getItem('cartItems') || '[]');
     // cartItems.push({
       this.adcService.addToicon({
+      id: this.product.MallProductTableId,
       name: this.product.MallProductName,  // 商品名稱
       image: this.product.Pimage,          // 商品圖片
       price: this.product.GoldAmount,      // 商品金额

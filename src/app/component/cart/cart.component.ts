@@ -154,8 +154,7 @@ export class CartComponent implements OnInit {
     this.adcService.getCartCount().subscribe((count) => {
       this.cartCount = count;
 
-      //測試用文字
-      console.log('Updated cart count:', this.cartCount);
+    
     });
 
 
@@ -163,6 +162,7 @@ export class CartComponent implements OnInit {
     //取local storage剛剛在
     console.log('Cart Items:', this.products);
     console.log('Cart Count:', this.cartCount); // 可用來檢查
+
 
 
 
