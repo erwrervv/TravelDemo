@@ -5,6 +5,8 @@ import { SwiperOptions } from 'swiper';
 import SwiperCore, { EffectFade, Autoplay } from 'swiper';
 import { ActivatedRoute } from '@angular/router';
 import { DataproductService } from 'src/app/service/dataproduct.service';
+import { Router } from '@angular/router';
+import { BehaviorSubject } from 'rxjs';
 
 
 
@@ -127,10 +129,11 @@ export class CartComponent implements OnInit{
   storedValues: number [] = [];
   AddToCartService: any;
   products: any[] = []; // 用于存储购物车中的商品
+  cartCount: number = 0;
   TotalCalc :number = 0;
 
 
-  constructor(private route: ActivatedRoute) { }
+  constructor(private route: ActivatedRoute, private router: Router, private adcService: AddToCartService) { }
   ngOnInit(): void {
     // 获取路由参数中的 id
     // this.route.queryParamMap.subscribe(params => {
@@ -141,25 +144,39 @@ export class CartComponent implements OnInit{
     //     this.products = [product];
     //   }
     // });
-    
+
 
     //透過local storage找到cartItems
     const cartItems = JSON.parse(localStorage.getItem('cartItems') || '[]');
     this.products = cartItems;
-    
+    // 確定cartCount隨時更新
+    this.adcService.getCartCount().subscribe((count) => {
+      this.cartCount = count;
+
+
+    });
+
+
+
     //取local storage剛剛在
     console.log('Cart Items:', this.products);
-
-    const storedString  = localStorage.getItem('inputValues');
-    if (storedString) {
-      this.storedValues = JSON.parse(storedString); // 解析为数字数组
-      localStorage.removeItem('inputValues'); // 清除 localStorage 中的值
+    console.log('Cart Count:', this.cartCount); // 可用來檢查
 
 
-    }
+
+
+    // const storedString  = localStorage.getItem('inputValue');
+    // if (storedString) {
+    //   this.storedValues = JSON.parse(storedString); // 解析为数字数组
+    //   localStorage.removeItem('inputValue'); // 清除 localStorage 中的值
+
+    // }
 
     this.updateTotalPrice();
+
+
   }
+
 
 
 
@@ -199,7 +216,7 @@ export class CartComponent implements OnInit{
 
 
     this.saveCartToLocalStorage();
-    this.TotalCalc = this.calculateTotalPrice(); 
+    this.TotalCalc = this.calculateTotalPrice();
   }
   //減少紐 防呆
   decreaseQuantity(product: { quantity: number; }) {
@@ -208,20 +225,41 @@ export class CartComponent implements OnInit{
     }
     else {
       alert('商品結帳需為一件以上!')
+      product.quantity = 1;
     }
 
     this.saveCartToLocalStorage();
-    this.TotalCalc = this.calculateTotalPrice(); 
+    this.TotalCalc = this.calculateTotalPrice();
   }
 
   //清除並儲存local storage
   removeProduct(product: { quantity: number; }) {
     this.products = this.products.filter(p => p !== product);
+    this.adcService.cartItems = this.products;
 
+
+
+    // 更新購物車数量
+    this.adcService.cartCount.next(this.adcService.cartItems.length);
+
+
+
+    // 更新localStorage中的購物車状态
+    localStorage.setItem('cartItems', JSON.stringify(this.adcService.cartItems));
+
+    //保存更新到local storage
     this.saveCartToLocalStorage();
+    //更新總價
     this.updateTotalPrice();
-  }
 
+    //測試用文字
+    console.log('Removed product:', product);
+    console.log('Updated cart items:', this.products);
+    console.log('Updated cart count:', this.adcService.cartCount.value);
+
+
+
+  }
   //計算價格
   calculateTotalPrice() {
     return this.products.reduce((total, product) => total + (product.price * product.quantity), 0);
@@ -229,7 +267,8 @@ export class CartComponent implements OnInit{
   }
 
   checkout() {
-    alert('買單測試')
+    this.router.navigate(['/checkout']);
+    console.log('cartItems:', this.products)
   }
 
   //把更新存進去local storage
@@ -245,9 +284,9 @@ export class CartComponent implements OnInit{
 
   // 当数量变更时更新总金额
   onQuantityChange() {
-    
+
     this.updateTotalPrice(); // 每次数量变化时重新计算总金额
-   
+
   }
 
 }

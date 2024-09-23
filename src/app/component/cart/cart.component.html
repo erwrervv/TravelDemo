@@ -2,19 +2,19 @@
 <app-shopbanner1></app-shopbanner1>
  <div>
 
-<div class="cart-header d-flex justify-content-between">
-  <div class="cart-item">商品</div>
-  <div class="cart-item">商品名稱</div>
-  <div class="cart-price">單價</div>
-  <div class="cart-quantity">數量</div>
-  <div class="cart-total">總計</div>
-  <div class="cart-action">操作</div>
-</div>
+  <div class="cart-header d-flex justify-content-between">
+    <div class="cart-item">商品</div>
+    <div class="cart-item">商品名稱</div>
+    <div class="cart-price">商品單價</div>
+    <div class="cart-quantity">商品數量</div>
+    <div class="cart-total">總計</div>
+    <div class="cart-action">操作</div>
+  </div>
 
 
 <!-- 這是商品層 -->
  <div class="mb-50">
- 
+
 <div *ngFor="let product of products" class="cart-item-row d-flex justify-content-between align-items-center ">
   <!-- 商品图片 -->
   <div class="cart-item d-flex align-items-center">
@@ -49,7 +49,7 @@
         type="number"
         class="form-control quantity input-number text-center"
         [(ngModel)]="product.quantity"
-        (change)="onQuantityChange()" 
+        (change)="onQuantityChange()"
          (blur)="onQuantityBlur(product)"
         min="1"
         max="10"
@@ -83,7 +83,7 @@
 <div class="checkout-section d-flex justify-content-between align-items-center">
   <!-- 总金额 -->
   <div class="total-price" >
-    
+
     總金額: {{TotalCalc  | currency:'TWD' : 'symbol':'1.0-0'}}
   </div>
 

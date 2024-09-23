@@ -55,7 +55,13 @@
                     data-bs-target="#submenu-1-4" aria-controls="navbarSupportedContent" aria-expanded="false"
                     aria-label="Toggle navigation">商店</a>
                   <ul class="sub-menu collapse" id="submenu-1-4">
-                    <li class="nav-item"><a routerLink="/shoplist">商店瀏覽</a></li>
+                    <li class="nav-item">
+                      <a routerLink="/shoplist">商店瀏覽</a>
+                    </li>
+                    <li class="nav-item"><a routerLink="/cart/">購物車</a></li>
+                    <li class="nav-item">
+                      <a routerLink="/orderpage">訂單</a>
+                    </li>
                   </ul>
                 </li>
 
@@ -95,7 +101,7 @@
                   <div class="cart for-buy">
                     <a href="cart">
                       <i class="icon icon-account"></i>
-                      <span class="cart-count"></span>
+                      <span class="cart-count">{{cartCount }}</span>
                     </a>
                   </div>
                 </li>
