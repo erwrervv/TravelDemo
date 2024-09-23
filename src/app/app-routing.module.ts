@@ -21,6 +21,7 @@ import { ShopHomePageComponent } from './shop/shop-home-page/shop-home-page.comp
 import { Travelpage2Component } from './componet/travelpage2/travelpage2.component';
 
 import { TravelDetailComponent } from './componet/travel-detail/travel-detail.component';
+import { TraveldetailmanageComponent } from './traveldetailmanage/traveldetailmanage.component';
 const routes: Routes = [
   {
     path: '', redirectTo: '/home', pathMatch: 'full'
@@ -139,6 +140,9 @@ const routes: Routes = [
     path: 'travel-detail/:id',
     component: TravelDetailComponent
   },
+  { path: 'traveldetailmanage',
+    component: TraveldetailmanageComponent
+  }
 ]
 
 

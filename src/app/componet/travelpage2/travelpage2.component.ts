@@ -1,4 +1,4 @@
-import { Component, HostListener } from '@angular/core';
+import { Component, HostListener, OnInit } from '@angular/core';
 import { DatatravelService } from 'src/app/datatravel.service';
 import { ProductTravels, TravelDetail } from '../travel-detail/travel-detail.model';
 @Component({
@@ -6,9 +6,8 @@ import { ProductTravels, TravelDetail } from '../travel-detail/travel-detail.mod
   templateUrl: './travelpage2.component.html',
   styleUrls: ['./travelpage2.component.css']
 })
-export class Travelpage2Component {
-
-  travelDetail: ProductTravels | TravelDetail | null = null;
+export class Travelpage2Component implements OnInit {
+  travelDetail:ProductTravels | TravelDetail | null = null;
   section: any;
   isTransportationProvided: any;
   travelService: any;
@@ -33,6 +32,13 @@ export class Travelpage2Component {
       this.travelDatas = detail;
     });
   }
+  loadTravelDetail2(): void {
+    // 这里应该是从服务中获取旅行细节的逻辑
+    this.datatravelService.getDataTravel().subscribe((Pictures: any) => {
+      console.log(Pictures);
+      this.travelDatas = Pictures;
+    });
+  }
 
   getFirstTenRecords(data:any[]){
     return data.length>10 ? data.slice(0.10): data;
@@ -41,7 +47,6 @@ export class Travelpage2Component {
   returnDate: string = '';
   departureLocation: string = '';
   arrivalLocation: string = '';
-
   searchKeyword: string = ''; // 保存搜索关键字
 
   travelList = [
