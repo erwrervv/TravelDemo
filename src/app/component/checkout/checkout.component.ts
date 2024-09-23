@@ -31,11 +31,8 @@ export class CheckoutComponent implements OnInit{
 
   }
 
-  cartItems = [
-    { name: 'HERAN 風扇', price: 1480, quantity: 1, total: 1480 },
-  ];
-
-    // 模拟提交订单
+  
+    // 
     placeOrder() {
 
 
@@ -63,7 +60,7 @@ export class CheckoutComponent implements OnInit{
             alert('商品已成功完成下訂')
             console.log('訂單成功提交', response);
             //清掉購物車
-            this.clearCart();
+            this.adcService.clearCart();
 
               this.router.navigate(['/orderpage']);
 
@@ -79,19 +76,7 @@ export class CheckoutComponent implements OnInit{
 
 
     }
-    clearCart() {
-      this.products = [];
 
-      // 更新購物車顯示數量
-      this.adcService.cartCount.next(0);
-
-      // 清除 localStorage 中的cartitem
-      localStorage.removeItem('cartItems');
-
-      console.log('購物車已清空');
-      console.log('localstorage:', localStorage.getItem)
-
-    }
 
   calculateTotalPrice() {
     let totalPrice = 0;

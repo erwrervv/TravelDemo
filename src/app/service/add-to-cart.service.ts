@@ -38,6 +38,7 @@ export class AddToCartService {
 
   constructor() { }
   addToicon(product: any) {
+
     this.cartItems.push(product);
 
     this.cartCount.next(this.cartItems.length); // 更新购物车数量
@@ -55,7 +56,7 @@ export class AddToCartService {
   clearCart() {
     this.cartItems = [];
     this.cartCount.next(0); // 重置购物车数量
-    localStorage.setItem('cartItems', JSON.stringify([])); // 清空localStorage
+    localStorage.removeItem('cartItems'); // 清空localStorage
   }
 
 
