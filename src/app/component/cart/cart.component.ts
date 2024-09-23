@@ -129,9 +129,8 @@ export class CartComponent implements OnInit {
   storedValues: number[] = [];
   AddToCartService: any;
   products: any[] = []; // 用于存储购物车中的商品
-
   cartCount: number = 0;
-  TotalCalc: number = 0;
+  TotalCalc :number = 0;
 
 
   constructor(private route: ActivatedRoute, private router: Router, private adcService: AddToCartService) { }
@@ -154,7 +153,6 @@ export class CartComponent implements OnInit {
     this.adcService.getCartCount().subscribe((count) => {
       this.cartCount = count;
 
-    
     });
 
 
@@ -177,6 +175,7 @@ export class CartComponent implements OnInit {
 
 
   }
+
 
 
 
@@ -260,7 +259,6 @@ export class CartComponent implements OnInit {
 
 
   }
-
   //計算價格
   calculateTotalPrice() {
     return this.products.reduce((total, product) => total + (product.price * product.quantity), 0);

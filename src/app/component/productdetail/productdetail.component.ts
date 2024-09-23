@@ -21,7 +21,6 @@ export class ProductdetailComponent implements OnInit {
 //api
 
 
-
 //商品寫死資料
 products = [
   {
@@ -162,8 +161,6 @@ products = [
 ];
 
 
-
-
 constructor(private dProduct: DataproductService, private router: Router, private adcService: AddToCartService, private route: ActivatedRoute) { }
 
 
@@ -241,11 +238,9 @@ ngOnInit() {
    const id = Number(params.get('id'));
    this.dProduct.getProductDetail(id).subscribe(data =>{
      console.log("data:",data)
-     this.product = data;
+     this.product = data
 
-
-     //這行為透過api專案讀取data的id轉為loaddata 也就是products[]需要的id
-
+      //這行為透過api專案讀取data的id轉為loaddata 也就是products[]需要的id
 
      this.loadProductData(this.product.MallProductTableId)
    })
@@ -260,15 +255,14 @@ ngOnInit() {
     }
   }
 
-
-selectProductById(id: number): void {
-  const product = this.products.find(p => p.id === id);
-  if (product) {
-    this.selectedProductId = product.id; // 你可以根据需要保存其他信息
-  } else {
-    console.log('Product not found');
+  selectProductById(id: number): void {
+    const product = this.products.find(p => p.id === id);
+    if (product) {
+      this.selectedProductId = product.id; // 你可以根据需要保存其他信息
+    } else {
+      console.log('Product not found');
+    }
   }
-}
 
 
   //   order={
@@ -281,36 +275,25 @@ selectProductById(id: number): void {
   //  }
   //放入input值
 
-// onQuantityBlur() {
-//   console.log('inputvalue=', this.inputValue)
-//   if (isNaN(this.inputValue) || this.inputValue < 1) {
-//     alert('不得輸入數字以外格式或小於1!');
-//     this.inputValue = 1; // 重置為1
-//   }else {
-//     let values: number[] = JSON.parse(localStorage.getItem('inputValue') || '[]');
-//     values.push(this.inputValue );
-//     localStorage.setItem('inputValue', JSON.stringify(values)); // 存储为 JSON 数组
-//   }
-// }
-
-onInputChange(value :any) {
-  const parsedValue = parseInt(value, 10);
+  onInputChange(value :any) {
+    const parsedValue = parseInt(value, 10);
 
 
-  if (isNaN(parsedValue) || parsedValue < 1 ||parsedValue>10) {
-    alert('輸入格式不符/商品數應為1至10件')
+    if (isNaN(parsedValue) || parsedValue < 1 ||parsedValue>10) {
+      alert('輸入格式不符/商品數應為1至10件')
 
-    this.inputValue = 1; // 自動重置為1
+      this.inputValue = 1; // 自動重置為1
+
+    }
+    else {
+      this.inputValue = Math.min(parsedValue, 10); // 確保不超過10
+
+    }
+    console.log('parseValue=:' ,parsedValue)
+    console.log('inputValue=:' ,this.inputValue)
 
   }
-  else {
-    this.inputValue = Math.min(parsedValue, 10); // 確保不超過10
 
-  }
-  console.log('parseValue=:' ,parsedValue)
-  console.log('inputValue=:' ,this.inputValue)
-
-}
 
 
 
@@ -375,49 +358,49 @@ navigateToDisplay() {
     }
 
 
-  decreaseQuantity() {
-    if (this.inputValue > 1) {
-      this.inputValue--;
-      if(this.inputValue >10){
+    decreaseQuantity() {
+      if (this.inputValue > 1) {
+        this.inputValue--;
+        if(this.inputValue >10){
 
-        alert('一次最多只能選擇10件商品!');
-        this.inputValue = 10;
+          alert('一次最多只能選擇10件商品!');
+          this.inputValue = 10;
+        }
+        if(this.inputValue < 1 ){
+
+          alert('商品結帳需為一件以上!');
+          this.inputValue = 10;
+        }
+
+
       }
-      if(this.inputValue < 1 ){
-
-        alert('商品結帳需為一件以上!');
-        this.inputValue = 10;
-      }
-
 
     }
-
-  }
 
 
 
 //立即購買
-  goToCart() {
+goToCart() {
 
-    // this.router.navigate(['/cart'], { queryParams: { id: this.product?.id } });
+  // this.router.navigate(['/cart'], { queryParams: { id: this.product?.id } });
 
-    // let cartItems = JSON.parse(localStorage.getItem('cartItems') || '[]');
-    // cartItems.push(this.product);
-    // localStorage.setItem('cartItems', JSON.stringify(cartItems));  // 存储到 localStorage
+  // let cartItems = JSON.parse(localStorage.getItem('cartItems') || '[]');
+  // cartItems.push(this.product);
+  // localStorage.setItem('cartItems', JSON.stringify(cartItems));  // 存储到 localStorage
 
-    this.adcService.addToicon({
-      id: this.product.MallProductTableId,
-      name: this.product.MallProductName,  // 商品名稱
-      image: this.product.Pimage,          // 商品圖片
-      price: this.product.GoldAmount,      // 商品金额
-      quantity: this.inputValue ,  // 商品数量
-    })
+  this.adcService.addToicon({
+    id: this.product.MallProductTableId,
+    name: this.product.MallProductName,  // 商品名稱
+    image: this.product.Pimage,          // 商品圖片
+    price: this.product.GoldAmount,      // 商品金额
+    quantity: this.inputValue ,  // 商品数量
+  })
 
-    this.router.navigate(['/cart']);
-    console.log('MallProductTableID',this.product.MallProductTableId)
+  this.router.navigate(['/cart']);
+  console.log('MallProductTableID',this.product.MallProductTableId)
 
 
-  };
+};
 
 
 
@@ -472,6 +455,8 @@ navigateToDisplay() {
 
 
   }
+
+
 
 
 

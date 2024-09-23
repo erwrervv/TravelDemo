@@ -6,7 +6,10 @@ import { ActivatedRoute, Router , NavigationEnd } from '@angular/router';
   templateUrl: './shop-home-page.component.html',
   styleUrls: ['./shop-home-page.component.css']
 })
-export class ShopHomePageComponent {
+export class ShopHomePageComponent  {
+
 
 
 }
+
+

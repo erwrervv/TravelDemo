@@ -155,7 +155,6 @@ goToProductDetail(productId: number) {
   this.router.navigate(['/productdetail', productId]);
 }
 
-
 goToProductDetailwithF(id: number){
 
 }

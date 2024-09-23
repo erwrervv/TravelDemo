@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component , OnInit} from '@angular/core';
 import { CartComponent } from '../cart/cart.component';
 import { HttpClient } from '@angular/common/http';
 import { DataproductService } from 'src/app/service/dataproduct.service';
@@ -10,7 +10,7 @@ import { AddToCartService } from 'src/app/service/add-to-cart.service';
   templateUrl: './checkout.component.html',
   styleUrls: ['./checkout.component.css']
 })
-export class CheckoutComponent implements OnInit {
+export class CheckoutComponent implements OnInit{
 
   TotalCalc: number = 0;
   products: any[] = [];
@@ -31,71 +31,67 @@ export class CheckoutComponent implements OnInit {
 
   }
 
-
   cartItems = [
     { name: 'HERAN 風扇', price: 1480, quantity: 1, total: 1480 },
   ];
 
+    // 模拟提交订单
+    placeOrder() {
 
-  // 模拟提交订单
-  placeOrder() {
+
+      //先驗證
+      if (!this.MemberName || !this.Address || !this.MemberPhone) {
+        alert('收件人姓名、地址和電話號碼為必填');
+        return; // 停止後續執行
+      }
 
 
-    //先驗證
-    if (!this.MemberName || !this.Address || !this.MemberPhone) {
-      alert('收件人姓名、地址和電話號碼為必填');
-      return; // 停止後續執行
+      // 創一個變數儲存訂單的所有欄位
+      const orderData = {
+        MemberName: this.MemberName,
+        Address: this.Address,
+        MemberPhone: this.MemberPhone,
+        Shoporderid: this.Shoporderid,
+        TotalPrice: this.calculateTotalPrice()
+      };
+      console.log('訂單資料:', orderData);
+
+      // 用 POST 方法把訂單資料傳給api
+      this.dPService.createOrder(orderData)
+        .subscribe(
+          response => {
+            alert('商品已成功完成下訂')
+            console.log('訂單成功提交', response);
+            //清掉購物車
+            this.clearCart();
+
+              this.router.navigate(['/orderpage']);
+
+          },
+
+          error => {
+            console.error('訂單發生錯誤', error);
+          }
+        );
+
+
+
+
+
     }
+    clearCart() {
+      this.products = [];
 
+      // 更新購物車顯示數量
+      this.adcService.cartCount.next(0);
 
-    // 創一個變數儲存訂單的所有欄位
-    const orderData = {
-      MemberName: this.MemberName,
-      Address: this.Address,
-      MemberPhone: this.MemberPhone,
-      Shoporderid: this.Shoporderid,
-      TotalPrice: this.calculateTotalPrice()
-    };
-    console.log('訂單資料:', orderData);
+      // 清除 localStorage 中的cartitem
+      localStorage.removeItem('cartItems');
 
-    // 用 POST 方法把訂單資料傳給api
-    this.dPService.createOrder(orderData)
-      .subscribe(
-        response => {
-          alert('商品已成功完成下訂')
-          console.log('訂單成功提交', response);
-          //清掉購物車
-          this.clearCart();
+      console.log('購物車已清空');
+      console.log('localstorage:', localStorage.getItem)
 
-            this.router.navigate(['/orderpage']);
-        
-        },
-
-        error => {
-          console.error('訂單發生錯誤', error);
-        }
-      );
-
-
-
-
-
-  }
-
-
-  clearCart() {
-    this.products = [];
-
-    // 更新購物車顯示數量
-    this.adcService.cartCount.next(0);
-
-    // 清除 localStorage 中的cartitem
-    localStorage.removeItem('cartItems');
-
-    console.log('購物車已清空');
-    console.log('localstorage:', localStorage.getItem)
-
-  }
+    }
 
   calculateTotalPrice() {
     let totalPrice = 0;
@@ -108,7 +104,6 @@ export class CheckoutComponent implements OnInit {
     return totalPrice; // 此為最後總金額
   }
 
+  }
 
 
-
-}
