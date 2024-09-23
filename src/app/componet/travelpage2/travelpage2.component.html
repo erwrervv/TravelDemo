@@ -73,10 +73,6 @@
   </div>
 
 
-<!-- 向上按鈕 -->
-<button class="scroll-to-top" (click)="scrollToTop()">
-  ^
-</button>
 
 <!-- test -->
 <div class="search-form">
@@ -134,8 +130,9 @@
       <!-- 整個區塊都可以點擊 -->
       <a [href]="travel.link" target="_self" rel="noopener noreferrer">
         <!-- 圖片區 -->
-        <div class="image-section">
-          <img [src]="travel.imageUrl" [alt]="travel.altText" />
+        <div class="image-section" *ngFor="let travel of travelDatas">
+          <img src="http://localhost:4200{{travel.Pictures}}" (click)="loadTravelDetail2()" />
+          <source src="http://localhost:4200{{travel.Pictures}}">
         </div>
         <!-- 標題和描述區 -->
         <div class="title-section">

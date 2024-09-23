@@ -14,16 +14,15 @@ export class TravelDetailComponent implements OnInit {
   isTransportationProvided: any;
   travelService: any;
   Transportation: any;
-travel: any;
+  travel: any;
 
   constructor(private datatravelService: DatatravelService) {}
 
   ngOnInit(): void {
     this.loadTravelDetail();
   }
-
   travelDatas: any;
-
+  travelDatas2:any;
   loadTravelDetail(): void {
     // 这里应该是从服务中获取旅行细节的逻辑
     this.datatravelService.getDataTravel().subscribe((detail: any) => {
@@ -31,6 +30,13 @@ travel: any;
       this.travelDatas = detail;
     });
   }
+// loadTravelDetail2(): void {
+//     // 这里应该是从服务中获取旅行细节的逻辑
+//     this.datatravelService.getAllTravelDetails().subscribe((detail: any) => {
+//       console.log(detail);
+//       this.travelDatas2 = detail;
+//     });
+//   }
 
   bookNow(): void {
     // 处理预订逻辑
@@ -58,5 +64,4 @@ travel: any;
   //     }
   //   );
   // }
-
 }
