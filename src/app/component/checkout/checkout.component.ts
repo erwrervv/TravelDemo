@@ -52,7 +52,7 @@ export class CheckoutComponent implements OnInit {
         MallProductTableId: product.id,
         MallProductName: product.name,
         MallProductQuantity: product.quantity,
-        
+
       })),
     };
     console.log('訂單資料:', orderData);
@@ -64,8 +64,13 @@ export class CheckoutComponent implements OnInit {
         console.log('訂單成功提交', response);
         //清掉購物車
         this.adcService.clearCart();
-
-        this.router.navigate(['/orderpage']);
+        const shopRecordId = response.shopRecordid;
+        if (shopRecordId) {
+          // 使用訂單編號導航到訂單詳情頁
+          this.router.navigate(['/orderpage',shopRecordId]);
+        } else {
+          console.error('未能取得訂單編號');
+        }
       },
 
       (error) => {
