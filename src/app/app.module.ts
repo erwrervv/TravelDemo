@@ -50,6 +50,7 @@ import { ComponetComponent } from './componet/componet.component';
 import { TravelDetailComponent } from './componet/travel-detail/travel-detail.component';
 import { TraveldetailmanageComponent } from './traveldetailmanage/traveldetailmanage.component';
 
+
 @NgModule({
   declarations: [
     AppComponent,
