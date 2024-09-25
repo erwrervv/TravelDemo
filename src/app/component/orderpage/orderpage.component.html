@@ -11,11 +11,13 @@
     <!-- 商品內容區塊 -->
     <div class="product-info-block">
       <h3>商品資訊</h3>
-      <ul>
-      <li *ngFor="let product of orderDetails.AllProducts">
-        商品名稱: {{ product.MallProductName }} - 購買數量: {{ product.MallProductQuantity }}
-      </li>
-      </ul>
+     
+      <div *ngFor="let product of orderDetails.AllProducts">
+        商品名稱: {{ product.MallProductName }} 
+        <br>
+         購買數量: {{ product.MallProductQuantity }}
+      </div>
+      
     </div>
 
     <!-- 購買資訊區塊 -->
