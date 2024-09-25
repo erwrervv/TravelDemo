@@ -17,7 +17,9 @@ export interface ProductTravels {
 }
 
 export interface TravelDetail {
+  purchased: boolean;
   TravelName: any;
+Title: any;
   TravelDetailsId: number;
   TravelId: number;
   TravelDetailedIntroduction: string;
