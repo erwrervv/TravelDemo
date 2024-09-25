@@ -127,6 +127,7 @@ const routes: Routes = [
       { path: 'checkout', component: CheckoutComponent },
       { path: 'cart', component: CartComponent },
     ]
+
   },
   {
     path: 'travelpage2',
@@ -142,7 +143,12 @@ const routes: Routes = [
   },
   { path: 'traveldetailmanage',
     component: TraveldetailmanageComponent
-  }
+  },
+  {
+    path: 'orderpage/:shopRecordid',
+    component: OrderpageComponent
+  },
+
 ]
 
 
