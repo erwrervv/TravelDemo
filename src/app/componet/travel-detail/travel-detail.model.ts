@@ -17,6 +17,7 @@ export interface ProductTravels {
 }
 
 export interface TravelDetail {
+  TravelName: any;
   TravelDetailsId: number;
   TravelId: number;
   TravelDetailedIntroduction: string;

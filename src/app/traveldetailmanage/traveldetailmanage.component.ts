@@ -1,4 +1,6 @@
 import { Component, Input } from '@angular/core';
+import { TravelDetail } from '../componet/travel-detail/travel-detail.model';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-traveldetailmanage',
@@ -6,35 +8,8 @@ import { Component, Input } from '@angular/core';
   styleUrls: ['./traveldetailmanage.component.css']
 })
 export class TraveldetailmanageComponent {
-  cartItems = [
-    {
-      destination: '基隆景點正濱漁港二日遊',
-      travelDate: '2024年10月1日',
-      numberOfPeople: 2,
-      price: 12000,
-      purchased: false
-    },
-    {
-      destination: '基隆景點八斗子觀光漁港',
-      travelDate: '2024年10月5日',
-      numberOfPeople: 4,
-      price: 15000,
-      purchased: false
-    }
-  ];
-
-  // 删除商品
-  removeItem(index: number) {
-    this.cartItems.splice(index, 1);
-  }
-
-  // 购买商品
-  purchaseItem(index: number) {
-    if (confirm(`您是否確定購買 ${this.cartItems[index].destination} 這筆商品？`)) {
-      this.cartItems[index].purchased = true;
-    }
-  }
-
+  travelData: any[] = []; // 初始化為空陣列
+  AddToCartService: any;
   productcart = [
     {
       image: 'assets/images/基隆景點正濱漁港.jpeg',
@@ -53,8 +28,40 @@ export class TraveldetailmanageComponent {
       quantity: 1
     },
   ];
-  AddToCartService: any;
 
+
+
+  ngOnInit(): void {
+    // 從路由中獲取 travelId
+    this.loadCartItems();
+  }
+  loadCartItems(): void {
+    const cartItems = JSON.parse(localStorage.getItem('cartItems') || '[]');
+    this.travelData = cartItems;  // 使用 local storage 的数据
+  }
+  addToCart(travelData: TravelDetail) {
+    console.log(`${travelData.TravelName} 已加入購物車`);
+    // 在此處添加購物車的邏輯
+  }
+
+  purchaseItem(index: number) {
+    this.travelData[index].purchased = true;  // 標記商品為已購買
+    localStorage.setItem('travelData', JSON.stringify(this.travelData));  // 更新 Local Storage
+  }
+
+   // 刪除購物車項目，並更新 Local Storage
+   confirmRemoveItem(index: number) {
+    const confirmDelete = confirm('確定要刪除這筆資料嗎？');
+    if (confirmDelete) {
+      this.removeItem(index);
+    }
+  }
+
+  // 刪除資料並更新 Local Storage
+  removeItem(index: number) {
+    this.travelData.splice(index, 1);  // 從陣列中移除項目
+    localStorage.setItem('travelData', JSON.stringify(this.travelData));  // 更新 Local Storage
+  }
     // 使用者輸入框
     onQuantityBlur(product: { quantity: number; }) {
     if (product.quantity > 10) {
@@ -90,12 +97,23 @@ export class TraveldetailmanageComponent {
     alert('買單測試')
     }
 
-
+    constructor(private router: Router) {
+      this.loadCart(); // 初始化時載入購物清單
+    }
+    loadCart() {
+      const cartItems = localStorage.getItem('cart'); // 從本地存儲獲取購物清單資料
+      if (cartItems) {
+        this.travelData = JSON.parse(cartItems); // 將資料轉換為陣列
+      }
+    }
+    clearCart() {
+      localStorage.removeItem('cart'); // 清空本地存儲中的購物清單
+      this.travelData = []; // 清空顯示的購物清單資料
+    }
   //   addToCart() {
   //     this.AddToCartService.addToCart(); // 更新购物车数量
   // }
 
 }
-
 
 

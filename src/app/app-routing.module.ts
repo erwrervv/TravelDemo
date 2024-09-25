@@ -147,6 +147,8 @@ const routes: Routes = [
     path: 'orderpage/:shopRecordid',
     component: OrderpageComponent
   },
+
+  
 ]
 
 

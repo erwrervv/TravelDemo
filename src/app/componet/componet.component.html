@@ -1,174 +1,80 @@
+<div class="travel-detail" *ngIf="travelData">
+  <h1>旅行明細</h1>
 
-<!DOCTYPE html>
-<html lang="zh-Hant">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>旅遊活動</title>
-  </head>
-  <body>
+  <!-- 基本信息 -->
+  <div class="section basic-info">
+    <h2>{{ travelData.TravelName }}</h2>
+    <p><strong>天數:</strong> {{ travelData.AllDays }} 天</p>
+    <p><strong>日期:</strong> {{ travelData.TravelDatetime | date:'yyyy年MM月dd日' }}</p>
+    <p><strong>集合地點:</strong> {{ travelData.TravelMeetingpoint }}</p>
+    <p><strong>價格:</strong> {{ travelData.Price | currency:'TWD' }}</p>
+  </div>
 
-    <div class="container">
-      <!-- 整個區塊都可以點擊 -->
-      <a routerLink="/travelpage3">
-        <!-- 圖片區 -->
-        <div class="image-section">
-          <img src="assets/image2/基隆景點正濱漁港.jpeg" alt="基隆景點正濱漁港圖片" />
-        </div>
-        <!-- 標題和描述區 -->
-        <div class="title-section">
-          <h3>基隆景點正濱漁港二日遊</h3>
-        </div>
-        <div class="description">
-          有著小威尼斯之稱的基隆景點正濱漁港彩虹小屋...
-        </div>
-        <!-- 標籤區 -->
-        <div class="tags-section">
-          <span class="tag orange">自然生態</span>
-          <span class="tag green">在地文化體驗</span>
-        </div>
-        <!-- 日期區 -->
-        <div class="date-section">9/24, 9/25</div>
-        <!-- 價格區 -->
-        <div class="price-section">$12,000 起</div>
-      </a>
+  <!-- 行程資訊 -->
+  <div class="section itinerary">
+    <h2>行程資訊</h2>
+    <p>{{ travelData.TravelIntroduction }}</p>
+  </div>
+
+  <!-- 交通信息 -->
+  <div class="section transportation">
+    <h2>交通信息</h2>
+    <label>
+      <strong>是否提供交通信息:</strong>
+      <input type="radio" name="transportation" [(ngModel)]="isTransportationProvided" [value]="true"> 是
+      <input type="radio" name="transportation" [(ngModel)]="isTransportationProvided" [value]="false"> 否
+    </label>
+
+    <div *ngIf="isTransportationProvided">
+      <label>
+        <strong>交通方式:</strong>
+        <select [(ngModel)]="travelData.Transportation">
+          <option value="bus">公車</option>
+          <option value="tourbus">遊覽車</option>
+          <option value="train">火車</option>
+        </select>
+      </label>
     </div>
 
-    <div class="container">
-      <!-- 整個區塊都可以點擊 -->
-      <a href="https://example.com" target="_blank" rel="noopener noreferrer">
-        <!-- 圖片區 -->
-        <div class="image-section">
-          <img src="assets/image2/基隆景點八斗子觀光漁港.jpg" alt="基隆景點八斗子觀光漁港圖片" />
-        </div>
-        <!-- 標題和描述區 -->
-        <div class="title-section">
-          <h3>基隆景點八斗子觀光漁港</h3>
-        </div>
-        <div class="description">
-          基隆景點八斗子觀光漁港也稱為碧砂漁港...
-        </div>
-        <!-- 標籤區 -->
-        <div class="tags-section">
-          <span class="tag blue">浮潛潛水</span>
-          <span class="tag orange">自然生態</span>
-          <span class="tag green">在地文化體驗</span>
-        </div>
-        <!-- 日期區 -->
-        <div class="date-section">9/26, 9/27</div>
-        <!-- 價格區 -->
-        <div class="price-section">$10,000 起</div>
-      </a>
-    </div>
+    <p *ngIf="!isTransportationProvided">未提供交通信息</p>
+  </div>
 
-    <div class="container">
-      <!-- 整個區塊都可以點擊 -->
-      <a href="https://example.com" target="_blank" rel="noopener noreferrer">
-        <!-- 圖片區 -->
-        <div class="image-section">
-          <img src="assets/image2/基隆景點和平島公園.jpg" alt="基隆景點和平島公園圖片" />
-        </div>
-        <!-- 標題和描述區 -->
-        <div class="title-section">
-          <h3>基隆景點和平島公園</h3>
-        </div>
-        <div class="description">
-          基隆必去景點和平島公園可以「遊山」也能「玩水」、能在由雷達站改建而成的咖啡廳享用下午茶...
-        </div>
-        <!-- 標籤區 -->
-        <div class="tags-section">
-          <span class="tag blue">浮潛潛水</span>
-          <span class="tag orange">自然生態</span>
-          <span class="tag green">在地文化體驗</span>
-        </div>
-        <!-- 日期區 -->
-        <div class="date-section">9/27, 9/29</div>
-        <!-- 價格區 -->
-        <div class="price-section">$26,800 起</div>
-      </a>
-    </div>
+  <!-- 餐饮信息 -->
+  <div class="section meals">
+    <h2>餐飲信息</h2>
+    <ul>
+      <li *ngFor="let meal of travelData.Itinerary">
+        <strong>{{ meal.Meals }}:</strong>
+      </li>
+    </ul>
+  </div>
+
+  <!-- 住宿信息 -->
+  <div class="section accommodation">
+    <h2>住宿信息</h2>
+    <p><strong>住宿:</strong> {{ travelData.Accommodation }}</p>
+  </div>
+
+  <!-- 定价与预订 -->
+  <div class="section pricing-booking">
+    <h2>定價與預訂</h2>
+    <p><strong>價格:</strong> {{ travelData.Pricing }}</p>
+    <p><strong>預訂信息:</strong> {{ travelData.Booking }}</p>
+  </div>
+
+  <!-- 图片展示 -->
+  <div class="section image-gallery">
+    <h2>圖片展示</h2>
+    <img [src]="travelData.Pictures" [alt]="travelData.Title" />
+  </div>
+  <button class="btn btn-danger btn-space" (click)="add()">購買</button>
+  <button class="btn btn-danger btn-space" (click)="up()">上一頁</button>
+</div>
 
 
-    <div class="container">
-      <!-- 整個區塊都可以點擊 -->
-      <a href="https://example.com" target="_blank" rel="noopener noreferrer">
-        <!-- 圖片區 -->
-        <div class="image-section">
-          <img src="assets/image2/基隆景點外木山海岸.jpg" alt="基隆景點外木山海岸圖片" />
-        </div>
-        <!-- 標題和描述區 -->
-        <div class="title-section">
-          <h3>基隆景點外木山海岸</h3>
-        </div>
-        <div class="description">
-          基隆景點外木山海岸全長約5公里，從外木山漁港到澳底的公路...
-        </div>
-        <!-- 標籤區 -->
-        <div class="tags-section">
-          <span class="tag blue">浮潛潛水</span>
-          <span class="tag orange">自然生態</span>
-          <span class="tag green">在地文化體驗</span>
-        </div>
-        <!-- 日期區 -->
-        <div class="date-section">10/02, 10/5</div>
-        <!-- 價格區 -->
-        <div class="price-section">$30,000 起</div>
-      </a>
-    </div>
 
-    <div class="container">
-      <!-- 整個區塊都可以點擊 -->
-      <a href="https://example.com" target="_blank" rel="noopener noreferrer">
-        <!-- 圖片區 -->
-        <div class="image-section">
-          <img src="assets/image2/基隆景點阿拉寶灣.jpg" alt="基隆景點阿拉寶灣圖片" />
-        </div>
-        <!-- 標題和描述區 -->
-        <div class="title-section">
-          <h3>基隆景點阿拉寶灣</h3>
-        </div>
-        <div class="description">
-          和平島公園園區內的基隆景點阿拉寶灣，被譽為「全球最美日出景點」...
-        </div>
-        <!-- 標籤區 -->
-        <div class="tags-section">
-          <span class="tag blue">浮潛潛水</span>
-          <span class="tag orange">自然生態</span>
-          <span class="tag green">在地文化體驗</span>
-        </div>
-        <!-- 日期區 -->
-        <div class="date-section">10/02, 10/16</div>
-        <!-- 價格區 -->
-        <div class="price-section">$26,800 起</div>
-      </a>
-    </div>
 
-    <div class="container">
-      <!-- 整個區塊都可以點擊 -->
-      <a href="https://example.com" target="_blank" rel="noopener noreferrer">
-        <!-- 圖片區 -->
-        <div class="image-section">
-          <img src="assets/image2/基隆景點潮境公園.jpg" alt="基隆景點潮境公園圖片" />
-        </div>
-        <!-- 標題和描述區 -->
-        <div class="title-section">
-          <h3>基隆景點潮境公園</h3>
-        </div>
-        <div class="description">
-          基隆景點潮境公園有寬闊的綠地及涼亭，並規劃有完善的觀海步道、林蘟步道、自行車道，在這裡你可以享受美麗的海景...
-        </div>
-        <!-- 標籤區 -->
-        <div class="tags-section">
-          <span class="tag blue">浮潛潛水</span>
-          <span class="tag orange">自然生態</span>
-          <span class="tag green">在地文化體驗</span>
-        </div>
-        <!-- 日期區 -->
-        <div class="date-section">10/02, 10/16</div>
-        <!-- 價格區 -->
-        <div class="price-section">$26,800 起</div>
-      </a>
-    </div>
 
-  </body>
-</html>
+
+
+

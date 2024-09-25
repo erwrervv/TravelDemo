@@ -1,69 +1,94 @@
-.container {
-  width: 400px; /* 固定寬度 */
-  height: 500px; /* 固定高度，確保外框一致 */
-  border: 1px solid #ccc;
-  padding: 10px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  margin-bottom: 20px; /* 或者其他值 */
-  margin-right: 20px;
+.btn-space {
+  margin-right: 10px; /* 调整这个值来设置按钮之间的间距 */
+}
+/* 明細 */
+.travel-detail {
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-.image-section {
-  text-align: center;
-  margin-bottom: 15px;
-}
-.image-section img {
-  width: 100%; /* 图片宽度适应容器 */
-  height: 200px; /* 固定图片高度 */
-  object-fit: cover; /* 确保图片比例适应 */
-}
-.title-section h3 {
-  font-size: 18px;
-  margin-bottom: 5px;
+.travel-detail h1 {
+  font-size: 24px;
   color: #333;
+  margin-bottom: 20px;
 }
-.description {
-  font-size: 14px;
-  color: #666;
-  margin-bottom: 10px;
-}
-.tags-section {
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: 10px;
-}
-.tag {
-  display: inline-block;
-  padding: 5px 10px;
-  border-radius: 12px;
-  color: white;
-  font-size: 12px;
-}
-.blue {
-  background-color: #64c7e0;
-}
-.orange {
-  background-color: #ffa500;
-}
-.green {
-  background-color: #32cd32;
-}
-.date-section {
-  font-size: 14px;
+
+.travel-detail h2 {
+  font-size: 20px;
   color: #555;
   margin-bottom: 10px;
-  text-align: left;
 }
-.price-section {
-  text-align: right;
-  font-size: 24px;
-  color: red;
+
+.travel-detail .section {
+  margin-bottom: 20px;
 }
-/* 讓整個 item 都可以點擊 */
-a {
-  text-decoration: none;
-  color: inherit;
-  display: block;
+
+.travel-detail ul {
+  list-style: none;
+  padding: 0;
 }
+
+.travel-detail ul li {
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+}
+
+.travel-detail ul li:last-child {
+  border-bottom: none;
+}
+
+.travel-detail p {
+  margin: 0;
+  padding: 5px 0;
+}
+
+.travel-detail p strong {
+  font-weight: bold;
+}
+
+.travel-detail .price {
+  font-size: 18px;
+  color: #e74c3c;
+}
+
+.travel-detail .image-gallery img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 4px;
+  margin-bottom: 10px;
+}
+
+/* test */
+.travel-detail {
+  padding: 20px;
+}
+
+.section {
+  margin-bottom: 20px;
+  padding: 15px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+}
+
+h2 {
+  font-size: 1.5em;
+  margin-bottom: 10px;
+}
+
+p {
+  margin: 5px 0;
+}
+
+
+
+
+
+
+
 
 

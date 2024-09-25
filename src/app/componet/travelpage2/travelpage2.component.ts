@@ -24,7 +24,7 @@ export class Travelpage2Component implements OnInit {
   }
 
   travelDatas: any;
-
+  tw:any;
   loadTravelDetail(): void {
     // 这里应该是从服务中获取旅行细节的逻辑
     this.datatravelService.getDataTravel().subscribe((detail: any) => {
@@ -32,12 +32,10 @@ export class Travelpage2Component implements OnInit {
       this.travelDatas = detail;
     });
   }
-  loadTravelDetail2(): void {
-    // 这里应该是从服务中获取旅行细节的逻辑
-    this.datatravelService.getDataTravel().subscribe((Pictures: any) => {
-      console.log(Pictures);
-      this.travelDatas = Pictures;
-    });
+  gettreaveltw(){ this.datatravelService.getDataTravel().subscribe((detail: any) =>{
+  this.tw=detail
+  })
+
   }
 
   getFirstTenRecords(data:any[]){
@@ -135,4 +133,3 @@ export class Travelpage2Component implements OnInit {
   }
 
 }
-

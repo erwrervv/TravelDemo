@@ -46,7 +46,7 @@ import { CheckoutComponent } from './component/checkout/checkout.component';
 import { ShopbannerComponent } from './shop/shopbanner/shopbanner.component';
 import { Shopbanner1Component } from './shop/shopbanner1/shopbanner1.component';
 import { ShopHomePageComponent } from './shop/shop-home-page/shop-home-page.component';
-import { ComponetComponent } from './componet/componet.component';
+
 import { TravelDetailComponent } from './componet/travel-detail/travel-detail.component';
 import { TraveldetailmanageComponent } from './traveldetailmanage/traveldetailmanage.component';
 
@@ -77,8 +77,7 @@ import { TraveldetailmanageComponent } from './traveldetailmanage/traveldetailma
     ShopbannerComponent,
     Shopbanner1Component,
     ShopHomePageComponent,
-    ComponetComponent,
-    Travelpage2Component,
+      Travelpage2Component,
     TravelDetailComponent,
     TraveldetailmanageComponent,
   ],
