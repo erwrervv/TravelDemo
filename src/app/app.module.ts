@@ -22,6 +22,7 @@ import { ShopComponent } from './shop/shop.component';
 import { ComponetComponent } from './componet/componet.component';
 import { TravelDetailComponent } from './componet/travel-detail/travel-detail.component';
 import { TraveldetailmanageComponent } from './traveldetailmanage/traveldetailmanage.component';
+import { TraveltwComponent } from './traveltw/traveltw.component';
 
 @NgModule({
   declarations: [
@@ -37,6 +38,7 @@ import { TraveldetailmanageComponent } from './traveldetailmanage/traveldetailma
     Travelpage2Component,
     TravelDetailComponent,
     TraveldetailmanageComponent,
+    TraveltwComponent,
   ],
   imports: [
     BrowserModule,

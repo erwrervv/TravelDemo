@@ -16,7 +16,7 @@
       <label for="departure-location">出發地</label>
       <select id="departure-location" name="departure-location">
         <option value="">不限</option>
-        <option *ngFor="let location of travelDatas" [value]="location.id">
+        <option *ngFor="let location of tw" [value]="location.id">
           {{ location.name }}
         </option>
       </select>
@@ -25,8 +25,8 @@
       <label for="arrival-location">目的地</label>
       <select id="arrival-location" name="arrival-location">
         <option value="">不限</option>
-        <option *ngFor="let location of travelDatas" [value]="travelDatas.Id">
-          {{ travelDatas.Travelarea }}
+        <option *ngFor="let location of tw" [value]="tw.Id">
+          {{ tw.Travelarea }}
         </option>
       </select>
     </div>
@@ -47,11 +47,9 @@
       <button type="button" class="search-btn" (click)="onSearch()">搜尋</button>
     </div>
   </div>
-
-
 <!-- 旅遊項目篩選結果 -->
 <div class="grid-container">
-  <div class="container" *ngFor="let travel of travelDatas">
+  <div class="container" *ngFor="let travel of tw">
     <!-- 整個區塊都可以點擊，導向到詳細頁面 -->
     <a [routerLink]="['/travel-detail', travel.TravelId]"> <!-- 傳遞 travel.TravelId 作為參數 -->
       <!-- 圖片區 -->

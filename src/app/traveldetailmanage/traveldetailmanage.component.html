@@ -1,23 +1,25 @@
-<div class="cart-container">
+<div class="cart-container"></div>
   <h1>我的購物清單</h1>
+  <ul class="cart-list">
+    <li *ngFor="let travel of travelData ; let i = index" class="cart-item">
+      <div class="item-details">
+        <h5>{{ travel.TravelName}}</h5>
+        <p>價格: {{ travel.Price | currency:'TWD' }}</p>
+        <p>天數: {{ travel.AllDays}} 天</p>
+        <p>出發時間: {{ travel.TravelDatetime | date:'yyyy-MM-dd' }}</p>
+      </div>
 
-  <div *ngFor="let item of cartItems; let i = index" class="cart-item">
-    <h2>{{ item.destination }}</h2>
-    <p><strong>日期:</strong> {{ item.travelDate }}</p>
-    <p><strong>人數:</strong> {{ item.numberOfPeople }}</p>
-    <p><strong>價格:</strong> {{ item.price | currency:'TWD' }}</p>
+      <!-- 按钮操作 -->
+      <div class="item-actions">
+        <button class="btn btn-danger" (click)="confirmRemoveItem(i)">刪除</button>
+        <button class="btn btn-success" (click)="purchaseItem(i)" [disabled]="travel.purchased">
+          {{ travel.purchased ? '已購買' : '購買' }}
+        </button>
+      </div>
+    </li>
+  </ul>
+  <button (click)="clearCart()" class="btn btn-danger">一鍵刪除</button>
 
-    <div class="actions">
-      <button (click)="removeItem(i)">删除</button>
-      <button *ngIf="!item.purchased" (click)="purchaseItem(i)">購買</button>
-      <span *ngIf="item.purchased" class="purchased-msg">已購買</span>
-    </div>
-  </div>
-
-  <div *ngIf="cartItems.length === 0">
-    <p>您的購物清單是空的。</p>
-  </div>
-</div>
 
 
 <!-- 這是第一欄div -->
@@ -92,3 +94,5 @@
   <!-- 去買單按鈕 -->
   <button class="btn btn-primary" (click)="checkout()">去買單</button>
 </div>
+
+

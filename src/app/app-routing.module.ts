@@ -7,6 +7,7 @@ import { ShopComponent } from './shop/shop.component';
 import { Travelpage2Component } from './componet/travelpage2/travelpage2.component';
 import { TravelDetailComponent } from './componet/travel-detail/travel-detail.component';
 import { TraveldetailmanageComponent } from './traveldetailmanage/traveldetailmanage.component'
+import { TraveltwComponent } from './traveltw/traveltw.component';
 const routes: Routes = [
   {
     path: '',
@@ -37,13 +38,18 @@ const routes: Routes = [
     path: 'traveldetail',
     component: TravelDetailComponent,
   },
+  { path: 'traveldetailmanage',
+    component: TraveldetailmanageComponent
+  },
   {
     path: 'travel-detail/:id',
     component: TravelDetailComponent
   },
   { path: 'traveldetailmanage',
-    component: TraveldetailmanageComponent
-  }
+    component: TraveltwComponent
+  },
+  { path: 'traveltw',
+    component: TraveltwComponent }
 ];
 
 @NgModule({
