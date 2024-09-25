@@ -142,7 +142,11 @@ const routes: Routes = [
   },
   { path: 'traveldetailmanage',
     component: TraveldetailmanageComponent
-  }
+  },
+  {
+    path: 'orderpage/:shopRecordid',
+    component: OrderpageComponent
+  },
 ]
 
 
