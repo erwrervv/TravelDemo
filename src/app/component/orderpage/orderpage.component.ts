@@ -20,7 +20,6 @@ export class OrderpageComponent implements OnInit {
     exchange_time: '2024-09-16',
     exchange_status: '已付款'
   };
-<<<<<<< HEAD
 
 
   constructor(
@@ -40,14 +39,6 @@ export class OrderpageComponent implements OnInit {
     } else {
       console.error('訂單編號不存在');
     }
-=======
-  constructor() {}
-  products: any[] = [];
-  ngOnInit(): void {
-
-
-
->>>>>>> 5b0dfcb568499501195eb33eb9868d08d0958f0a
   }
 
 }
