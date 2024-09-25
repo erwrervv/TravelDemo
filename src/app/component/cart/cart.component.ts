@@ -15,7 +15,7 @@ import { BehaviorSubject } from 'rxjs';
   templateUrl: './cart.component.html',
   styleUrls: ['./cart.component.css']
 })
-export class CartComponent implements OnInit{
+export class CartComponent implements OnInit {
 
 
 
@@ -126,7 +126,7 @@ export class CartComponent implements OnInit{
   // ];
 
   //變數區
-  storedValues: number [] = [];
+  storedValues: number[] = [];
   AddToCartService: any;
   products: any[] = []; // 用于存储购物车中的商品
   cartCount: number = 0;
@@ -152,7 +152,6 @@ export class CartComponent implements OnInit{
     // 確定cartCount隨時更新
     this.adcService.getCartCount().subscribe((count) => {
       this.cartCount = count;
-
 
     });
 
@@ -189,14 +188,14 @@ export class CartComponent implements OnInit{
       alert('商品結帳需為一件以上');
       product.quantity = 1; // 自动修正为空或小于 1 的情况
     }
-      if (product.quantity > 10) {
-        alert('一次最多只能選擇10件商品!');
-        product.quantity = 10; // 自动修正为 10
-      }
-      this.saveCartToLocalStorage();
+    if (product.quantity > 10) {
+      alert('一次最多只能選擇10件商品!');
+      product.quantity = 10; // 自动修正为 10
+    }
+    this.saveCartToLocalStorage();
 
-      // 更新总金额
-      this.updateTotalPrice();
+    // 更新总金额
+    this.updateTotalPrice();
 
   }
 
@@ -288,6 +287,8 @@ export class CartComponent implements OnInit{
     this.updateTotalPrice(); // 每次数量变化时重新计算总金额
 
   }
+
+
 
 }
 

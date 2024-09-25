@@ -13,7 +13,7 @@ SwiperCore.use([EffectFade, Autoplay]);
 
 @Component({
   selector: 'app-productdetail',
-  templateUrl: './productdetail.component.html',
+  templateUrl: './productdetail.component.html' ,
   styleUrls: ['./productdetail.component.css'],
 
 })
@@ -293,6 +293,9 @@ ngOnInit() {
     console.log('inputValue=:' ,this.inputValue)
 
   }
+
+
+
 
 
 navigateToDisplay() {

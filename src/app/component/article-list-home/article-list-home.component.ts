@@ -37,7 +37,7 @@ export class ArticleListHomeComponent {
       this.dataService.getArticlesList().subscribe(
         (res) => {
           const filteredData = res.find(article => article.ArticleListId === 1);
-          //ArticleListId = 1 
+          //ArticleListId = 1
           if (filteredData) {
             this.articlesListData = [filteredData];
           } else {

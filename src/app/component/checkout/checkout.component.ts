@@ -52,6 +52,7 @@ export class CheckoutComponent implements OnInit {
         MallProductTableId: product.id,
         MallProductName: product.name,
         MallProductQuantity: product.quantity,
+<<<<<<< HEAD
 
       })),
     };
@@ -71,6 +72,22 @@ export class CheckoutComponent implements OnInit {
         } else {
           console.error('未能取得訂單編號');
         }
+=======
+        
+      })),
+    };
+    console.log('訂單資料:', orderData);
+
+    // 用 POST 方法把訂單資料傳給api
+    this.dPService.createOrder(orderData).subscribe(
+      (response) => {
+        alert('商品已成功完成下訂');
+        console.log('訂單成功提交', response);
+        //清掉購物車
+        this.adcService.clearCart();
+
+        this.router.navigate(['/orderpage']);
+>>>>>>> 5b0dfcb568499501195eb33eb9868d08d0958f0a
       },
 
       (error) => {

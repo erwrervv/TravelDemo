@@ -13,6 +13,9 @@ import { AddToCartService } from '../service/add-to-cart.service';
 export class HeaderComponent implements OnInit {
   memberData!: BasicMemberInformation | null;
   cartCount: number = 0;
+
+
+
   constructor(
     public router: Router,
     public authService: AuthService,
@@ -28,6 +31,8 @@ export class HeaderComponent implements OnInit {
     })
     this.adcService.getCartCount().subscribe(count => {
       this.cartCount = count; // 更新购物车数量
+
+
     });
 
   }
