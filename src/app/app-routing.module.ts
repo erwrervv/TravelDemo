@@ -116,19 +116,6 @@ const routes: Routes = [
     component: ShopbannerComponent,
   },
   {
-    path: 'shophomepage',
-    component: ShopHomePageComponent,
-
-
-    children: [
-      { path: 'orderpage', component: OrderpageComponent },
-      { path: 'productdetail', component: ProductdetailComponent },
-      { path: 'shoplist', component: ShoplistComponent },
-      { path: 'checkout', component: CheckoutComponent },
-      { path: 'cart', component: CartComponent },
-    ]
-  },
-  {
     path: 'travelpage2',
     component: Travelpage2Component,
   },
@@ -148,7 +135,7 @@ const routes: Routes = [
     component: OrderpageComponent
   },
 
-  
+
 ]
 
 

@@ -13,6 +13,7 @@ import { Articleoverviews } from 'src/app/interfaces/articleoverview';
 })
 export class ArticleoverviewComponent implements OnInit {
   articleId!: Articleoverviews;
+  Tag: string = "未分類"; // 預設值 "未分類"
   likes() {
     throw new Error('Method not implemented.');
   }

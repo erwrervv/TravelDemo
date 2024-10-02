@@ -20,6 +20,7 @@ export class ArticleListComponent implements OnInit {
   // ];
   articlesListData: Array<ArticlesList> = new Array<ArticlesList>();
   articlesListData$!: Observable<ArticlesList[]>;
+  
   constructor(
     private activatedRouter: ActivatedRoute,
     private dataService: DataService,

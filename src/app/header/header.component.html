@@ -60,9 +60,8 @@
                 </li>
               </ul>
             </div>
-            <!-- navbar collapse -->
             <div class="login-button ms-auto">
-              <ul>
+              <ul class="">
                 <li (click)="loginUrl()" style="cursor: pointer" *ngIf="!authService.baseUserInfo.token">
                   <a><i class="lni lni-enter"></i> 登錄</a>
                 </li>
@@ -107,6 +106,7 @@
                 </li>
               </ul>
             </div>
+            <!-- navbar collapse -->
           </nav>
 
         </div>

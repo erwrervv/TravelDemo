@@ -25,7 +25,7 @@
           <!-- Start Single Widget -->
           <div class="single-widget search">
             <h3>全站搜索</h3>
-            <button style="color: blue; border: 0cm;" (click)="resetGetAllData(false)">顯示所有文章</button>
+            <button style="color: rgb(255, 255, 255); border: 0cm;" (click)="resetGetAllData(false)" class="btn btn-primary mb-3">顯示所有文章</button>
             <form action="#" >
               <input type="text" [(ngModel)]="page.SearchKeyword" name="SearchKeyword" placeholder="Search Here..." />
               <button type="submit" (click)="resetGetAllData(true)"><i class="lni lni-search-alt"></i></button>
